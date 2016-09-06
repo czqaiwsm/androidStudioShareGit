@@ -1,20 +1,29 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        shareLearnSign {
+            keyPassword 'slapp2016'
+            storeFile file('D:/workSpace/ASSpace/KZApplication/androidStudioShareGit/shareLearn/shareLearn.jks')
+            storePassword 'slapp2016'
+        }
+    }
     compileSdkVersion 22
     buildToolsVersion '23.0.1'
-
     defaultConfig {
         applicationId "com.share.learn"
         minSdkVersion 10
         targetSdkVersion 10
+        signingConfig signingConfigs.shareLearnSign
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.shareLearnSign
         }
+    }
+    productFlavors {
     }
 }
 
