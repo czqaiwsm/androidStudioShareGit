@@ -151,11 +151,14 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
             startActivityForResult(intent,recharge);
             break;
             case R.id.withDraw_layout:// 提现
-            intent = new Intent(mActivity, WidthDrawActivity.class);
-                intent.putExtra("balance",balance);
-                intent.putExtra("releaName",releaName);
-                intent.putExtra("account",account  );
+            intent = new Intent(mActivity, WithdrawTypeActivity.class);
                 startActivityForResult(intent,withDraw);
+
+//            intent = new Intent(mActivity, WidthDrawActivity.class);
+//                intent.putExtra("balance",balance);
+//                intent.putExtra("releaName",releaName);
+//                intent.putExtra("account",account  );
+//                startActivityForResult(intent,withDraw);
             break;
         }
 

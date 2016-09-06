@@ -65,14 +65,16 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
     private VerifyCode verifyCode;
     private int balance;
     UserInfo userInfo = BaseApplication.getUserInfo();
+    private int drawType = 0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = mActivity.getIntent();
         if(intent != null){
-            balance = intent.getIntExtra("balance",0);
-            releaName = intent.getStringExtra("releaName")   ;
-        account   = intent.getStringExtra("account")     ;
+//            balance = intent.getIntExtra("balance",0);
+//            releaName = intent.getStringExtra("releaName")   ;
+//             account   = intent.getStringExtra("account")     ;
+            drawType = intent.hasExtra("drawType")?intent.getIntExtra("drawType",0):0;
              }
     }
 

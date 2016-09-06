@@ -256,6 +256,8 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.teacher.SchoolCertifyActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".activity.center.WithdrawTypeActivity"
+                  android:screenOrientation="portrait"/>
 
         <activity
                 android:name=".wxapi.WXPayEntryActivity"
