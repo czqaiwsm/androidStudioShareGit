@@ -1,7 +1,5 @@
 package com.share.learn.fragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,21 +7,20 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.share.learn.R;
 import com.share.learn.activity.BaseActivity;
-import com.share.learn.activity.login.LoginActivity;
-import com.share.learn.bean.VerifyCode;
 import com.share.learn.help.RequsetListener;
-import com.share.learn.utils.*;
+import com.share.learn.utils.AppLog;
+import com.share.learn.utils.URLConstants;
+import com.share.learn.utils.WaitLayer;
 import com.toast.ToasetUtil;
 import com.volley.req.parser.JsonParserBase;
-import org.json.JSONException;
 
 /**
  * @desc 公共的Fragment，初始化公共标题部分；如果不需要公共标题，可隐藏

@@ -1,5 +1,6 @@
 package com.share.learn.fragment.center;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -44,6 +45,7 @@ import java.util.Map;
  * @creator caozhiqing
  * @data 2016/3/10
  */
+@SuppressLint("ValidFragment")
 public class OrderPayFragment extends BaseFragment implements RequsetListener,CustomListView.OnLoadMoreListener ,View.OnClickListener,PayCallBack{
 
     private CustomListView customListView = null;
@@ -63,6 +65,9 @@ public class OrderPayFragment extends BaseFragment implements RequsetListener,Cu
     private Handler handler;
 
 
+    public OrderPayFragment(){
+        super();
+    }
     public OrderPayFragment(int flag,Handler handler){
         this.handler = handler;
         this.flag = flag;

@@ -6,6 +6,7 @@ android {
             keyPassword 'slapp2016'
             storeFile file('D:/workSpace/ASSpace/KZApplication/androidStudioShareGit/shareLearn/shareLearn.jks')
             storePassword 'slapp2016'
+            keyAlias 'leishang'
         }
     }
     compileSdkVersion 22
