@@ -22,6 +22,7 @@ import com.share.learn.parse.LoginInfoParse;
 import com.share.learn.utils.PayUtil;
 import com.share.learn.utils.URLConstants;
 import com.share.learn.utils.WaitLayer;
+import com.share.learn.view.PayPopupwidow;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
@@ -39,6 +40,8 @@ public class RechargeFragment extends BaseFragment implements OnClickListener ,R
 
     private EditText rechargePrice ;
     private TextView rechareQuery;
+    private PayPopupwidow payPopupwidow;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,7 +73,8 @@ public class RechargeFragment extends BaseFragment implements OnClickListener ,R
         rechargePrice = (EditText)v.findViewById(R.id.recharge_price);
         rechareQuery = (TextView)v.findViewById(R.id.recharge_query);
         rechareQuery.setOnClickListener(this);
-
+        payPopupwidow = new PayPopupwidow(mActivity,null,this);
+        payPopupwidow.setUnVisibleWallet();
     }
 
 
@@ -123,7 +127,11 @@ public class RechargeFragment extends BaseFragment implements OnClickListener ,R
         if ((jsonParserBase != null)){
             LinkedTreeMap <String,String> treeMap = (LinkedTreeMap<String, String>) jsonParserBase.getData();
              String order = treeMap.get("orderCode");
-            PayUtil.alipay(mActivity,new PayInfo(order,rechargePrice.getText().toString(),"充值","充值"),this);
+            PayInfo payInfo =new PayInfo(order,rechargePrice.getText().toString(),"充值","充值");
+            payPopupwidow.payPopShow(rechareQuery,payInfo);
+//            PayUtil.alipay(mActivity,new PayInfo(order,rechargePrice.getText().toString(),"充值","充值"),this);
+
+
 //            BaseApplication.getUserInfo() = jsonParserBase.getData().getUserInfo();
 //            BaseApplication.getInstance().accessToken = jsonParserBase.getData().getToken();
 //            BaseApplication.getInstance().userId = BaseApplication.getUserInfo().getId();

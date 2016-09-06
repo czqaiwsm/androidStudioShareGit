@@ -14,6 +14,7 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.wxutils.WxConstants;
+import com.wxutils.WxPayTask;
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 
@@ -50,6 +51,9 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 			if (resp.errCode == 0) {
 				Toast.makeText(this, "支付成功", Toast.LENGTH_SHORT).show();
 //				UIHelper.toMyOrderActivity(this, SharePreferenceUtils.getInstance(this).getUser().getId());
+				if(WxPayTask.payCallBack != null){
+					WxPayTask.payCallBack.paySucc();
+				}
 				finish();
 			} else if (resp.errCode == -2) {
 				Toast.makeText(this, "取消支付", Toast.LENGTH_SHORT).show();

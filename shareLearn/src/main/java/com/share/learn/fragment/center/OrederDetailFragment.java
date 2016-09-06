@@ -82,7 +82,7 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
     @Bind(R.id.buy)
     TextView buy;
     @Bind(R.id.scrollview)
-    FlowScrollView scrollview;
+    ScrollView scrollview;
     @Bind(R.id.container)
     LinearLayout container;
 

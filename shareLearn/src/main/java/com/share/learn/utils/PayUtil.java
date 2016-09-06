@@ -85,8 +85,8 @@ public class PayUtil { //1-支付宝  2-微信支付 8-余额支付'
         }, param);
     }
 
-    public static void wxPay(PayInfo news, Handler handler){
-        WxPayTask wxPayTask = new WxPayTask(handler);
+    public static void wxPay(PayInfo news, PayCallBack payCallBack){
+        WxPayTask wxPayTask = new WxPayTask(payCallBack);
         wxPayTask.execute(news);
     }
 

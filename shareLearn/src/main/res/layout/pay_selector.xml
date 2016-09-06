@@ -42,7 +42,8 @@
             android:textSize="@dimen/pop_select_size"/>
 
     <TextView
-            android:layout_width="fill_parent"
+        android:id="@+id/secondLine"
+        android:layout_width="fill_parent"
             android:layout_height="@dimen/line"
             android:background="@color/color_small_gray"/>
 

@@ -108,9 +108,11 @@ public class PayPopupwidow implements View.OnClickListener{
             case R.id.alipay://支付宝支付
                 PayUtil.alipay(activity,payInfo,payCallBack);
                 break;
-            case R.id.wxPay://微信支付
+            case R.id.wallet://余额支付
                 PayUtil.walletPay(activity,payInfo,payCallBack);
-
+                break;
+            case R.id.wxPay://微信支付
+                PayUtil.wxPay(payInfo,null);
                 break;
         }
 
@@ -125,6 +127,12 @@ public class PayPopupwidow implements View.OnClickListener{
             mSortPop.dismiss();
         }
 
+    }
+
+
+    public void setUnVisibleWallet(){
+        view.findViewById(R.id.wallet).setVisibility(View.GONE);
+        view.findViewById(R.id.secondLine).setVisibility(View.GONE);
     }
 
 }

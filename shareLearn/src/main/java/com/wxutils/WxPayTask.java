@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.util.Xml;
 
+import com.alipay.sdk.pay.demo.PayCallBack;
 import com.share.learn.bean.PayInfo;
 import com.share.learn.utils.AppLog;
 import com.share.learn.utils.BaseApplication;
@@ -36,10 +37,12 @@ public class WxPayTask extends AsyncTask<PayInfo,Void,Map<String,String>> {
     private final String TAG = WxPayTask.class.getName();
 
     private PayReq req;
+    public static PayCallBack payCallBack;
     final IWXAPI msgApi = WXAPIFactory.createWXAPI(BaseApplication.getInstance(), WxConstants.APP_ID.trim());
     private Map<String,String> resultunifiedorder;
 
-    public WxPayTask(Handler handler){
+    public WxPayTask(PayCallBack payCallBack){
+        this.payCallBack = payCallBack;
         req = new PayReq();
         msgApi.registerApp(WxConstants.APP_ID.trim());
     }
