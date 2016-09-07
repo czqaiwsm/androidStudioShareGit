@@ -41,6 +41,7 @@ public class URLConstants {
     public static final String BASE_URL = BASE_DOMAIN+"/learn-teach/teach/api.action";//基础 teacher URL
 
     public static final String TEACHER_UPLOAD = BASE_DOMAIN+"/learn-teach/teach/upload.action";
+    public static final String BANK_WITHDRAW = URLConstants.BASE_DOMAIN+"/learn-wap/html/service_agreement.html";//银行卡提现
 
 //    static {
 //        AlipayConstant.NOTIFY_URL = "http://120.25.171.4/learn-interface/alipayOrderServlet";
