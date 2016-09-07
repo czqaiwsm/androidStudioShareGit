@@ -13,7 +13,9 @@ import android.widget.TextView;
 import com.share.learn.R;
 import com.share.learn.activity.center.ServiceProtocolActivity;
 import com.share.learn.activity.center.WidthDrawActivity;
+import com.share.learn.bean.UserInfo;
 import com.share.learn.fragment.BaseFragment;
+import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.URLConstants;
 
 import butterknife.Bind;
@@ -118,9 +120,12 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
             case R.id.recharge_query://下一步
                 Intent intent = null;
                 if(bankBox.isChecked()){
+                    UserInfo userInfo = BaseApplication.getUserInfo();
+                    BaseApplication application = BaseApplication.getInstance();
+                    String userId = userInfo != null?userInfo.getId():"";
                     intent = new Intent(mActivity, ServiceProtocolActivity.class);
                     intent.putExtra("title","提现到银行卡");
-                    intent.putExtra("url",URLConstants.BANK_WITHDRAW);
+                    intent.putExtra("url",URLConstants.BANK_WITHDRAW+"?userId="+userId+"&appVersion="+application.appVersion+"&clientType=3&accessToken="+BaseApplication.getMt_token()+"&deviceId="+BaseApplication.diviceId);
                     mActivity.startActivity(intent);
                 }else {
                     intent = new Intent(mActivity, WidthDrawActivity.class);

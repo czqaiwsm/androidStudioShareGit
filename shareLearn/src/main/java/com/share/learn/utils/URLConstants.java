@@ -38,8 +38,12 @@ public class URLConstants {
     public static final String STUDENT_UPLOAD = BASE_DOMAIN+"/learn-interface/interface/upload.action";
 
     public static final String TEACHER_UPLOAD = "";
-    public static final String BANK_WITHDRAW = URLConstants.BASE_DOMAIN+"/learn-wap/html/service_agreement.html";
+    public static final String BANK_WITHDRAW = URLConstants.BASE_DOMAIN+"/learn-wap/wap/bankWithdraw.do";//银行卡提现
 
+
+//    银行卡：localhost:8080/learn-wap/wap/bankWithdraw.do
+//    收入明细：localhost:8080/learn-wap/wap/incomeDetail.do
+//
     static {
 //        测试环境：http://www.ienjoystudy.cn:8080/learn-interface/weixinPayServlet
 //        生产环境：http://www.leishangnet.com/learn-interface/weixinPayServlet

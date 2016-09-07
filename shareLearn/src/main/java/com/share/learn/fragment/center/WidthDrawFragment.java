@@ -68,6 +68,7 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
     UserInfo userInfo = BaseApplication.getUserInfo();
     private  BalanceInfo balanceInfo = null;
     private int drawType = 0;//1-支付宝，2-微信，3-银行卡
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
