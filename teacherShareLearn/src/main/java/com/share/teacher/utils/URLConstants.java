@@ -41,7 +41,12 @@ public class URLConstants {
     public static final String BASE_URL = BASE_DOMAIN+"/learn-teach/teach/api.action";//基础 teacher URL
 
     public static final String TEACHER_UPLOAD = BASE_DOMAIN+"/learn-teach/teach/upload.action";
-    public static final String BANK_WITHDRAW = URLConstants.BASE_DOMAIN+"/learn-wap/html/service_agreement.html";//银行卡提现
+    public static final String BANK_WITHDRAW = URLConstants.BASE_DOMAIN+"/learn-wap/wap/bankWithdraw.do";//银行卡提现
+    public static final String WITHDRAW_DETAIL = URLConstants.BASE_DOMAIN+"/learn-wap/wap/incomeDetail.do";//提现明细
+
+
+//    银行卡：localhost:8080/learn-wap/wap/bankWithdraw.do
+//    收入明细：localhost:8080/learn-wap/wap/incomeDetail.do
 
 //    static {
 //        AlipayConstant.NOTIFY_URL = "http://120.25.171.4/learn-interface/alipayOrderServlet";

@@ -16,9 +16,11 @@ import android.widget.TextView;
 import com.share.teacher.R;
 import com.share.teacher.activity.center.DetailActivity;
 import com.share.teacher.activity.center.RechargeActivity;
+import com.share.teacher.activity.center.ServiceProtocolActivity;
 import com.share.teacher.activity.center.WidthDrawActivity;
 import com.share.teacher.activity.center.WithdrawTypeActivity;
 import com.share.teacher.bean.BalanceInfo;
+import com.share.teacher.bean.UserInfo;
 import com.share.teacher.fragment.BaseFragment;
 import com.share.teacher.help.RequestHelp;
 import com.share.teacher.help.RequsetListener;
@@ -49,6 +51,8 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
     private RelativeLayout balance_layout;//余额
     private RelativeLayout recharge_layout;//充值
     private RelativeLayout withDraw_layout;//提现
+    private RelativeLayout withDrawDetail_layout;//提现明细
+
 
     private TextView account_balance;
 
@@ -97,23 +101,15 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
     }
 
     private void initView(View v) {
-//        mHeadImg = (RoundImageView) v.findViewById(R.id.account_head_img);
-//        photo_layout = (RelativeLayout) v.findViewById(R.id.photo_avatar_layout);
-//        name_layout = (RelativeLayout) v.findViewById(R.id.name_layout);
         balance_layout = (RelativeLayout) v.findViewById(R.id.balance_layout);
         recharge_layout = (RelativeLayout) v.findViewById(R.id.recharge_layout);
         withDraw_layout = (RelativeLayout) v.findViewById(R.id.withDraw_layout);
+        withDrawDetail_layout = (RelativeLayout) v.findViewById(R.id.withDrawDetail_layout);
         account_balance = (TextView)v.findViewById(R.id.account_balance);
-//        name = (TextView)v.findViewById(R.id.nick_name);
-//        jonior = (TextView)v.findViewById(R.id.account_joniorname);
-//        city = (TextView)v.findViewById(R.id.account_cityname);
-
-
-//        photo_layout.setOnClickListener(this);
-//        name_layout.setOnClickListener(this);
         balance_layout.setOnClickListener(this);
         recharge_layout.setOnClickListener(this);
         withDraw_layout.setOnClickListener(this);
+        withDrawDetail_layout.setOnClickListener(this);
         recharge_layout.setVisibility(View.GONE);
 
     }
@@ -133,7 +129,15 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
             case R.id.withDraw_layout:// 提现
                 intent = new Intent(mActivity, WithdrawTypeActivity.class);
                 startActivityForResult(intent,withDraw);
-
+                break;
+            case R.id.withDrawDetail_layout:// 提现明细
+                UserInfo userInfo = BaseApplication.getUserInfo();
+                BaseApplication application = BaseApplication.getInstance();
+                String userId = userInfo != null?userInfo.getId():"";
+                intent = new Intent(mActivity, ServiceProtocolActivity.class);
+                intent.putExtra("title","提现明细");
+                intent.putExtra("url",URLConstants.WITHDRAW_DETAIL+"?userId="+userId+"&appVersion="+application.appVersion+"&clientType=3&accessToken="+BaseApplication.getMt_token()+"&deviceId="+BaseApplication.diviceId);
+                mActivity.startActivity(intent);
                 break;
         }
 

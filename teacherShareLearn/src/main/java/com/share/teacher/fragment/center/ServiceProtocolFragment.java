@@ -31,6 +31,8 @@ public class ServiceProtocolFragment extends BaseFragment {
         Intent intent = mActivity.getIntent();
         if(intent != null){
             url = intent.getStringExtra("url");
+            title = intent.hasExtra("title")?intent.getStringExtra("title"):"";
+
             flag = intent.getFlags();
             switch (flag){
                 case 11:
