@@ -59,14 +59,13 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 				Toast.makeText(this, "取消支付", Toast.LENGTH_SHORT).show();
 				finish();
 			} else if (resp.errCode == -1) {
-				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.setTitle("支付失败");
-				builder.setMessage("失败信息:"+resp.errStr+" "+resp.errCode);
-				builder.show();
+//				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//				builder.setTitle("支付失败");
+//				builder.setMessage("失败信息:"+resp.errStr+" "+resp.errCode);
+//				builder.show();
 				Toast.makeText(this, "支付失败", Toast.LENGTH_SHORT).show();
+				finish();
 			}
-
-
 		}
 	}
 }

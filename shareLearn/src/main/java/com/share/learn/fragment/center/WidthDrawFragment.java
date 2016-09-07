@@ -18,6 +18,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.google.gson.internal.LinkedTreeMap;
 import com.share.learn.R;
+import com.share.learn.bean.BalanceInfo;
 import com.share.learn.bean.UserInfo;
 import com.share.learn.bean.VerifyCode;
 import com.share.learn.fragment.BaseFragment;
@@ -57,20 +58,25 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
     @Bind(R.id.register_getCode)
     TextView register_getCode;
 
-    private String releaName = "";
-    private String account   = "";
+//    private String releaName = "";
+//    private String account   = "";
 
     private int MSG_TOTAL_TIME;
     private final int MSG_UPDATE_TIME = 500;
     private VerifyCode verifyCode;
     private int balance;
     UserInfo userInfo = BaseApplication.getUserInfo();
-    private int drawType = 0;
+    private  BalanceInfo balanceInfo = null;
+    private int drawType = 0;//1-支付宝，2-微信，3-银行卡
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = mActivity.getIntent();
         if(intent != null){
+            balanceInfo = SPUtils.getObjFromSp(mActivity,"balanceInfo");
+            if (balanceInfo != null){
+                balance = Integer.valueOf(balanceInfo.getBalance());
+            }
 //            balance = intent.getIntExtra("balance",0);
 //            releaName = intent.getStringExtra("releaName")   ;
 //             account   = intent.getStringExtra("account")     ;
@@ -106,8 +112,24 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
             temp = HomePageFragment.homeInfo.getRealName();
             alipayName.setText(TextUtils.isEmpty(temp)?"":temp);
         }
-           alipayName.setText(releaName);
-           alipayAccount.setText(account);
+        if(balanceInfo != null){
+            if(drawType == 1){
+                alipayName.setText(balanceInfo.getRealName());
+                alipayAccount.setText(balanceInfo.getAlipay());
+            }else if(drawType == 2){
+                alipayName.setText(balanceInfo.getWxName());
+                alipayAccount.setText(balanceInfo.getWxpay());
+
+                if(TextUtils.isEmpty(balanceInfo.getWxpay())){
+                    alipayAccount.setHint("请输入微信账号");
+                }
+                if(TextUtils.isEmpty(balanceInfo.getWxName())){
+                    alipayName.setHint("请输入微信账号姓名");
+                }
+
+            }
+        }
+
 
     }
 
@@ -152,6 +174,7 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
                 break;
             case R.id.commit:
                 mActivity.setResult(Activity.RESULT_OK);
+                mActivity.sendBroadcast(new Intent("com.share.learn.fragment.center.WalletFragment"));
                 mActivity.finish();
                 break;
         }
@@ -173,7 +196,7 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
                 postParams.put("realName", alipayName.getText().toString());
                 postParams.put("account", alipayAccount.getText().toString());
                 postParams.put("price", drawMoney.getText().toString());
-//                postParams.put("sendId",verifyCode.getSendId());
+                postParams.put("accountType",drawType);
                 param.setmParserClassName(new BaseParse());
                 param.setmPostarams(postParams);
                 break;
@@ -192,16 +215,6 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
     }
 
 
-//    @Override
-//    public void paySucc() {
-//        mActivity.setResult(Activity.RESULT_OK);
-//        mActivity.finish();
-//    }
-//
-//    @Override
-//    public void payFail() {
-//
-//    }
 
     /**
      *
@@ -291,8 +304,6 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
                 toasetUtil.showInfo("信息已发送!");
 //                register_passCode.setText(verifyCode !=null?verifyCode.getSmsCode():"");
                 break;
-            
-            
         }
         
     }

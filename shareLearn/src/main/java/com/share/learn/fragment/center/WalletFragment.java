@@ -3,9 +3,11 @@ package com.share.learn.fragment.center;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -78,12 +80,15 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
 //    private TextView city;
 
 
-   private int recharge = 0x10;
+    private int recharge = 0x10;
     private int withDraw = 0x11;
     int balance = 0;
-
-    String releaName = "";
-    String account   = "";
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            requestTask();
+        }
+    };
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +105,7 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
         super.onViewCreated(view, savedInstanceState);
         initTitleView();
         initView(view);
+        getActivity().registerReceiver(broadcastReceiver,new IntentFilter("com.share.learn.fragment.center.WalletFragment"));
     }
 
     private void initTitleView() {
@@ -178,8 +184,6 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
     public void requestData(int requestType) {
         HttpURL url = new HttpURL();
         url.setmBaseUrl(URLConstants.BASE_URL);
-
-
         Map postParams = RequestHelp.getBaseParaMap("QueryBalance");
         RequestParam param = new RequestParam();
 //        param.setmParserClassName(BaseParse.class.getName());
@@ -195,21 +199,21 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
         BalanceInfo balanceInfo = (BalanceInfo) ((JsonParserBase)obj).getData();
         if(balanceInfo == null) return;
         balance  =  Integer.valueOf(balanceInfo.getBalance());
-        releaName = balanceInfo.getRealName();
-        account = balanceInfo.getAlipay();
         account_balance.setText(String.format(getResources().getString(R.string.balance_has),balance+"") );
-
+        SPUtils.saveObj2SP(mActivity,balanceInfo,"balanceInfo");
     }
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if(resultCode == Activity.RESULT_OK){
             requestTask();
         }
     }
 
-
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        getActivity().unregisterReceiver(broadcastReceiver);
+    }
 }

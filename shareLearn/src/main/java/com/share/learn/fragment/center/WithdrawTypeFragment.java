@@ -44,7 +44,7 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
     TextView rechargeQuery;
 
 
-    private int withDrawType = 1;//
+    private int withDrawType = 1;//1-支付宝，2-微信，3-银行卡
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,7 +120,7 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
                 if(bankBox.isChecked()){
                     intent = new Intent(mActivity, ServiceProtocolActivity.class);
                     intent.putExtra("title","提现到银行卡");
-                    intent.putExtra("url", URLConstants.BASE_DOMAIN+"/learn-wap/html/service_agreement.html");
+                    intent.putExtra("url",URLConstants.BANK_WITHDRAW);
                     mActivity.startActivity(intent);
                 }else {
                     intent = new Intent(mActivity, WidthDrawActivity.class);
@@ -128,8 +128,9 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
 //                intent.putExtra("balance",balance);
 //                intent.putExtra("releaName",releaName);
 //                intent.putExtra("account",account  );
-                startActivityForResult(intent,00);
+                   startActivityForResult(intent,00);
                 }
+                getActivity().finish();
                 break;
 
         }
