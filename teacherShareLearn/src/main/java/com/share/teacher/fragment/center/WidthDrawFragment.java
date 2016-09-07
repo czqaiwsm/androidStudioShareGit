@@ -18,6 +18,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.google.gson.internal.LinkedTreeMap;
 import com.share.teacher.R;
+import com.share.teacher.bean.BalanceInfo;
 import com.share.teacher.bean.UserInfo;
 import com.share.teacher.bean.VerifyCode;
 import com.share.teacher.fragment.BaseFragment;
@@ -57,22 +58,29 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
     @Bind(R.id.register_getCode)
     TextView register_getCode;
 
-    private String releaName = "";
-    private String account   = "";
 
     private int MSG_TOTAL_TIME;
     private final int MSG_UPDATE_TIME = 500;
     private VerifyCode verifyCode;
     private int balance;
     UserInfo userInfo = BaseApplication.getUserInfo();
+    private int drawType = 0;//1-支付宝，2-微信，3-银行卡
+    private BalanceInfo balanceInfo = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = mActivity.getIntent();
         if(intent != null){
-            balance = intent.getIntExtra("balance",0);
-            releaName = intent.getStringExtra("releaName")   ;
-            account   = intent.getStringExtra("account")     ;
+            balanceInfo = SPUtils.getObjFromSp(mActivity,"balanceInfo");
+            if (balanceInfo != null){
+                balance = Integer.valueOf(balanceInfo.getBalance());
+            }
+//            balance = intent.getIntExtra("balance",0);
+//            releaName = intent.getStringExtra("releaName")   ;
+//             account   = intent.getStringExtra("account")     ;
+            drawType = intent.hasExtra("drawType")?intent.getIntExtra("drawType",0):0;
+
         }
     }
 
@@ -103,9 +111,23 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
             temp = TeacherHomePageFragment.homeInfo.getRealName();
             alipayName.setText(TextUtils.isEmpty(temp)?"":temp);
         }
-        alipayName.setText(releaName);
-        alipayAccount.setText(account);
+        if(balanceInfo != null){
+            if(drawType == 1){
+                alipayName.setText(balanceInfo.getRealName());
+                alipayAccount.setText(balanceInfo.getAlipay());
+            }else if(drawType == 2){
+                alipayName.setText(balanceInfo.getWxName());
+                alipayAccount.setText(balanceInfo.getWxpay());
 
+                if(TextUtils.isEmpty(balanceInfo.getWxpay())){
+                    alipayAccount.setHint("请输入微信账号");
+                }
+                if(TextUtils.isEmpty(balanceInfo.getWxName())){
+                    alipayName.setHint("请输入微信账号姓名");
+                }
+
+            }
+        }
     }
 
     @Override
@@ -149,6 +171,7 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
                 break;
             case R.id.commit:
                 mActivity.setResult(Activity.RESULT_OK);
+                mActivity.sendBroadcast(new Intent("com.share.learn.fragment.center.WalletFragment"));
                 mActivity.finish();
                 break;
         }

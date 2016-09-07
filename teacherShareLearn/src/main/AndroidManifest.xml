@@ -146,6 +146,8 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.teacher.CourseListActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".activity.center.WithdrawTypeActivity"
+                  android:screenOrientation="portrait"/>
 
 
 

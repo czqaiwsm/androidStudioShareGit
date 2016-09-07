@@ -1,7 +1,10 @@
 package com.share.teacher.fragment.center;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -14,6 +17,7 @@ import com.share.teacher.R;
 import com.share.teacher.activity.center.DetailActivity;
 import com.share.teacher.activity.center.RechargeActivity;
 import com.share.teacher.activity.center.WidthDrawActivity;
+import com.share.teacher.activity.center.WithdrawTypeActivity;
 import com.share.teacher.bean.BalanceInfo;
 import com.share.teacher.fragment.BaseFragment;
 import com.share.teacher.help.RequestHelp;
@@ -21,6 +25,7 @@ import com.share.teacher.help.RequsetListener;
 import com.share.teacher.parse.BaseInfoParse;
 import com.share.teacher.parse.BaseParse;
 import com.share.teacher.utils.BaseApplication;
+import com.share.teacher.utils.SPUtils;
 import com.share.teacher.utils.URLConstants;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
@@ -46,15 +51,16 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
     private RelativeLayout withDraw_layout;//提现
 
     private TextView account_balance;
-//    private TextView name;
-//    private TextView jonior;
-//    private TextView city;
 
 
    private int recharge = 0x10;
     private int withDraw = 0x11;
-    String releaName = "";
-    String account   = "";
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            requestTask();
+        }
+    };
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +77,8 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
         super.onViewCreated(view, savedInstanceState);
         initTitleView();
         initView(view);
+        getActivity().registerReceiver(broadcastReceiver,new IntentFilter("com.share.learn.fragment.center.WalletFragment"));
+
     }
 
     private void initTitleView() {
@@ -123,12 +131,10 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
             startActivityForResult(intent,recharge);
             break;
             case R.id.withDraw_layout:// 提现
-            intent = new Intent(mActivity, WidthDrawActivity.class);
-                intent.putExtra("balance",balance);
-                intent.putExtra("releaName",releaName);
-                intent.putExtra("account",account  );
+                intent = new Intent(mActivity, WithdrawTypeActivity.class);
                 startActivityForResult(intent,withDraw);
-            break;
+
+                break;
         }
 
     }
@@ -163,9 +169,8 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
         BalanceInfo balanceInfo = (BalanceInfo) ((JsonParserBase)obj).getData();
         if(balanceInfo == null) return;
         balance  =  Integer.valueOf(balanceInfo.getBalance());
-        releaName = balanceInfo.getRealName();
-        account = balanceInfo.getAlipay();
         account_balance.setText(String.format(getResources().getString(R.string.balance_has),balance+"") );
+        SPUtils.saveObj2SP(mActivity,balanceInfo,"balanceInfo");
     }
 
 
