@@ -136,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="提现明细"
+                    android:text="收入明细"
                     android:textColor="@color/color_small_gray"
                     android:textSize="@dimen/pc_txt_size" />
 

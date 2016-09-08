@@ -51,7 +51,7 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
     private RelativeLayout balance_layout;//余额
     private RelativeLayout recharge_layout;//充值
     private RelativeLayout withDraw_layout;//提现
-    private RelativeLayout withDrawDetail_layout;//提现明细
+    private RelativeLayout withDrawDetail_layout;//收入明细
 
 
     private TextView account_balance;
@@ -130,12 +130,12 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
                 intent = new Intent(mActivity, WithdrawTypeActivity.class);
                 startActivityForResult(intent,withDraw);
                 break;
-            case R.id.withDrawDetail_layout:// 提现明细
+            case R.id.withDrawDetail_layout:// 收入明细
                 UserInfo userInfo = BaseApplication.getUserInfo();
                 BaseApplication application = BaseApplication.getInstance();
                 String userId = userInfo != null?userInfo.getId():"";
                 intent = new Intent(mActivity, ServiceProtocolActivity.class);
-                intent.putExtra("title","提现明细");
+                intent.putExtra("title","收入明细");
                 intent.putExtra("url",URLConstants.WITHDRAW_DETAIL+"?userId="+userId+"&appVersion="+application.appVersion+"&clientType=3&accessToken="+BaseApplication.getMt_token()+"&deviceId="+BaseApplication.diviceId);
                 mActivity.startActivity(intent);
                 break;
