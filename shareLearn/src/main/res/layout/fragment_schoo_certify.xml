@@ -170,7 +170,7 @@
                           android:textColor="@color/certify_txt2"
                           android:textSize="@dimen/certify_txt_size1"
                           android:layout_marginTop="3dp"
-                          android:text="提示:学生证,校园卡,或其他相关证价"/>
+                          android:text="提示:学生证,校园卡,或其他相关证件"/>
 
                 <View
                         android:layout_width="match_parent"
