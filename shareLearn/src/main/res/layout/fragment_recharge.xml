@@ -37,7 +37,7 @@
                 android:textColor="@color/color_small_gray"
                 android:textSize="@dimen/app_text_size_first"
                 android:background="@drawable/recharge_shape"
-                android:inputType="phone"
+                android:inputType="number"
                 android:maxLines="1"
                 android:text="0"
                 android:singleLine="true"

@@ -112,7 +112,7 @@ public class PayPopupwidow implements View.OnClickListener{
                 PayUtil.walletPay(activity,payInfo,payCallBack);
                 break;
             case R.id.wxPay://微信支付
-                PayUtil.wxPay(payInfo,null);
+                PayUtil.wxPay(payInfo,payCallBack);
                 break;
         }
 

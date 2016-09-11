@@ -41,6 +41,7 @@ public class RechargeFragment extends BaseFragment implements OnClickListener ,R
     private EditText rechargePrice ;
     private TextView rechareQuery;
     private PayPopupwidow payPopupwidow;
+    private int payType = 1;
 
 
     @Override
@@ -73,7 +74,7 @@ public class RechargeFragment extends BaseFragment implements OnClickListener ,R
         rechargePrice = (EditText)v.findViewById(R.id.recharge_price);
         rechareQuery = (TextView)v.findViewById(R.id.recharge_query);
         rechareQuery.setOnClickListener(this);
-        payPopupwidow = new PayPopupwidow(mActivity,null,this);
+        payPopupwidow = new PayPopupwidow(mActivity,this,this);
         payPopupwidow.setUnVisibleWallet();
     }
 
@@ -84,14 +85,32 @@ public class RechargeFragment extends BaseFragment implements OnClickListener ,R
         // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.recharge_query:
-                 if(TextUtils.isEmpty(rechargePrice.getText()) || TextUtils.equals("0",rechargePrice.getText())){
-                     toasetUtil.showInfo("请输入金额");
-                 }else if(Integer.valueOf(rechargePrice.getText().toString())<=0){
-                     toasetUtil.showInfo("金额不能小于0!");
-                 }else {
-                     requestTask();
-                 }
+                payPopupwidow.payPopShow(rechareQuery,null);
                 break;
+            case R.id.alipay:
+                payPopupwidow.dimiss();
+                 payType = 1;
+                if(TextUtils.isEmpty(rechargePrice.getText()) || TextUtils.equals("0",rechargePrice.getText())){
+                    toasetUtil.showInfo("请输入金额");
+                }else if(Integer.valueOf(rechargePrice.getText().toString())<=0){
+                    toasetUtil.showInfo("金额不能小于0!");
+                }else {
+                    requestTask();
+                }
+                break;
+            case R.id.wxPay:
+                payPopupwidow.dimiss();
+                payType = 2;
+                if(TextUtils.isEmpty(rechargePrice.getText()) || TextUtils.equals("0",rechargePrice.getText())){
+                    toasetUtil.showInfo("请输入金额");
+                }else if(Integer.valueOf(rechargePrice.getText().toString())<=0){
+                    toasetUtil.showInfo("金额不能小于0!");
+                }else {
+                    requestTask();
+                }
+                break;
+
+
         }
 
     }
@@ -112,7 +131,7 @@ public class RechargeFragment extends BaseFragment implements OnClickListener ,R
         RequestParam param = new RequestParam();
 
         postParams.put("payPrice",rechargePrice.getText().toString());
-        postParams.put("payType","1");
+        postParams.put("payType",payType+"");
         param.setmParserClassName(new BaseParse());
         param.setmPostarams(postParams);
         param.setmHttpURL(url);
@@ -128,7 +147,12 @@ public class RechargeFragment extends BaseFragment implements OnClickListener ,R
             LinkedTreeMap <String,String> treeMap = (LinkedTreeMap<String, String>) jsonParserBase.getData();
              String order = treeMap.get("orderCode");
             PayInfo payInfo =new PayInfo(order,rechargePrice.getText().toString(),"充值","充值");
-            payPopupwidow.payPopShow(rechareQuery,payInfo);
+            if(payType == 1){
+                PayUtil.alipay(mActivity,payInfo,this);
+            }else if(payType == 2){
+                PayUtil.wxPay(payInfo,this);
+
+            }
 //            PayUtil.alipay(mActivity,new PayInfo(order,rechargePrice.getText().toString(),"充值","充值"),this);
 
 
