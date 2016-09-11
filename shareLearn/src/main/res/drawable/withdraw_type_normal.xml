@@ -10,7 +10,7 @@
             />
     <!-- 边框颜色 -->
     <stroke
-            android:color="@color/login_normal"
+            android:color="#E7E7E8"
             android:width="1dp"
             />
 
