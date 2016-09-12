@@ -148,8 +148,8 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
     private void iniData(){
         if(courseInfo == null) return;
         orderPay = trueMoey = priceMoney = Integer.valueOf(courseInfo.getPrice());
-        account.setTag(2);
-        account.setText("2"+"次");
+        account.setTag(1);
+        account.setText("1"+"次");
         orderPay = priceMoney *(Integer)account.getTag() ;
 
         couseName.setText(courseInfo.getCourseName());
@@ -312,9 +312,16 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
 
             customListView.setCanLoadMore(false);
             customListView.setCanRefresh(false);
-            for(int i=2;i<=100;i++){
-                datas.add((i));
-            }
+//            for(int i=2;i<=100;i++){
+//                datas.add((i));
+//            }
+//            1次、5次、10次、20次以及50次
+
+            datas.add(1);
+            datas.add(5);
+            datas.add(10);
+            datas.add(20);
+            datas.add(50);
 
             customListView.setAdapter(new BaseAdapter() {
                 @Override
