@@ -76,7 +76,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         dayWV.setAdapter(new ArrayWheelAdapter(dateBeans));
 
         hourWV.setAdapter(new NumericWheelAdapter(1,12));
-        minWV.setAdapter(new NumericWheelAdapter(1,60));
+        minWV.setAdapter(new NumericWheelAdapter(0,59));
         segWV.setAdapter(new ArrayWheelAdapter(list_times));
     }
 
@@ -172,7 +172,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
                 try {
 //                     String ymd = dateBeans.get(dayWV.getCurrentItem()).getYmd();
                     int hour = hourWV.getCurrentItem()+1;
-                    int min = minWV.getCurrentItem()+1;
+                    int min = minWV.getCurrentItem();
 
                     String hourStr = ""+hour;
                     String minStr = ""+min;

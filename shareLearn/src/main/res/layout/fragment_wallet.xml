@@ -137,9 +137,11 @@
                   android:background="@color/color_small_gray"
                   android:layout_marginRight="@dimen/app_text_size_min"
                   android:layout_marginLeft="@dimen/app_text_size_min"
+                  android:visibility="gone"
             />
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/recharge_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
