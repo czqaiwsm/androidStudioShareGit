@@ -33,7 +33,7 @@ public class URLConstants {
 //    http://www.leishangnet.com//正式
 //    http://120.76.47.196:8080/测试域名
 //    public static final String BASE_URL = "www.leishangnet.com/learn-interface/interface/api.action";//测试URL
-    public static final String BASE_DOMAIN = "http://120.76.47.196:8080";
+    public static final String BASE_DOMAIN = "http://www.leishangnet.com";
     public static final String BASE_URL = BASE_DOMAIN+"/learn-interface/interface/api.action";//基础URL
     public static final String STUDENT_UPLOAD = BASE_DOMAIN+"/learn-interface/interface/upload.action";
 

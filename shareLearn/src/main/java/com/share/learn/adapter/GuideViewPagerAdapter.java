@@ -8,6 +8,7 @@ import android.os.Message;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -213,10 +214,12 @@ public class GuideViewPagerAdapter extends PagerAdapter {
 			iv.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent intent = new Intent(context, ServiceProtocolActivity.class);
-					intent.setFlags(11);
-					intent.putExtra("url",v.getTag().toString());
-					context.startActivity(intent);
+					if(!TextUtils.isEmpty(v.getTag().toString())){
+						Intent intent = new Intent(context, ServiceProtocolActivity.class);
+						intent.setFlags(11);
+						intent.putExtra("url",v.getTag().toString());
+						context.startActivity(intent);
+					}
 				}
 			});
 		}

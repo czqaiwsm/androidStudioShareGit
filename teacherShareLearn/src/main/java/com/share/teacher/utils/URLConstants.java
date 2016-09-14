@@ -37,7 +37,7 @@ public class URLConstants {
 
 //    public static final String BASE_URL = "http://120.25.171.4/learn-interface/interface/api.action";//基础URL
 //    public static final String BASE_URL = "http://www.leishangnet.com/learn-teach/teach/api.action";//基础 teacher URL
-    public static final String BASE_DOMAIN = "http://120.76.47.196:8080";
+    public static final String BASE_DOMAIN = "http://www.leishangnet.com";
     public static final String BASE_URL = BASE_DOMAIN+"/learn-teach/teach/api.action";//基础 teacher URL
 
     public static final String TEACHER_UPLOAD = BASE_DOMAIN+"/learn-teach/teach/upload.action";

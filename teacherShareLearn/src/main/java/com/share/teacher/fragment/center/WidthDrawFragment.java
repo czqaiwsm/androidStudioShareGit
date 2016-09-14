@@ -187,24 +187,20 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
         RequestParam param = new RequestParam();
         
         switch (requestType){
-            
             case  1:
                 postParams = RequestHelp.getBaseParaMap("Withdraw");
                 postParams.put("realName", alipayName.getText().toString());
                 postParams.put("account", alipayAccount.getText().toString());
                 postParams.put("price", drawMoney.getText().toString());
-//                postParams.put("sendId",verifyCode.getSendId());
+                postParams.put("accountType",drawType);
                 param.setmParserClassName(new BaseParse());
                 param.setmPostarams(postParams);
                 break;
             case  2:
                 param = RequestHelp.getVcodePara("VCode",userInfo.getMobile(),4);
-//				param.setmParserClassName(VerifyCodeParse.class.getName());
                 param.setmParserClassName(new VerifyCodeParse());
                 break;
         }
-//        postParams.put("price", BaseApplication.getUserInfo() != null?
-//                BaseApplication.getUserInfo().getBalance():"");
         param.setmHttpURL(url);
         param.setPostRequestMethod();
         RequestManager.getRequestData(getActivity(), createReqSuccessListener(requestType), createMyReqErrorListener(), param);
