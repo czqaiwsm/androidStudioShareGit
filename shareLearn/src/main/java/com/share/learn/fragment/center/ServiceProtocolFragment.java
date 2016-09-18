@@ -1,7 +1,11 @@
 package com.share.learn.fragment.center;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -14,6 +18,8 @@ import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+
+import com.alipay.sdk.pay.demo.H5PayDemoActivity;
 import com.share.learn.R;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.utils.BaseApplication;
@@ -102,6 +108,46 @@ public class ServiceProtocolFragment extends BaseFragment {
         settings.setDefaultZoom(zoomDensity);
         mWebView.getSettings().setBuiltInZoomControls(false);
         mWebView.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);// 可能的话不要超过屏幕宽度
+
+//        if(url.contains("scheme=alipays")){
+            mWebView.setWebViewClient(new WebViewClient(){
+
+                public boolean shouldOverrideUrlLoading(final WebView view, String url) {
+                    // 获取上下文, H5PayDemoActivity为当前页面
+                    final Activity context = getActivity();
+                    System.out.println("url======"+url);
+
+                    // ------  对alipays:相关的scheme处理 -------
+                    if(url.startsWith("alipays:") || url.startsWith("alipay")) {
+                        try {
+                            context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(url)));
+                        } catch (Exception e) {
+                            new AlertDialog.Builder(context)
+                                    .setMessage("未检测到支付宝客户端，请安装后重试。")
+                                    .setPositiveButton("立即安装", new DialogInterface.OnClickListener() {
+
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Uri alipayUrl = Uri.parse("https://d.alipay.com");
+                                            context.startActivity(new Intent("android.intent.action.VIEW", alipayUrl));
+                                        }
+                                    }).setNegativeButton("取消", null).show();
+                        }
+                        return true;
+                    }
+                    // ------- 处理结束 -------
+
+                    if (!(url.startsWith("http") || url.startsWith("https"))) {
+                        return true;
+                    }
+
+                    view.loadUrl(url);
+                    return true;
+                }
+
+            });
+//        }
+
 
         if(TextUtils.isEmpty(url)){
             url = "http://www.sf-express.com/cn/sc/";
