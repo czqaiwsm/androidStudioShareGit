@@ -101,10 +101,13 @@
                 android:focusableInTouchMode="true"
                 android:padding="@dimen/app_text_size_min" >
                 <TextView
+                    android:id="@+id/left_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="地址"
+                    android:layout_alignParentLeft="true"
+                    android:text="地址    "
+                    android:layout_toLeftOf="@+id/address"
                     android:textColor="@color/color_small_gray"
                     android:textSize="@dimen/teach_font_size" />
 
@@ -114,11 +117,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:maxWidth="260dp"
                     android:drawablePadding="@dimen/app_text_size_min"
-                    android:gravity="center_vertical|right"
-                    android:singleLine="true"
-                    android:maxEms="18"
+                    android:gravity="center_vertical"
                     android:textColor="@color/color_small_gray"
+                    android:lineSpacingExtra="2dp"
                     android:textSize="@dimen/teach_font_size"
                     />
             </RelativeLayout>
