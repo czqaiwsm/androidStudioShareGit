@@ -31,18 +31,24 @@ public class URLConstants {
     public static final int ORDERRIGHT = 0X21;
     /********Intent value*************/
 
-//    120.76.47.196:8080
-    //    http://www.leishangnet.com//正式
-    //    http://www.ienjoystudy.cn:8080/测试域名
+//    生产环境：
+//    支付包、微信：http//www.leishangnet.com
+//    wap:http://www.ienjoystudy.cn
+
+//    测试地址：
+//    支付包、微信：http//www.ienjoystudy.cn:8080
+//    wap:http://www.ienjoystudy.cn:8080
 
 //    public static final String BASE_URL = "http://120.25.171.4/learn-interface/interface/api.action";//基础URL
 //    public static final String BASE_URL = "http://www.leishangnet.com/learn-teach/teach/api.action";//基础 teacher URL
     public static final String BASE_DOMAIN = "http://www.leishangnet.com";
+//    public static final String BASE_DOMAIN_WAP = "http://www.ienjoystudy.cn";
+
     public static final String BASE_URL = BASE_DOMAIN+"/learn-teach/teach/api.action";//基础 teacher URL
 
     public static final String TEACHER_UPLOAD = BASE_DOMAIN+"/learn-teach/teach/upload.action";
-    public static final String BANK_WITHDRAW = URLConstants.BASE_DOMAIN+"/learn-wap/wap/bankWithdraw.do";//银行卡提现
-    public static final String WITHDRAW_DETAIL = URLConstants.BASE_DOMAIN+"/learn-wap/wap/incomeDetail.do";//提现明细
+    public static final String BANK_WITHDRAW =BASE_DOMAIN+"/learn-wap/wap/bankWithdraw.do";//银行卡提现
+    public static final String WITHDRAW_DETAIL = BASE_DOMAIN+"/learn-wap/wap/incomeDetail.do";//提现明细
 
 
 //    银行卡：localhost:8080/learn-wap/wap/bankWithdraw.do
