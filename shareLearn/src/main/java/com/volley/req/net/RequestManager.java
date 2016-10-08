@@ -62,11 +62,11 @@ public abstract class RequestManager {
 		Request<Object> request = null;
 		try {
 			request = new ObjectRequest(param, listener, errorListener);
+			request.setRetryPolicy(new DefaultRetryPolicy(60000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 			if (param.getmParserClassName() != null) {
 				request.setTag(param.getmParserClassName());
 			}
 //			request.setRetryPolicy(new DefaultRetryPolicy());
-			request.setRetryPolicy(new DefaultRetryPolicy(50000,0,50f));
 		} catch (JSONException e) {
 			Log.e("JSON","JSONException" + e.getMessage());
 			return;
