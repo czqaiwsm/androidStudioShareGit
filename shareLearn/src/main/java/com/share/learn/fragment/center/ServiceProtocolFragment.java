@@ -17,9 +17,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
 
-import com.alipay.sdk.pay.demo.H5PayDemoActivity;
 import com.share.learn.R;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.utils.BaseApplication;

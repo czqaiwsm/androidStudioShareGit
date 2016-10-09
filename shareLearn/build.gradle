@@ -2,26 +2,28 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        shareLearnSign {
-            keyPassword 'slapp2016'
-            storeFile file('D:/workSpace/ASSpace/KZApplication/androidStudioShareGit/shareLearn/shareLearn.jks')
-            storePassword 'slapp2016'
+        shareLearnoSign {
             keyAlias 'leishang'
+            keyPassword 'slapp2016'
+            storeFile file('/Volumes/androidHD/StudioSpace/androidStudioShareGit/shareLearn/shareLearn.jks')
+            storePassword 'slapp2016'
         }
     }
     compileSdkVersion 22
-    buildToolsVersion '23.0.1'
+    buildToolsVersion '23.0.2'
     defaultConfig {
         applicationId "com.share.learn"
-        minSdkVersion 10
-        targetSdkVersion 10
-        signingConfig signingConfigs.shareLearnSign
+        minSdkVersion 13
+        targetSdkVersion 23
+        signingConfig signingConfigs.shareLearnoSign
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-            signingConfig signingConfigs.shareLearnSign
+        }
+        debug {
+            signingConfig signingConfigs.shareLearnoSign
         }
     }
     productFlavors {
@@ -32,4 +34,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.google.code.gson:gson:2.2.4'
     compile project(path: ':payDemo')
+    compile 'com.android.support:support-v13:23.+'
 }

@@ -2,6 +2,8 @@ package com.share.learn.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v13.app.FragmentCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -176,6 +178,8 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         param.setmHttpURL(url);
         param.setPostRequestMethod();
         RequestManager.getRequestData(getActivity(), createReqSuccessListener(), createMyReqErrorListener(), param);
+
+
     }
 
     @Override
@@ -248,5 +252,11 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         Intent intent = new Intent(mActivity,ChooseTeacherActivity.class);
         intent.putExtra(URLConstants.COURSEID,courseId);
         startActivity(intent);
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

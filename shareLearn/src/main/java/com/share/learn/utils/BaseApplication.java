@@ -4,6 +4,9 @@ import android.app.Application;
 import android.app.Service;
 import android.content.Context;
 import android.os.Vibrator;
+import android.support.annotation.NonNull;
+import android.support.v13.app.FragmentCompat;
+import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import cn.jpush.android.api.JPushInterface;
@@ -162,7 +165,5 @@ public class BaseApplication extends Application {
         ImageLoader.getInstance().init(config);
 
     }
-
-
 
 }

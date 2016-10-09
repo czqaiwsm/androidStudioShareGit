@@ -27,7 +27,7 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
-        <!--<activity
+       <activity
             android:name="com.alipay.sdk.pay.demo.PayDemoActivity"
             android:icon="@drawable/msp_icon"
             android:label="@string/app_name" >
