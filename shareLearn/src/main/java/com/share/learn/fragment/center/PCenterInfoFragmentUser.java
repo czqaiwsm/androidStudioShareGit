@@ -1,4 +1,5 @@
 package com.share.learn.fragment.center;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -9,11 +10,20 @@ import java.net.URL;
 import java.util.Map;
 import java.util.UUID;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+
 import com.google.gson.reflect.TypeToken;
 import com.share.learn.R;
 import com.share.learn.activity.ChooseCityActivity;
@@ -35,6 +45,7 @@ import com.volley.req.net.RequestParam;
 import com.volley.req.net.RequestParamSub;
 import com.volley.req.parser.JsonParserBase;
 import com.volley.req.parser.ParserUtil;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -76,9 +87,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
  *
  * @author ccs7727@163.com
  * @time 2015年9月28日上午11:44:26
- *
  */
-public class PCenterInfoFragmentUser extends BaseFragment implements OnClickListener,RequsetListener {
+public class PCenterInfoFragmentUser extends BaseFragment implements OnClickListener, RequsetListener {
 
     private RelativeLayout photo_layout;
     private RelativeLayout name_layout;
@@ -100,7 +110,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
     private UserInfo mUserInfo;
 
     private int update_data = -1;// 1:昵称 2:qq 3:邮箱 4:性别
-    private String[] items2 = new String[] { "男", "女" };
+    private String[] items2 = new String[]{"男", "女"};
     private int sex = -1;// 选择性别
     ScrollView scrollview;
     private final int MODIFY_NAME = 101;//个人姓名
@@ -144,11 +154,11 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
         jonior_layout = (RelativeLayout) v.findViewById(R.id.jonior_layout);
         city_layout = (RelativeLayout) v.findViewById(R.id.city_layout);
         advice_layout = (RelativeLayout) v.findViewById(R.id.advice_layout);
-        name = (TextView)v.findViewById(R.id.nick_name);
-        sexTxt = (TextView)v.findViewById(R.id.account_sexname);
-        jonior = (TextView)v.findViewById(R.id.account_joniorname);
-        city = (TextView)v.findViewById(R.id.account_cityname);
-        joniorTV = (TextView)v.findViewById(R.id.joniorTV);
+        name = (TextView) v.findViewById(R.id.nick_name);
+        sexTxt = (TextView) v.findViewById(R.id.account_sexname);
+        jonior = (TextView) v.findViewById(R.id.account_joniorname);
+        city = (TextView) v.findViewById(R.id.account_cityname);
+        joniorTV = (TextView) v.findViewById(R.id.joniorTV);
 
         photo_layout.setOnClickListener(this);
         name_layout.setOnClickListener(this);
@@ -162,41 +172,41 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
         String cityTxt = "<font color=#969596 >年级</font><font color='red' size=14px>[必填]</font>";
         joniorTV.setText(Html.fromHtml(cityTxt));
         advice_layout.setVisibility(View.VISIBLE);
-        if(!TextUtils.isEmpty(jonior.getText())){
+        if (!TextUtils.isEmpty(jonior.getText())) {
             advice_layout.setVisibility(View.GONE);
         }
         ImageLoader.getInstance().displayImage(BaseApplication.getUserInfo().getHeadImg(), mHeadImg, ImageLoaderUtil.mHallIconLoaderOptions);
     }
 
 
-    private Intent intent ;
+    private Intent intent;
+
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.photo_avatar_layout:// 头像
-                m_obj_menuWindow = new UpdateAvatarPopupWindow(getActivity(), v, itemsOnClick);
-            m_obj_menuWindow.showAtLocation(scrollview, Gravity.BOTTOM, 0, 0);
-            break;
+                photoSet();
+                break;
             case R.id.name_layout:// 姓名
                 intent = new Intent(mActivity, PCenterModifyInfoActivity.class);
-                intent.putExtra("flag",1);
-                startActivityForResult(intent,MODIFY_NAME);
+                intent.putExtra("flag", 1);
+                startActivityForResult(intent, MODIFY_NAME);
                 break;
             case R.id.sex_layout:// 性别
-            intent = new Intent(mActivity, PCenterModifyInfoActivity.class);
-            intent.putExtra("flag",8);
-            startActivityForResult(intent,MODIFY_GENDER);
-            break;
+                intent = new Intent(mActivity, PCenterModifyInfoActivity.class);
+                intent.putExtra("flag", 8);
+                startActivityForResult(intent, MODIFY_GENDER);
+                break;
             case R.id.jonior_layout:// 年级
-            intent = new Intent(mActivity, ChooseJoinorActivity.class);
+                intent = new Intent(mActivity, ChooseJoinorActivity.class);
                 intent.setFlags(15);
-            startActivityForResult(intent,URLConstants.CHOOSE_JOINOR_REQUEST_CODE);
-            break;
+                startActivityForResult(intent, URLConstants.CHOOSE_JOINOR_REQUEST_CODE);
+                break;
             case R.id.city_layout:// 城市
-            intent = new Intent(mActivity, ChooseCityActivity.class);
-            startActivityForResult(intent,MODIFY_GENDER);
-            break;
+                intent = new Intent(mActivity, ChooseCityActivity.class);
+                startActivityForResult(intent, MODIFY_GENDER);
+                break;
         }
 
     }
@@ -290,16 +300,16 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
     }
 
     @Override
-    public void handleRspSuccess(int requestType,Object obj) {
-        switch (requestCode){
+    public void handleRspSuccess(int requestType, Object obj) {
+        switch (requestCode) {
             case URLConstants.CHOOSE_JOINOR_REQUEST_CODE://年级选择
                 BaseApplication.getUserInfo().setGrade(requstValue);
                 BaseApplication.saveUserInfo(BaseApplication.getUserInfo());
                 jonior.setText(DataMapConstants.getPCenterJoniorMap().get(requstValue));
                 advice_layout.setVisibility(View.VISIBLE);
-                if(!TextUtils.isEmpty(jonior.getText())){
+                if (!TextUtils.isEmpty(jonior.getText())) {
                     advice_layout.setVisibility(View.GONE);
-                }else {
+                } else {
                     advice_layout.setVisibility(View.VISIBLE);
                 }
                 break;
@@ -317,7 +327,9 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
         }
     }
 
-    /******************************************** 修改头像start *****************************************************/
+    /********************************************
+     * 修改头像start
+     *****************************************************/
     private RoundImageView mHeadImg;
     // popupwidos
     private UpdateAvatarPopupWindow m_obj_menuWindow = null;
@@ -380,15 +392,15 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
         try {
             postUrl = URLConstants.STUDENT_UPLOAD;
             String param = new String();
-            param = "cmd=UploadHead"  + "&appVersion=" + BaseApplication.getInstance().appVersion+"&clientType=3" +
-                    "&accessToken=" + BaseApplication.getMt_token()+"&deviceId=000000"+"&spaceCode=1001";
+            param = "cmd=UploadHead" + "&appVersion=" + BaseApplication.getInstance().appVersion + "&clientType=3" +
+                    "&accessToken=" + BaseApplication.getMt_token() + "&deviceId=000000" + "&spaceCode=1001";
 
-            postUrl = postUrl+"?"+param;
+            postUrl = postUrl + "?" + param;
             URL url = new URL(postUrl);
-            AppLog.Logi(PCenterInfoFragmentUser.class+"", "url = " + postUrl);
+            AppLog.Logi(PCenterInfoFragmentUser.class + "", "url = " + postUrl);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
-			/*
-			 * Output to the connection. Default is false, set to true because
+            /*
+             * Output to the connection. Default is false, set to true because
 			 * post method must write something to the connection
 			 */
             con.setDoOutput(true);
@@ -411,7 +423,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
             //avatar 需要与后台约定的字段.
             ds.writeBytes("Content-Disposition: form-data; " + "name=\"avatar\";filename=\"" + fileName + "\"" + end);
             ds.writeBytes(end);
-            AppLog.Logi(PCenterInfoFragmentUser.class+"", "图片字节:" + picByte.toString());
+            AppLog.Logi(PCenterInfoFragmentUser.class + "", "图片字节:" + picByte.toString());
             ds.write(picByte, 0, picByte.length);
             ds.writeBytes(end);
             ds.writeBytes(twoHyphens + boundary + twoHyphens + end);
@@ -453,22 +465,22 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
         try {
 
             dismissLoadingDilog();
-            if (data != null){
+            if (data != null) {
                 JsonParserBase<UploadBean> result = ParserUtil.fromJsonBase(data, new TypeToken<JsonParserBase<UploadBean>>() {
                 }.getType());
-                if(result != null && URLConstants.SUCCESS_CODE.equals(result.getRespCode())){
+                if (result != null && URLConstants.SUCCESS_CODE.equals(result.getRespCode())) {
                     UploadBean jsonStr = result.getData();
 
-                    if(jsonStr != null){
+                    if (jsonStr != null) {
 
-                        if(!TextUtils.isEmpty(jsonStr.getImgPath())){
+                        if (!TextUtils.isEmpty(jsonStr.getImgPath())) {
                             BaseApplication.getUserInfo().setHeadImg(jsonStr.getImgPath());
                             BaseApplication.saveUserInfo(BaseApplication.getUserInfo());
                             myHandler.sendEmptyMessage(UPLOAD_OK);
                         }
                     }
-                }else{
-                    toasetUtil.showInfo( result.getRespDesc());
+                } else {
+                    toasetUtil.showInfo(result.getRespDesc());
                 }
             }
         } catch (Exception e) {
@@ -549,7 +561,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
             return;
         }
         Bitmap bitmap = extras.getParcelable("data");
-         Drawable drawable = new BitmapDrawable(bitmap);
+        Drawable drawable = new BitmapDrawable(bitmap);
 //         mHeadImg.setImageDrawable(drawable);
         /********** 上传图片 ***************/
         m_obj_IconBp = bitmap;// 用于上传服务器
@@ -610,7 +622,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
                 }
 
                 final String selection = "_id=?";
-                final String[] selectionArgs = new String[] { split[1] };
+                final String[] selectionArgs = new String[]{split[1]};
 
                 return getDataColumn(context, contentUri, selection, selectionArgs);
             }
@@ -631,11 +643,12 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
         return null;
     }
 
+
     public static String getDataColumn(Context context, Uri uri, String selection, String[] selectionArgs) {
 
         Cursor cursor = null;
         final String column = "_data";
-        final String[] projection = { column };
+        final String[] projection = {column};
 
         try {
             cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, null);
@@ -651,8 +664,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
     }
 
     /**
-     * @param uri
-     *            The Uri to check.
+     * @param uri The Uri to check.
      * @return Whether the Uri authority is ExternalStorageProvider.
      */
     public static boolean isExternalStorageDocument(Uri uri) {
@@ -660,8 +672,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
     }
 
     /**
-     * @param uri
-     *            The Uri to check.
+     * @param uri The Uri to check.
      * @return Whether the Uri authority is DownloadsProvider.
      */
     public static boolean isDownloadsDocument(Uri uri) {
@@ -669,8 +680,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
     }
 
     /**
-     * @param uri
-     *            The Uri to check.
+     * @param uri The Uri to check.
      * @return Whether the Uri authority is MediaProvider.
      */
     public static boolean isMediaDocument(Uri uri) {
@@ -678,15 +688,69 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
     }
 
     /**
-     * @param uri
-     *            The Uri to check.
+     * @param uri The Uri to check.
      * @return Whether the Uri authority is Google Photos.
      */
     public static boolean isGooglePhotosUri(Uri uri) {
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
     }
-    /******************************************** 修改头像end *****************************************************/
+
+    /********************************************
+     * 修改头像end
+     *****************************************************/
 
 
+    private void photoSet() {
+        //检查权限
+        if (ContextCompat.checkSelfPermission(BaseApplication.getInstance(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (shouldShowRequestPermissionRationale(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+                new AlertDialog.Builder(mActivity)
+                        .setMessage("需要开启权限才能访问SD卡")
+                        .setPositiveButton("设置", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                intent.setData(Uri.parse("package:" + BaseApplication.getInstance().getPackageName()));
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .create()
+                        .show();
+            } else {
+
+                //申请权限
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        100);
+            }
+//
+        } else {
+            //已经拥有权限进行拨打
+            photoPpw();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 100) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                photoPpw();
+            } else {
+                // Permission Denied
+                SmartToast.showText("您拒绝了SD卡访问权限!");
+            }
+            return;
+        }
+    }
+
+    private void photoPpw() {
+        m_obj_menuWindow = new UpdateAvatarPopupWindow(getActivity(), advice_layout, itemsOnClick);
+        m_obj_menuWindow.showAtLocation(scrollview, Gravity.BOTTOM, 0, 0);
+    }
 
 }

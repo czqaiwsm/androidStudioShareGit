@@ -37,16 +37,16 @@ public class BaseApplication extends Application {
 
     public String location[] = new String[2];// 城市、城市编码
     public LocationService locationService;
+//    public LocationUitl locationUitl = new LocationUitl();
     public BDLocation mapLocation;
+
     public Vibrator mVibrator;
 
     private static  UserInfo userInfo;
-
     private static String userId = "0" ;//用户Id,默认为0；
     private static String accessToken = "";//校验
     public String appVersion = "";//版本
     public String address = "";//
-    public LocationUitl locationUitl = new LocationUitl();
     public static String diviceId = "";
 
 
@@ -55,10 +55,11 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        getBaseContext();getApplicationContext();
         /***
          * 初始化定位sdk，建议在Application中创建
          */
-        locationService = new LocationService(getApplicationContext());
+//        locationService = new LocationService(getApplicationContext());
         mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
 //        WriteLog.getInstance().init(); // 初始化日志
         SDKInitializer.initialize(getApplicationContext());
@@ -80,7 +81,6 @@ public class BaseApplication extends Application {
                     AppLog.Logi("jpush alias:"+s+"   "+(set!=null?set.toString():""));
                 }
             });
-            ;
         }
 
 
@@ -89,9 +89,9 @@ public class BaseApplication extends Application {
         address = AppManager.getLocalMacAddressFromWifiInfo(this);
         URLConstants.SCREENW = ScreenUtils.getScreenWidth(this);
         URLConstants.SCREENH = ScreenUtils.getScreenHeight(this);
-        locationUitl.startLocation();
+//        locationUitl.startLocation();
         location[0] = "合肥市";
-        diviceId = ((TelephonyManager) this.getSystemService( Context.TELEPHONY_SERVICE )).getDeviceId();
+        diviceId = Utils.getDeviceId(this);
     }
 
 
@@ -143,10 +143,7 @@ public class BaseApplication extends Application {
     }
     
     public static boolean isLogin(){
-        if(getUserInfo() != null && !TextUtils.isEmpty(userInfo.getId())){
-            return true;
-        }
-        return false;
+        return getUserInfo() != null && !TextUtils.isEmpty(userInfo.getId());
     }
 
 

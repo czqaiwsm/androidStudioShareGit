@@ -165,6 +165,6 @@ public class TeacherMainActivity extends BaseActivity implements View.OnClickLis
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        BaseApplication.getInstance().locationUitl.stopLocation();
+//        BaseApplication.getInstance().locationUitl.stopLocation();
     }
 }

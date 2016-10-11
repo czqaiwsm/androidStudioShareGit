@@ -9,7 +9,7 @@ android {
             storePassword 'slapp2016'
         }
     }
-    compileSdkVersion 22
+    compileSdkVersion 'Google Inc.:Google APIs:22'
     buildToolsVersion '23.0.2'
     defaultConfig {
         applicationId "com.share.learn"

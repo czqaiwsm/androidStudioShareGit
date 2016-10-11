@@ -1,5 +1,7 @@
 package com.share.learn.service;
 
+import android.support.v4.app.ActivityCompat;
+
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.Poi;
@@ -147,7 +149,7 @@ public class LocationUitl {
 
     public interface LocationListener{
 
-        public void locatinNotify(BDLocation location);
+        void locatinNotify(BDLocation location);
 
     }
 

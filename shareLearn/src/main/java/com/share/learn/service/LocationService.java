@@ -22,10 +22,15 @@ public class LocationService {
 	 */
 	public LocationService(Context locationContext){
 		synchronized (objLock) {
-			if(client == null){
-				client = new LocationClient(locationContext);
-				client.setLocOption(getDefaultLocationClientOption());
+			try {
+				if(client == null){
+					client = new LocationClient(locationContext);
+					client.setLocOption(getDefaultLocationClientOption());
+				}
+			}catch (SecurityException e){
+				e.printStackTrace();
 			}
+
 		}
 	}
 	
