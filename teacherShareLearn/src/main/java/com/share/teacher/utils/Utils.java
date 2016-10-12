@@ -1,13 +1,21 @@
 package com.share.teacher.utils;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.wifi.WifiManager;
+import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
+import android.telephony.TelephonyManager;
 
 import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -218,7 +226,37 @@ public class Utils {
 		return dayForWeek;
 	}
 
+	public static String getDeviceId(Context context) {
+		String szImei = "";
+		int hasWriteContactsPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE);
+		if (hasWriteContactsPermission == PackageManager.PERMISSION_GRANTED) {
+			TelephonyManager TelephonyMgr = (TelephonyManager) context.getSystemService(Activity.TELEPHONY_SERVICE);
+			szImei = TelephonyMgr.getDeviceId();
+		}
 
+		String m_szAndroidID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+		WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+		String m_szWLANMAC = wm.getConnectionInfo().getMacAddress();
+		String m_szLongID = szImei
+				+ m_szAndroidID + m_szWLANMAC;
+		MessageDigest m = null;
+		try {
+			m = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		m.update(m_szLongID.getBytes(), 0, m_szLongID.length());
+		byte p_md5Data[] = m.digest();
+		String m_szUniqueID = new String();
+		for(int i = 0; i < p_md5Data.length; i++) {
+			int b = (0xFF & p_md5Data[i]);
+			if (b <= 0xF)
+				m_szUniqueID += "0";
+			m_szUniqueID += Integer.toHexString(b);
+		}
+		m_szUniqueID = m_szUniqueID.toUpperCase();
+		return m_szUniqueID;
+	}
 
 
 	public static void main(String args[]) throws ParseException {

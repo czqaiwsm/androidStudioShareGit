@@ -154,6 +154,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        BaseApplication.getInstance().locationUitl.stopLocation();
+//        BaseApplication.getInstance().locationUitl.stopLocation();
     }
 }

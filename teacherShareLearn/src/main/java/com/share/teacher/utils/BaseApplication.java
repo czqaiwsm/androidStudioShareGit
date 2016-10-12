@@ -46,7 +46,6 @@ public class BaseApplication extends Application {
     private static String accessToken = "";//校验
 //    public String accessToken = "00000000";//校验
     public String address = "";//
-    public LocationUitl locationUitl = new LocationUitl();
 
     public static String diviceId = "";
 
@@ -57,7 +56,7 @@ public class BaseApplication extends Application {
         /***
          * 初始化定位sdk，建议在Application中创建
          */
-        locationService = new LocationService(getApplicationContext());
+//        locationService = new LocationService(getApplicationContext());
         mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
 //        WriteLog.getInstance().init(); // 初始化日志
         SDKInitializer.initialize(getApplicationContext());
@@ -80,7 +79,6 @@ public class BaseApplication extends Application {
                     AppLog.Logi("jpush alias:"+s+"   "+(set!=null?set.toString():""));
                 }
             });
-            ;
         }
 
         initImageLoader();
@@ -88,9 +86,9 @@ public class BaseApplication extends Application {
         address = AppManager.getLocalMacAddressFromWifiInfo(this);
         URLConstants.SCREENW = ScreenUtils.getScreenWidth(this);
         URLConstants.SCREENH = ScreenUtils.getScreenHeight(this);
-        locationUitl.startLocation();
+//        locationUitl.startLocation();
         location[0] = "合肥市";
-        diviceId = ((TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE )).getDeviceId();
+        diviceId = Utils.getDeviceId(this);
     }
 
 
@@ -129,10 +127,7 @@ public class BaseApplication extends Application {
     }
 
     public static boolean isLogin(){
-        if(getUserInfo() != null && !TextUtils.isEmpty(userInfo.getId())){
-            return true;
-        }
-        return false;
+        return getUserInfo() != null && !TextUtils.isEmpty(userInfo.getId());
     }
 
     private void initImageLoader() {

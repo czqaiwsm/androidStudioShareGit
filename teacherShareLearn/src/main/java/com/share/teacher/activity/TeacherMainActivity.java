@@ -1,8 +1,18 @@
 package com.share.teacher.activity;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +25,12 @@ import com.share.teacher.fragment.TeacherHomePageFragment;
 import com.share.teacher.fragment.center.PCenterInfoFragment;
 import com.share.teacher.fragment.msg.MsgInfosFragment;
 import com.share.teacher.fragment.schedule.ScheduleFragment;
+import com.share.teacher.service.LocationService;
+import com.share.teacher.service.LocationUitl;
 import com.share.teacher.utils.BaseApplication;
 import com.share.teacher.utils.SmartToast;
+
+import java.util.ArrayList;
 
 /**
  * 老师端主页面
@@ -44,6 +58,8 @@ public class TeacherMainActivity extends BaseActivity implements View.OnClickLis
     // 当前fragment的index
     private int currentTabIndex;
     Fragment currentFragment = null;
+    public LocationUitl locationUitl = new LocationUitl();
+
     int i=0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +83,7 @@ public class TeacherMainActivity extends BaseActivity implements View.OnClickLis
         currentFragment = fragments[0];
         transaction.show(currentFragment);
         transaction.commitAllowingStateLoss();
+        reqPerLocation();
     }
 
     /**
@@ -166,6 +183,72 @@ public class TeacherMainActivity extends BaseActivity implements View.OnClickLis
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        BaseApplication.getInstance().locationUitl.stopLocation();
+        locationUitl.stopLocation();
     }
+
+    private void reqPerLocation(){
+        String[] perStrs = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.READ_PHONE_STATE};
+
+        ArrayList<String> list = new ArrayList<>();
+        for(String p:perStrs){
+            if(ContextCompat.checkSelfPermission(this,p) != PackageManager.PERMISSION_GRANTED){
+                list.add(p);
+            }
+        }
+
+        if(list.size()==0){
+            BaseApplication.getInstance().locationService = new LocationService(getApplicationContext());
+            locationUitl.startLocation();
+        }else {
+            boolean isShowDlg = false;
+            for(String p:list){
+                if(!ActivityCompat.shouldShowRequestPermissionRationale(this,p)){
+                    isShowDlg = true;
+                    break;
+                }
+            }
+
+            if(isShowDlg){
+                new AlertDialog.Builder(this)
+                        .setMessage("需要开启权限才能定位")
+                        .setPositiveButton("设置", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                intent.setData(Uri.parse("package:" + BaseApplication.getInstance().getPackageName()));
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .create()
+                        .show();
+            }else {
+                ActivityCompat.requestPermissions(this,perStrs,100);
+            }
+
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if(requestCode == 100){
+            boolean isGranted = true;
+            for(String p:permissions){
+                if(ContextCompat.checkSelfPermission(this,p) != PackageManager.PERMISSION_GRANTED){
+                    isGranted = false;
+                    break;
+                }
+            }
+
+            if(isGranted){
+                BaseApplication.getInstance().locationService = new LocationService(getApplicationContext());
+                locationUitl.startLocation();
+            }else {
+                SmartToast.showText("您已关闭定位权限!");
+            }
+
+        }
+    }
+
 }

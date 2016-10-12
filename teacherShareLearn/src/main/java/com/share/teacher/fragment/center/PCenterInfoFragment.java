@@ -1,9 +1,16 @@
 package com.share.teacher.fragment.center;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,6 +27,7 @@ import com.share.teacher.fragment.BaseFragment;
 import com.share.teacher.fragment.TeacherHomePageFragment;
 import com.share.teacher.utils.BaseApplication;
 import com.share.teacher.utils.ImageLoaderUtil;
+import com.share.teacher.utils.SmartToast;
 import com.share.teacher.view.RoundImageView;
 
 /**
@@ -86,11 +94,7 @@ public class PCenterInfoFragment extends BaseFragment implements OnClickListener
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if(isVisibleToUser){
-            isVisible = true;
-        }else {
-            isVisible = false;
-        }
+        isVisible = isVisibleToUser;
 
         onLazyLoad();
     }
@@ -173,8 +177,9 @@ public class PCenterInfoFragment extends BaseFragment implements OnClickListener
                 break;
             case R.id.custom_layout:// 设置
                 //用intent启动拨打电话
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+account_customname.getText().toString()));
-                startActivity(intent);
+                callPhone();
+
+
                 break;
             case R.id.set_layout:// 设置
                 toClassActivity(PCenterInfoFragment.this, SettingActivity.class.getName());
@@ -196,4 +201,62 @@ public class PCenterInfoFragment extends BaseFragment implements OnClickListener
         super.onActivityResult(requestCode, resultCode, data);
         setData(mUserInfo);
     }
+
+    private void call(){
+        //用intent启动拨打电话
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+account_customname.getText().toString()));
+        startActivity(intent);
+    }
+
+    public void callPhone() {
+        //检查权限
+        if (ContextCompat.checkSelfPermission(BaseApplication.getInstance(),
+                Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (shouldShowRequestPermissionRationale(
+                    Manifest.permission.CALL_PHONE)) {
+
+                new AlertDialog.Builder(mActivity)
+                        .setMessage("需要开启权限才能拨打电话")
+                        .setPositiveButton("设置", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                intent.setData(Uri.parse("package:" + BaseApplication.getInstance().getPackageName()));
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .create()
+                        .show();
+            } else {
+
+                //申请权限
+                requestPermissions(new String[]{Manifest.permission.CALL_PHONE},
+                        100);
+            }
+//
+        } else {
+            //已经拥有权限进行拨打
+            call();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 100)
+        {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                call();
+            } else
+            {
+                // Permission Denied
+                SmartToast.showText("您拒绝了拨打电话权限!");
+            }
+            return;
+        }
+    }
+
 }

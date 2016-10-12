@@ -1,11 +1,15 @@
 package com.share.teacher.fragment.home;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -14,6 +18,9 @@ import android.net.Uri;
 import android.os.*;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -189,8 +196,8 @@ public class IDCardCertifyFragment extends BaseFragment implements View.OnClickL
                 startActivityForResult(intent, URLConstants.CHOOSE_JOINOR_REQUEST_CODE);
                 break;
             case R.id.uploadLL:
-                m_obj_menuWindow = new UpdateAvatarPopupWindow(getActivity(), v, itemsOnClick);
-                m_obj_menuWindow.showAtLocation(uploadLL, Gravity.BOTTOM, 0, 0);
+                photoSet();
+
                 break;
             case R.id.idImg:
                 uploadLL.performClick();
@@ -630,5 +637,56 @@ public class IDCardCertifyFragment extends BaseFragment implements View.OnClickL
     }
     /******************************************** 修改头像end *****************************************************/
 
+    private void photoSet() {
+        //检查权限
+        if (ContextCompat.checkSelfPermission(BaseApplication.getInstance(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
 
+            if (shouldShowRequestPermissionRationale(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+                new AlertDialog.Builder(mActivity)
+                        .setMessage("需要开启权限才能访问SD卡")
+                        .setPositiveButton("设置", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                intent.setData(Uri.parse("package:" + BaseApplication.getInstance().getPackageName()));
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .create()
+                        .show();
+            } else {
+
+                //申请权限
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        100);
+            }
+//
+        } else {
+            //已经拥有权限进行拨打
+            photoPpw();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 100) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                photoPpw();
+            } else {
+                // Permission Denied
+                SmartToast.showText("您拒绝了SD卡访问权限!");
+            }
+            return;
+        }
+    }
+
+    private void photoPpw() {
+        m_obj_menuWindow = new UpdateAvatarPopupWindow(getActivity(), uploadLL, itemsOnClick);
+        m_obj_menuWindow.showAtLocation(uploadLL, Gravity.BOTTOM, 0, 0);
+    }
 }
