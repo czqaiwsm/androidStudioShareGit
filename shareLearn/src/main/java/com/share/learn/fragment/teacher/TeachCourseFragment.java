@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import com.share.learn.R;
 import com.share.learn.activity.center.PurchaseCourseActivity;
+import com.share.learn.activity.login.LoginActivity;
 import com.share.learn.adapter.ContactAdpter;
 import com.share.learn.adapter.TeacherCourseAdapter;
 import com.share.learn.bean.CourseInfo;
 import com.share.learn.bean.TeacherDetailInfo;
 import com.share.learn.bean.msg.Message;
 import com.share.learn.fragment.BaseFragment;
+import com.share.learn.utils.BaseApplication;
 import com.share.learn.view.CustomListView;
 
 import java.util.ArrayList;
@@ -65,6 +67,11 @@ public class TeachCourseFragment extends BaseFragment {
         customListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if(!BaseApplication.isLogin()){
+//                    toasetUtil.showInfo("请先登录!");
+                    toClassActivity(TeachCourseFragment.this, LoginActivity.class.getName());
+                    return;
+                }
                 Intent intent = new Intent(mActivity,PurchaseCourseActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("course",list.get(i-1));
