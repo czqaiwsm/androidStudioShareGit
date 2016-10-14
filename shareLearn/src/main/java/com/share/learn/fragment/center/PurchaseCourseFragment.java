@@ -108,6 +108,7 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         iniData();
         setLoadingDilog(WaitLayer.DialogType.MODALESS);
         payRequestUtils = new PayRequestUtils(this,courseInfo,null,this);
+        requestTask(2);
     }
 
     private void initTitleView() {
@@ -124,8 +125,6 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         truePay = (TextView)v.findViewById(R.id.truePay);
         login_pay = (TextView)v.findViewById(R.id.login_text);
         address = (EditText)v.findViewById(R.id.address);
-
-
 
         setTxtPaint(favourable);
         buy_layout = (RelativeLayout)v.findViewById(R.id.buy_layout);
@@ -212,15 +211,15 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
             break;
             case R.id.alipay://支付宝支付
                 payType = 1;
-                requestTask();
+                requestTask(1);
                 break;
             case R.id.wxPay://余额支付
                 payType = 2;
-                requestTask();
+                requestTask(1);
                 break;
             case R.id.wallet://余额支付
                 payType = 8;
-                requestTask();
+                requestTask(1);
                 break;
         }
 
@@ -235,19 +234,25 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         // TODO Auto-generated method stub
         payRequestUtils.dismissPup();
         HttpURL url = new HttpURL();
-
         url.setmBaseUrl(URLConstants.BASE_URL);
-
-        Map postParams = RequestHelp.getBaseParaMap("PayCourseOrder");
-        postParams.put("payType", payType);
-        postParams.put("studentName", BaseApplication.getUserInfo().getNickName());
-        postParams.put("teacherId", courseInfo.getTeacherId());
-        postParams.put("teacherName", courseInfo.getTeacherName());
-        postParams.put("courseId", courseInfo.getCourseId());
-        postParams.put("orderPrice", orderPay);
-        postParams.put("payPrice", trueMoey);
-        postParams.put("payCount", account.getTag().toString());
-        postParams.put("remark", address.getText().toString());
+        Map postParams = null;
+        switch (requestType){
+            case 1:
+                postParams = RequestHelp.getBaseParaMap("PayCourseOrder");
+                postParams.put("payType", payType);
+                postParams.put("studentName", BaseApplication.getUserInfo().getNickName());
+                postParams.put("teacherId", courseInfo.getTeacherId());
+                postParams.put("teacherName", courseInfo.getTeacherName());
+                postParams.put("courseId", courseInfo.getCourseId());
+                postParams.put("orderPrice", orderPay);
+                postParams.put("payPrice", trueMoey);
+                postParams.put("payCount", account.getTag().toString());
+                postParams.put("remark", address.getText().toString());
+                break;
+            case 2:
+                postParams = RequestHelp.getBaseParaMap("QueryClassInfo");
+                break;
+        }
 
         RequestParam param = new RequestParam();
 //        param.setmParserClassName(HomePageBannerParse.class.getName());
@@ -261,20 +266,25 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
 
     @Override
     public void handleRspSuccess(int requestType,Object obj) {
-        PayCourseInfo payCourseInfo =((JsonParserBase<PayCourseInfo>)obj).getData();
-
-        PayInfo payInfo = new PayInfo(payCourseInfo.getOrderCode(),payCourseInfo.getPayPrice(),payCourseInfo.getCourseName(),payCourseInfo.getCreateTime());
-        if(payCourseInfo != null){
-            if (payType == 1){
-                PayUtil.alipay(mActivity,payInfo,null);
-            }else if(payType == 2){
-                PayUtil.wxPay(payInfo,null);
+        switch (requestType){
+            case 1:
+                PayCourseInfo payCourseInfo =((JsonParserBase<PayCourseInfo>)obj).getData();
+                PayInfo payInfo = new PayInfo(payCourseInfo.getOrderCode(),payCourseInfo.getPayPrice(),payCourseInfo.getCourseName(),payCourseInfo.getCreateTime());
+                if(payCourseInfo != null){
+                    if (payType == 1){
+                        PayUtil.alipay(mActivity,payInfo,null);
+                    }else if(payType == 2){
+                        PayUtil.wxPay(payInfo,null);
 
 //                PayUtil.walletPay(mActivity,payInfo,null);
-            }else if(payType == 8){
-                SmartToast.makeText(BaseApplication.getInstance(),"支付成功!",Toast.LENGTH_LONG).show();
+                    }else if(payType == 8){
+                        SmartToast.makeText(BaseApplication.getInstance(),"支付成功!",Toast.LENGTH_LONG).show();
 //                PayUtil.walletPay(mActivity,payInfo,null);
-            }
+                    }
+                }
+                break;
+            case 2:
+                break;
         }
     }
 

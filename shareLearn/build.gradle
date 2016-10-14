@@ -1,21 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        shareLearnoSign {
-            keyAlias 'leishang'
-            keyPassword 'slapp2016'
-            storeFile file('/Volumes/androidHD/StudioSpace/androidStudioShareGit/shareLearn/shareLearn.jks')
-            storePassword 'slapp2016'
-        }
-    }
-    compileSdkVersion 'Google Inc.:Google APIs:22'
-    buildToolsVersion '23.0.2'
+    compileSdkVersion 22
+    buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId "com.share.learn"
         minSdkVersion 13
         targetSdkVersion 23
-        signingConfig signingConfigs.shareLearnoSign
     }
     buildTypes {
         release {
@@ -23,7 +14,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
         debug {
-            signingConfig signingConfigs.shareLearnoSign
         }
     }
     productFlavors {
