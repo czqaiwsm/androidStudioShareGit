@@ -1,0 +1,166 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fragment_header" />
+
+    <com.share.teacher.view.FlowScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_bg_home"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/balance_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/app_text_size_min" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/balance"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pc_txt_size" />
+                <TextView
+                    android:id="@+id/account_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/app_text_size_min"
+                    android:gravity="center_vertical|right"
+                    android:singleLine="true"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pc_txt_size"
+                    />
+            </RelativeLayout>
+
+            <View android:layout_width="match_parent"
+                  android:layout_height="0.5dp"
+                  android:background="@color/color_small_gray"
+                  android:layout_marginRight="@dimen/app_text_size_min"
+                  android:layout_marginLeft="@dimen/app_text_size_min"
+            />
+
+            <RelativeLayout
+                android:id="@+id/recharge_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click"
+                android:visibility="gone"
+                android:padding="@dimen/app_text_size_min" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/recharge"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pc_txt_size" />
+
+                <TextView
+                    android:id="@+id/account_recharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/app_text_size_min"
+                    android:drawableRight="@drawable/arrow_right"
+                    android:gravity="center_vertical|right"
+                    android:singleLine="true"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pc_txt_size"
+                    />
+            </RelativeLayout>
+            <View android:layout_width="match_parent"
+                  android:layout_height="0.5dp"
+                  android:background="@color/color_small_gray"
+                  android:layout_marginRight="@dimen/app_text_size_min"
+                  android:layout_marginLeft="@dimen/app_text_size_min"
+                  android:visibility="gone"
+            />
+            <RelativeLayout
+                android:id="@+id/withDraw_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click"
+                android:padding="@dimen/app_text_size_min" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/widthdraw"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pc_txt_size" />
+
+                <TextView
+                    android:id="@+id/account_withDraw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/app_text_size_min"
+                    android:drawableRight="@drawable/arrow_right"
+                    android:gravity="center_vertical|right"
+                    android:singleLine="true"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pc_txt_size"
+                    />
+            </RelativeLayout>
+            <View android:layout_width="match_parent"
+                  android:layout_height="0.5dp"
+                  android:background="@color/color_small_gray"
+                  android:layout_marginRight="@dimen/app_text_size_min"
+                  android:layout_marginLeft="@dimen/app_text_size_min"
+                />
+            <RelativeLayout
+                android:id="@+id/withDrawDetail_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click"
+                android:padding="@dimen/app_text_size_min" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="收入明细"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pc_txt_size" />
+
+                <TextView
+                    android:id="@+id/account_withDrawDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/app_text_size_min"
+                    android:drawableRight="@drawable/arrow_right"
+                    android:gravity="center_vertical|right"
+                    android:singleLine="true"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pc_txt_size"
+                    />
+            </RelativeLayout>
+            <View android:layout_width="match_parent"
+                  android:layout_height="0.5dp"
+                  android:background="@color/color_small_gray"
+                  android:layout_marginRight="@dimen/app_text_size_min"
+                  android:layout_marginLeft="@dimen/app_text_size_min"
+            />
+        </LinearLayout>
+    </com.share.teacher.view.FlowScrollView>
+
+</LinearLayout>

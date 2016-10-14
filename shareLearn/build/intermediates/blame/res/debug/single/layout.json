@@ -1,0 +1,382 @@
+[
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\chatting_item_msg_text_right.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\chatting_item_msg_text_right.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\alert_dialog2.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\alert_dialog2.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\schedule_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\schedule_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_title_list.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_title_list.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_id_certify.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_id_certify.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\schedule.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\schedule.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_msg_infos.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_msg_infos.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_teacher_home.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_teacher_home.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_schedule.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_schedule.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\voice_rcd_hint_window.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\voice_rcd_hint_window.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_style_et.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\dialog_style_et.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\chat.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\chat.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_purchase_course.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_purchase_course.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_pcenter_info_user.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_pcenter_info_user.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\detail_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\detail_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_search.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_choose.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_choose.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\xlistview_footer.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\xlistview_footer.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_style_confirm.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\dialog_style_confirm.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_header.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_header.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_loading_common.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\dialog_loading_common.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\guide.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\guide.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\teacher_course_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\teacher_course_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\refresh_head.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\refresh_head.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\loading_layout.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\loading_layout.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\course_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\course_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\order_pay1.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\order_pay1.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\choose_teacher_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\choose_teacher_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_main_page.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_main_page.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_feedback.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_feedback.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_order_detail.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_order_detail.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_setting.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_setting.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_style.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\dialog_style.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\splash.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\splash.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\popup_choose.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\popup_choose.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_home.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_web_logic.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_web_logic.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_evaluate.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_evaluate.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\xlistview_header.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\xlistview_header.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\evaluate.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\evaluate.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\bec_nurse_pop.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\bec_nurse_pop.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_pcenter_register.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_pcenter_register.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\layout_svprogresshud.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\layout_svprogresshud.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\contact_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\contact_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\choose_joinor_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\choose_joinor_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\activity_ask_dialog.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\activity_ask_dialog.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_pcenter_unlogin.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_pcenter_unlogin.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_pcenter_forget_password.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_pcenter_forget_password.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_pcenterinfo_modifyinfo.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_pcenterinfo_modifyinfo.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_msg_choose.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_msg_choose.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\sys_msg_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\sys_msg_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\course.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\course.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\alert_dialog.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\alert_dialog.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_msg.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_msg.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_schoo_certify.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_schoo_certify.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_teacher_detail.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_teacher_detail.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_certify.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_certify.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_order.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_order.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\contact.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\contact.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\pay_external.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\exploded-aar\\KZGitApplication\\payDemo\\unspecified\\res\\layout\\pay_external.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\wait_finish.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\wait_finish.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_withdraw_type.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_withdraw_type.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\search_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\search_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_recharge.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_recharge.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\msg_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\msg_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\teacher_asset_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\teacher_asset_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\pay_main.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\exploded-aar\\KZGitApplication\\payDemo\\unspecified\\res\\layout\\pay_main.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\view_svprogressdefault.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\view_svprogressdefault.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_search_list.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_search_list.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\refresh_footer.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\refresh_footer.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_choose_city.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_choose_city.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\order_pay_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\order_pay_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\wait_buy.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\wait_buy.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\chatting_item_msg_text_left.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\chatting_item_msg_text_left.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_home_header.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_home_header.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\weeks_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\weeks_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_reset_pass.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_reset_pass.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\chatting_msg.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\chatting_msg.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\main_activity.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\main_activity.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_pcenter_login.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_pcenter_login.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_scheduel_setting.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_scheduel_setting.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_pcenter_info.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_pcenter_info.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\main_page.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\main_page.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\tabs.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\tabs.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\wait_pay.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\wait_pay.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\msg.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\msg.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\order_pay.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\order_pay.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_wallet.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_wallet.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\choose_city_adapter.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\choose_city_adapter.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\pop_cuorse.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\pop_cuorse.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\pay_selector.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\pay_selector.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\wait_layer.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\wait_layer.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_widthdraw.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\fragment_widthdraw.xml"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\build\\intermediates\\res\\merged\\debug\\layout\\all_order.xml",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\shareLearn\\src\\main\\res\\layout\\all_order.xml"
+    }
+]

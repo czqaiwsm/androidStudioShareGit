@@ -62,7 +62,7 @@ public abstract class RequestManager {
 		Request<Object> request = null;
 		try {
 			request = new ObjectRequest(param, listener, errorListener);
-			request.setRetryPolicy(new DefaultRetryPolicy(60000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+			request.setRetryPolicy(new DefaultRetryPolicy(120000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 			if (param.getmParserClassName() != null) {
 				request.setTag(param.getmParserClassName());
 			}

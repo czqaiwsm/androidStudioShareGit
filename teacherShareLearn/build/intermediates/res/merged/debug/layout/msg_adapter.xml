@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                   >
+
+        <FrameLayout   android:layout_width="@dimen/round_img_size"
+                       android:layout_height="@dimen/round_img_size"
+                       android:layout_margin="@dimen/msg_margin"
+                       android:id="@+id/img_frame">
+            <com.share.teacher.view.RoundImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/head_photo"
+                    android:src="@drawable/default_user_portrait"/>
+        </FrameLayout>
+
+        <TextView android:id="@+id/Name"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textColor="@color/black"
+                  android:text="曹智青"
+                  android:layout_toRightOf="@+id/img_frame"
+                  android:textSize="@dimen/msg_name"
+                  android:layout_alignTop="@+id/img_frame"
+                />
+        <TextView android:id="@+id/time"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textColor="@color/color_gray"
+                  android:text="2016-03-16"
+                  android:layout_alignParentRight="true"
+                  android:layout_marginRight="@dimen/msg_margin"
+                  android:textSize="@dimen/msg_time"
+                  android:layout_alignTop="@+id/img_frame"
+                />
+
+        <TextView android:id="@+id/msg_content"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textColor="@color/color_gray"
+                  android:text="最近怎么样?学习!最近怎么样?!最近怎么样?学习!"
+                  android:layout_toRightOf="@+id/img_frame"
+                  android:layout_marginBottom="4dp"
+                  android:textSize="@dimen/msg_time"
+                  android:layout_alignBottom="@id/img_frame"
+                />
+        <View android:layout_width="match_parent"
+              android:layout_height="@dimen/line"
+              android:background="@color/color_small_gray"
+              android:layout_below="@+id/img_frame"
+              android:layout_alignLeft="@+id/img_frame"
+              android:layout_marginRight="@dimen/msg_margin"
+
+                />
+
+    </RelativeLayout>
+</LinearLayout>

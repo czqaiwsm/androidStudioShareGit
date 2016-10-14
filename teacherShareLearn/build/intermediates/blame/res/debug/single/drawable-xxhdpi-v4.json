@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_svstatus_info.png",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\src\\main\\res\\drawable-xxhdpi\\ic_svstatus_info.png"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_svstatus_loading.png",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\src\\main\\res\\drawable-xxhdpi\\ic_svstatus_loading.png"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_svstatus_error.png",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\src\\main\\res\\drawable-xxhdpi\\ic_svstatus_error.png"
+    },
+    {
+        "merged": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_svstatus_success.png",
+        "source": "D:\\workSpace\\ASSpace\\KZGitApplication\\androidStudioShareGit\\teacherShareLearn\\src\\main\\res\\drawable-xxhdpi\\ic_svstatus_success.png"
+    }
+]
