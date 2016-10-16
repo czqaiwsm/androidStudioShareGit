@@ -5,17 +5,18 @@
              android:background="@color/white"
 
         >
-    <LinearLayout android:layout_width="match_parent"
+    <RelativeLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:orientation="vertical"
                   android:background="@color/white"
             >
-        <include layout="@layout/fragment_header"></include>
+        <include layout="@layout/fragment_header"
+            android:id="@+id/head"/>
         <com.share.learn.view.CustomListView
                 android:id="@+id/callListView"
-                android:layout_below="@+id/centerCity"
+                android:layout_below="@+id/head"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:divider="@null"
                 android:dividerHeight="0dip"
                 android:scrollbars="none"
@@ -23,7 +24,19 @@
                 android:background="@color/white"
                 android:listSelector="@drawable/item_click"
         />
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/addRessTv"
+            android:background="@color/login_normal"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:padding="@dimen/_10dp"
+            android:textColor="@color/white"
+            android:text="新增上课地址"/>
+    </RelativeLayout>
     <TextView android:id="@+id/noData"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
