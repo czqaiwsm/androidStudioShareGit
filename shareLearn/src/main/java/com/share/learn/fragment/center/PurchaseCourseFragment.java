@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.*;
 import android.view.View.OnClickListener;
@@ -23,15 +24,18 @@ import com.share.learn.activity.ChooseCityActivity;
 import com.share.learn.activity.center.DetailActivity;
 import com.share.learn.activity.center.RechargeActivity;
 import com.share.learn.activity.login.LoginActivity;
+import com.share.learn.activity.teacher.ChooseAddressActivity;
 import com.share.learn.bean.CourseInfo;
 import com.share.learn.bean.News;
 import com.share.learn.bean.PayCourseInfo;
 import com.share.learn.bean.PayInfo;
+import com.share.learn.bean.QueryClassInfo;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.HomePageBannerParse;
 import com.share.learn.parse.PayCourseInfoParse;
+import com.share.learn.parse.QueryClassParse;
 import com.share.learn.service.LocationUitl;
 import com.share.learn.utils.*;
 import com.share.learn.view.CustomListView;
@@ -62,8 +66,9 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
     private TextView favourable;//优惠金额
     private TextView truePay;
     private TextView login_pay;
-    private EditText address;
+    private TextView address;
     private RelativeLayout buy_layout;
+    private RelativeLayout addressRl;
 
 
     private CourseInfo courseInfo = null;
@@ -75,8 +80,9 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
     private int orderPay = 0;
 
     private int payType = 1;//1-支付宝，8-账户余额
-//    private PayPopupwidow payPopupwidow;
-   PayRequestUtils payRequestUtils = null;
+    private QueryClassInfo queryClassInfo = null;
+    //    private PayPopupwidow payPopupwidow;
+    private PayRequestUtils payRequestUtils = null;
 
     private CoursePopupWindow coursePopupWindow ;
 
@@ -124,8 +130,8 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         favourable = (TextView)v.findViewById(R.id.favourable);
         truePay = (TextView)v.findViewById(R.id.truePay);
         login_pay = (TextView)v.findViewById(R.id.login_text);
-        address = (EditText)v.findViewById(R.id.address);
-
+        address = (TextView)v.findViewById(R.id.address);
+        addressRl = (RelativeLayout)v.findViewById(R.id.addressRl);
         setTxtPaint(favourable);
         buy_layout = (RelativeLayout)v.findViewById(R.id.buy_layout);
 
@@ -133,6 +139,7 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
 
         login_pay.setOnClickListener(this);
         buy_layout.setOnClickListener(this);
+        addressRl.setOnClickListener(this);
     }
 
     private void setTxtPaint(TextView tv){
@@ -221,6 +228,12 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
                 payType = 8;
                 requestTask(1);
                 break;
+            case R.id.addressRl://地址管理
+                //todo 跳转到地址选择界面
+                Intent intent = new Intent(mActivity,ChooseAddressActivity.class);
+                intent.putExtra("joniorId",queryClassInfo.getAddressId());
+                startActivity(intent);
+                break;
         }
 
     }
@@ -236,6 +249,8 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         HttpURL url = new HttpURL();
         url.setmBaseUrl(URLConstants.BASE_URL);
         Map postParams = null;
+        RequestParam param = new RequestParam();
+
         switch (requestType){
             case 1:
                 postParams = RequestHelp.getBaseParaMap("PayCourseOrder");
@@ -247,16 +262,20 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
                 postParams.put("orderPrice", orderPay);
                 postParams.put("payPrice", trueMoey);
                 postParams.put("payCount", account.getTag().toString());
+                postParams.put("payCount", account.getTag().toString());
                 postParams.put("remark", address.getText().toString());
+                if(queryClassInfo == null || TextUtils.isEmpty(queryClassInfo.getAddressId())){
+                    SmartToast.showText("请选择上课地址");
+                    return;
+                }
+                postParams.put("addressId", queryClassInfo.getAddressId());
+                param.setmParserClassName(new PayCourseInfoParse());
                 break;
             case 2:
                 postParams = RequestHelp.getBaseParaMap("QueryClassInfo");
+                param.setmParserClassName(new QueryClassParse());
                 break;
         }
-
-        RequestParam param = new RequestParam();
-//        param.setmParserClassName(HomePageBannerParse.class.getName());
-        param.setmParserClassName(new PayCourseInfoParse());
         param.setmPostarams(postParams);
         param.setmHttpURL(url);
         param.setPostRequestMethod();
@@ -275,15 +294,18 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
                         PayUtil.alipay(mActivity,payInfo,null);
                     }else if(payType == 2){
                         PayUtil.wxPay(payInfo,null);
-
-//                PayUtil.walletPay(mActivity,payInfo,null);
                     }else if(payType == 8){
                         SmartToast.makeText(BaseApplication.getInstance(),"支付成功!",Toast.LENGTH_LONG).show();
-//                PayUtil.walletPay(mActivity,payInfo,null);
                     }
                 }
                 break;
             case 2:
+                queryClassInfo =((JsonParserBase<QueryClassInfo>)obj).getData();
+                if(queryClassInfo != null){
+                    if(TextUtils.isEmpty(queryClassInfo.getAddress())){
+                        address.setText(queryClassInfo.getAddress());
+                    }
+                }
                 break;
         }
     }
