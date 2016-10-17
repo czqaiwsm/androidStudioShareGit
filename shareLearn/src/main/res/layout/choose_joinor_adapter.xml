@@ -14,11 +14,13 @@
         <TextView android:id="@+id/jonior"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="一年级"
+                  android:layout_alignParentLeft="true"
                   android:layout_centerVertical="true"
                   android:textColor="@color/course_txt"
                   android:layout_marginLeft="@dimen/msg_margin"
-                  android:textSize="@dimen/teache_curose"/>
+                  android:textSize="@dimen/teache_curose"
+                  android:layout_toLeftOf="@+id/select_joinor"
+                  />
         <CheckBox android:id="@+id/select_joinor"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
@@ -35,11 +37,11 @@
         <View android:layout_width="match_parent"
               android:layout_height="0.5dp"
               android:background="@color/color_small_gray"
-              android:layout_below="@+id/select_joinor"
+              android:layout_below="@+id/jonior"
               android:layout_marginRight="@dimen/msg_margin"
               android:layout_marginLeft="@dimen/msg_margin"
-              android:layout_marginTop="20dp"
-              android:layout_marginBottom="20dp"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="10dp"
         />
     </RelativeLayout>
 </LinearLayout>

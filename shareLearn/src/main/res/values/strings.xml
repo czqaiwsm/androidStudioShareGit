@@ -127,6 +127,7 @@
     <string name="id_certify">身份认证</string>
     <string name="school_certify">学历认证</string>
     <string name="certify_seeting">认证设置</string>
+    <string name="choose_add">选择收货地址</string>
 
     <!-- 版本更新 -->
     <string name="update_notes">更新说明:</string>

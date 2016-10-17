@@ -1,64 +1,35 @@
 package com.share.learn.fragment.center;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.*;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import android.view.Gravity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.alipay.sdk.pay.demo.PayCallBack;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
-import com.nostra13.universalimageloader.core.ImageLoader;
+
 import com.share.learn.R;
-import com.share.learn.activity.ChooseCityActivity;
-import com.share.learn.activity.center.*;
-import com.share.learn.activity.teacher.ChooseJoinorActivity;
+import com.share.learn.activity.center.DetailActivity;
+import com.share.learn.activity.center.RechargeActivity;
+import com.share.learn.activity.center.WithdrawTypeActivity;
 import com.share.learn.bean.BalanceInfo;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseInfoParse;
-import com.share.learn.parse.BaseParse;
-import com.share.learn.parse.LoginInfoParse;
-import com.share.learn.utils.*;
-import com.share.learn.view.RoundImageView;
-import com.share.learn.view.UpdateAvatarPopupWindow;
-import com.volley.req.UserInfo;
+import com.share.learn.utils.SPUtils;
+import com.share.learn.utils.URLConstants;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
-import com.volley.req.net.RequestParamSub;
 import com.volley.req.parser.JsonParserBase;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Map;
-import java.util.UUID;
 
 /**
  *钱包

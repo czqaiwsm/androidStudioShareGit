@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.share.learn.R;
 import com.share.learn.activity.home.SearchActivity;
 import com.share.learn.activity.teacher.ChooseTeacherActivity;
@@ -24,6 +26,7 @@ import com.share.learn.parse.HomePageBannerParse;
 import com.share.learn.utils.AppLog;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.DensityUtils;
+import com.share.learn.utils.ImageLoaderUtil;
 import com.share.learn.utils.URLConstants;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
@@ -121,6 +124,10 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         head_seach_txt.setOnClickListener(this);
 //        initGuidBanner(view);
         requestTask();
+
+//        ImageLoader.getInstance().displayImage("http://120.25.171.4/learn-resource/rest/gW", chineseImg, ImageLoaderUtil.mHallIconLoaderOptions);
+//        ImageLoader.getInstance().displayImage("http://120.25.171.4/learn-resource/rest/h8", mathImg, ImageLoaderUtil.mHallIconLoaderOptions);
+
     }
 
     /**

@@ -143,6 +143,10 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.home.MsgChooseActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".activity.teacher.ChooseAddressActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.teacher.AddAddressActivity"
+                  android:screenOrientation="portrait"/>
 
 
 
