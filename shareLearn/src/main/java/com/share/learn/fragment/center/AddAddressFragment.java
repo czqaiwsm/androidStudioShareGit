@@ -1,33 +1,28 @@
 package com.share.learn.fragment.center;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.share.learn.R;
-import com.share.learn.activity.center.DetailActivity;
-import com.share.learn.activity.center.RechargeActivity;
-import com.share.learn.activity.center.WithdrawTypeActivity;
-import com.share.learn.bean.BalanceInfo;
+import com.share.learn.bean.AddressInfos;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseInfoParse;
-import com.share.learn.utils.SPUtils;
+import com.share.learn.utils.SmartToast;
 import com.share.learn.utils.URLConstants;
+import com.share.learn.view.AddPopwindow;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
-import com.volley.req.parser.JsonParserBase;
 
 import java.util.Map;
 
@@ -40,19 +35,25 @@ import java.util.Map;
 public class AddAddressFragment extends BaseFragment implements OnClickListener,RequsetListener{
 
     private RelativeLayout balance_layout;//余额
-    private RelativeLayout recharge_layout;//充值
     private RelativeLayout withDraw_layout;//提现
 
-    private TextView account_balance;
+    private EditText account_balance;
+    private TextView account_withDraw;
+    private AddPopwindow popwindow = null;
+    private int editType = 1;        //1.新增 2.修改
+    private AddressInfos.AddressInfo addressInfo = null;
 
 
-    private int recharge = 0x10;
-    private int withDraw = 0x11;
-    int balance = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getActivity().getIntent();
+        if(intent != null){
+            editType = intent.hasExtra("editType")?intent.getIntExtra("editType",1):1;
+            addressInfo = (AddressInfos.AddressInfo)(intent.hasExtra("address")?intent.getSerializableExtra("address"):null);
+
+        }
     }
 
     @Override
@@ -75,32 +76,32 @@ public class AddAddressFragment extends BaseFragment implements OnClickListener,
         setHeaderRightText("保存", new OnClickListener() {
             @Override
             public void onClick(View view) {
-                // 明细 todo
-//             toClassActivity(AddAddressFragment.this, DetailActivity.class.getName());
+                if(TextUtils.isEmpty(account_balance.getText()) || TextUtils.isEmpty(account_withDraw.getText())){
+                    SmartToast.showText("请完善地址信息!");
+                    return;
+                }
+                requestTask();
             }
         });
 
-        requestTask();
     }
 
     private void initView(View v) {
-//        mHeadImg = (RoundImageView) v.findViewById(R.id.account_head_img);
-//        photo_layout = (RelativeLayout) v.findViewById(R.id.photo_avatar_layout);
-//        name_layout = (RelativeLayout) v.findViewById(R.id.name_layout);
         balance_layout = (RelativeLayout) v.findViewById(R.id.balance_layout);
-        recharge_layout = (RelativeLayout) v.findViewById(R.id.recharge_layout);
         withDraw_layout = (RelativeLayout) v.findViewById(R.id.withDraw_layout);
-        account_balance = (TextView)v.findViewById(R.id.account_balance);
-//        name = (TextView)v.findViewById(R.id.nick_name);
-//        jonior = (TextView)v.findViewById(R.id.account_joniorname);
-//        city = (TextView)v.findViewById(R.id.account_cityname);
-
+        account_balance = (EditText)v.findViewById(R.id.account_balance);
+        account_withDraw = (TextView)v.findViewById(R.id.account_withDraw);
+        popwindow = new AddPopwindow(mActivity,this);
 
 //        photo_layout.setOnClickListener(this);
 //        name_layout.setOnClickListener(this);
         balance_layout.setOnClickListener(this);
-        recharge_layout.setOnClickListener(this);
         withDraw_layout.setOnClickListener(this);
+
+        if(addressInfo != null){
+            account_withDraw.setText(addressInfo.getAreaAddress());
+            account_balance.setText(addressInfo.getDetailAddress());
+        }
 
     }
 
@@ -110,32 +111,16 @@ public class AddAddressFragment extends BaseFragment implements OnClickListener,
     public void onClick(View v) {
         // TODO Auto-generated method stub
         switch (v.getId()) {
-            case R.id.balance_layout:// 余额
+            case R.id.withDraw_layout:// 地址
+                popwindow.payPopShow(v);
             break;
-            case R.id.recharge_layout:// 充值
-            intent = new Intent(mActivity, RechargeActivity.class);
-            startActivityForResult(intent,recharge);
-            break;
-            case R.id.withDraw_layout:// 提现
-            intent = new Intent(mActivity, WithdrawTypeActivity.class);
-                startActivityForResult(intent,withDraw);
-
-//            intent = new Intent(mActivity, WidthDrawActivity.class);
-//                intent.putExtra("balance",balance);
-//                intent.putExtra("releaName",releaName);
-//                intent.putExtra("account",account  );
-//                startActivityForResult(intent,withDraw);
-            break;
+            case R.id.sureBtn:
+                account_withDraw.setText(v.getTag().toString());
+                break;
         }
 
     }
 
-    /**
-     * 重新登录
-     */
-    private void reLogin() {
-//        startActivityForResult(new Intent(getActivity(), LoginActivity.class), Constant.RELOGIN);
-    }
 
     /**
      * 请求 用户信息
@@ -144,9 +129,12 @@ public class AddAddressFragment extends BaseFragment implements OnClickListener,
     public void requestData(int requestType) {
         HttpURL url = new HttpURL();
         url.setmBaseUrl(URLConstants.BASE_URL);
-        Map postParams = RequestHelp.getBaseParaMap("QueryBalance");
+        Map postParams = RequestHelp.getBaseParaMap("EditAddress");
+        postParams.put("editType",editType);   //操作类型，1.新增 2.修改
+        postParams.put("addressId",addressInfo == null?"":addressInfo.getAddressId());
+        postParams.put("areaAddress",account_withDraw.getText().toString());
+        postParams.put("detailAddress",account_balance.getText().toString());
         RequestParam param = new RequestParam();
-//        param.setmParserClassName(BaseParse.class.getName());
         param.setmParserClassName(new BaseInfoParse());
         param.setmPostarams(postParams);
         param.setmHttpURL(url);
@@ -156,20 +144,10 @@ public class AddAddressFragment extends BaseFragment implements OnClickListener,
 
     @Override
     public void handleRspSuccess(int requestType,Object obj)  {
-        BalanceInfo balanceInfo = (BalanceInfo) ((JsonParserBase)obj).getData();
-        if(balanceInfo == null) return;
-        balance  =  Integer.valueOf(balanceInfo.getBalance());
-        account_balance.setText(String.format(getResources().getString(R.string.balance_has),balance+"") );
-        SPUtils.saveObj2SP(mActivity,balanceInfo,"balanceInfo");
+        mActivity.setResult(100);
+        mActivity.finish();
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Activity.RESULT_OK){
-            requestTask();
-        }
-    }
 
     @Override
     public void onDestroyView() {

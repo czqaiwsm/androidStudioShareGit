@@ -90,5 +90,9 @@ public class ManageAddressAdapter extends BaseAdapter implements View.OnClickLis
    }
 
 
+    public List<AddressInfos.AddressInfo> getmItemList(){
+        return mItemList;
+    }
+
 
 }

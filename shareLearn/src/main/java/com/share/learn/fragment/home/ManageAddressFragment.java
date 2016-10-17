@@ -51,7 +51,6 @@ public class ManageAddressFragment extends BaseFragment implements RequsetListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = mActivity.getIntent();
     }
 
     @Override
@@ -65,7 +64,7 @@ public class ManageAddressFragment extends BaseFragment implements RequsetListen
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         initTitle();
-        requestData(0);
+        requestTask(0);
     }
 
     private void initTitle(){
@@ -148,11 +147,14 @@ public class ManageAddressFragment extends BaseFragment implements RequsetListen
                     noData.setText("暂无地址,请添加!");
                 }
                 break;
-            case 1:
-
-                break;
             case 2:
-
+                for (AddressInfos.AddressInfo add:adapter.getmItemList()){
+                    if(add.getAddressId().equals(addressInfo.getAddressId())){
+                        list.remove(add);
+                        adapter.notifyDataSetChanged();
+                        break;
+                    }
+                }
                 break;
         }
 
@@ -176,20 +178,34 @@ public class ManageAddressFragment extends BaseFragment implements RequsetListen
 
     @Override
     public void onClick(View v) {
+        Intent intent = null;
         switch (v.getId()){
             case R.id.delAddLl:
                 addressInfo = (AddressInfos.AddressInfo) v.getTag();
-                requestData(2);
+                requestTask(2);
                 break;
             case R.id.editAddLl:
+                addressInfo = (AddressInfos.AddressInfo) v.getTag();
+                intent = new Intent(mActivity, AddAddressActivity.class);
+                intent.putExtra("editType",2);
+                intent.putExtra("address",addressInfo);
+                startActivityForResult(intent,100);
 //                addressInfo = (AddressInfos.AddressInfo) v.getTag();
 //                requestData(1);
                 break;
             case R.id.addRessTv:
-                Intent intent = new Intent(mActivity, AddAddressActivity.class);
-                startActivity(intent);
+                intent = new Intent(mActivity, AddAddressActivity.class);
+                intent.putExtra("editType",1);
+                startActivityForResult(intent,100);
                 break;
 
         }
+    }
+
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == 100) requestTask(0);
     }
 }

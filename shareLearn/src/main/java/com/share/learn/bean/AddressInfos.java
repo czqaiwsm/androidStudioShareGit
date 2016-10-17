@@ -2,12 +2,13 @@ package com.share.learn.bean;
 
 import com.volley.req.parser.JsonParserBase;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by czq on 16/10/15.
  */
-public class AddressInfos  {
+public class AddressInfos  implements Serializable{
 
     public ArrayList<AddressInfo> getAddressList() {
         return addressList;
@@ -21,7 +22,7 @@ public class AddressInfos  {
 
 
 
-    public class AddressInfo{
+    public class AddressInfo implements Serializable{
         private String addressId;
         private String areaAddress;
         private String detailAddress;

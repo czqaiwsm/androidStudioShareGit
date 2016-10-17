@@ -12,6 +12,8 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="vertical"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/white_round_bg"
         >
 
         <TextView
@@ -30,11 +32,11 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_below="@+id/jonior"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="@dimen/msg_margin"
             android:layout_marginRight="@dimen/msg_margin"
-            android:layout_marginTop="10dp"
-            android:background="@color/color_small_gray"
+            android:layout_marginTop="5dp"
+            android:background="@color/color_gray2"
             />
 
         <LinearLayout
@@ -51,8 +53,8 @@
                 >
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@drawable/alipy"/>
 
                 <TextView
@@ -71,8 +73,8 @@
                 >
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@drawable/alipy"/>
 
                 <TextView
@@ -85,6 +87,5 @@
                     android:text="删除"/>
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 </LinearLayout>

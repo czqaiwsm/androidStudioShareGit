@@ -147,6 +147,8 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.teacher.AddAddressActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".activity.teacher.ManageAddressActivity"
+                  android:screenOrientation="portrait"/>
 
 
 

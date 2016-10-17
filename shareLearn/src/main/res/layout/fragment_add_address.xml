@@ -41,7 +41,6 @@
                     android:textSize="@dimen/pop_select_size"
                     android:layout_toRightOf="@+id/addTv"
                     android:layout_marginLeft="@dimen/_10dp"
-                    android:text="案发发发的"
                     />
             </RelativeLayout>
             <View android:layout_width="match_parent"
@@ -78,7 +77,6 @@
                     android:layout_toRightOf="@+id/accountTv"
                     android:layout_marginLeft="@dimen/_10dp"
                     android:background="@null"
-                    android:text="案发发发的"
                     />
             </RelativeLayout>
 
