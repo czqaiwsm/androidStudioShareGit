@@ -29,6 +29,7 @@ import com.share.learn.R;
 import com.share.learn.activity.ChooseCityActivity;
 import com.share.learn.activity.center.PCenterModifyInfoActivity;
 import com.share.learn.activity.teacher.ChooseJoinorActivity;
+import com.share.learn.activity.teacher.ManageAddressActivity;
 import com.share.learn.bean.DataMapConstants;
 import com.share.learn.bean.UploadBean;
 import com.share.learn.fragment.BaseFragment;
@@ -94,7 +95,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
     private RelativeLayout name_layout;
     private RelativeLayout sex_layout;
     private RelativeLayout jonior_layout;
-    private RelativeLayout city_layout;
+    private RelativeLayout addressRl;
     private RelativeLayout advice_layout;
 
 
@@ -152,7 +153,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
         name_layout = (RelativeLayout) v.findViewById(R.id.name_layout);
         sex_layout = (RelativeLayout) v.findViewById(R.id.sex_layout);
         jonior_layout = (RelativeLayout) v.findViewById(R.id.jonior_layout);
-        city_layout = (RelativeLayout) v.findViewById(R.id.city_layout);
+        addressRl = (RelativeLayout) v.findViewById(R.id.addressRl);
         advice_layout = (RelativeLayout) v.findViewById(R.id.advice_layout);
         name = (TextView) v.findViewById(R.id.nick_name);
         sexTxt = (TextView) v.findViewById(R.id.account_sexname);
@@ -164,6 +165,7 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
         name_layout.setOnClickListener(this);
         sex_layout.setOnClickListener(this);
         jonior_layout.setOnClickListener(this);
+        addressRl.setOnClickListener(this);
 
         name.setText(BaseApplication.getUserInfo().getNickName());
         sexTxt.setText(DataMapConstants.getGender().get(BaseApplication.getUserInfo().getGender()));
@@ -206,6 +208,10 @@ public class PCenterInfoFragmentUser extends BaseFragment implements OnClickList
             case R.id.city_layout:// 城市
                 intent = new Intent(mActivity, ChooseCityActivity.class);
                 startActivityForResult(intent, MODIFY_GENDER);
+                break;
+            case R.id.addressRl:// 地址管理
+                intent = new Intent(mActivity, ManageAddressActivity.class);
+                startActivity(intent);
                 break;
         }
 

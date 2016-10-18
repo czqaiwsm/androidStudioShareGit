@@ -79,7 +79,7 @@ public class ChooseAddressFragment extends BaseFragment implements RequsetListen
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mActivity,ManageAddressActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,100);
             }
         });
 
@@ -101,10 +101,9 @@ public class ChooseAddressFragment extends BaseFragment implements RequsetListen
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 Intent intent = new Intent();
                 idInfo  = (AddressInfos.AddressInfo) arg0.getItemAtPosition(arg2);
-                intent.putExtra(URLConstants.CHOOSE, idInfo.getAddressId());
+                intent.putExtra(URLConstants.CHOOSE, idInfo);
                 mActivity.setResult(Activity.RESULT_OK,intent);
                 mActivity.finish();
-
             }
         });
     }
@@ -152,5 +151,12 @@ public class ChooseAddressFragment extends BaseFragment implements RequsetListen
             }.getType());
         }
         return result;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == Activity.RESULT_OK){
+            requestTask(0);
+        }
     }
 }

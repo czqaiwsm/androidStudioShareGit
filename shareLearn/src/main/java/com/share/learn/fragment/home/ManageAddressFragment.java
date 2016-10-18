@@ -46,6 +46,7 @@ public class ManageAddressFragment extends BaseFragment implements RequsetListen
     private AddressInfos.AddressInfo addressInfo = null;
     private TextView noData ;
     private TextView addRessTv ;
+    private boolean isChange = false;
 
 
     @Override
@@ -69,7 +70,15 @@ public class ManageAddressFragment extends BaseFragment implements RequsetListen
 
     private void initTitle(){
         setTitleText("地址管理");
-        setLeftHeadIcon(0);
+        setLeftHeadIcon(0, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isChange){
+                    mActivity.setResult(Activity.RESULT_OK);
+                }
+                mActivity.finish();
+            }
+        });
     }
 
     private AddressInfos.AddressInfo idInfo = null;
@@ -150,7 +159,7 @@ public class ManageAddressFragment extends BaseFragment implements RequsetListen
             case 2:
                 for (AddressInfos.AddressInfo add:adapter.getmItemList()){
                     if(add.getAddressId().equals(addressInfo.getAddressId())){
-                        list.remove(add);
+                        adapter.getmItemList().remove(add);
                         adapter.notifyDataSetChanged();
                         break;
                     }
@@ -206,6 +215,10 @@ public class ManageAddressFragment extends BaseFragment implements RequsetListen
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode == 100) requestTask(0);
+        if(resultCode == 100){
+            requestTask(0);
+            isChange = true;
+        }
+
     }
 }

@@ -137,6 +137,10 @@ public class AddPopwindow implements View.OnClickListener, OnWheelChangedListene
         mViewProvince = (WheelView) view.findViewById(R.id.id_province);
         mViewCity = (WheelView) view.findViewById(R.id.id_city);
         mViewDistrict = (WheelView) view.findViewById(R.id.id_district);
+
+//        mViewProvince.setShadowColor(R.color.white_bg_home,R.color.white,R.color.white_bg_home);
+//        mViewCity.setShadowColor(R.color.white_bg_home,R.color.white,R.color.white_bg_home);
+//        mViewDistrict.setShadowColor(R.color.white_bg_home,R.color.white,R.color.white_bg_home);
         sureBtn = (Button)view.findViewById(R.id.sureBtn);
         sureBtn.setOnClickListener(this);
         // 添加change事件

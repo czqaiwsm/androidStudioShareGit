@@ -24,7 +24,6 @@ public class ManageAddressAdapter extends BaseAdapter implements View.OnClickLis
 
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
         return mItemList == null ? 0 : mItemList.size();
     }
 

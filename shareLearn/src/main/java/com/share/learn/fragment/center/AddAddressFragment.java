@@ -121,7 +121,6 @@ public class AddAddressFragment extends BaseFragment implements OnClickListener,
 
     }
 
-
     /**
      * 请求 用户信息
      */

@@ -25,6 +25,7 @@ import com.share.learn.activity.center.DetailActivity;
 import com.share.learn.activity.center.RechargeActivity;
 import com.share.learn.activity.login.LoginActivity;
 import com.share.learn.activity.teacher.ChooseAddressActivity;
+import com.share.learn.bean.AddressInfos;
 import com.share.learn.bean.CourseInfo;
 import com.share.learn.bean.News;
 import com.share.learn.bean.PayCourseInfo;
@@ -96,9 +97,7 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
                 courseInfo = (CourseInfo) bundle.getSerializable("course");
             }
         }
-
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -232,7 +231,7 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
                 //todo 跳转到地址选择界面
                 Intent intent = new Intent(mActivity,ChooseAddressActivity.class);
                 intent.putExtra("joniorId",queryClassInfo == null?"":queryClassInfo.getAddressId());
-                startActivity(intent);
+                startActivityForResult(intent,100);
                 break;
         }
 
@@ -261,7 +260,6 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
                 postParams.put("courseId", courseInfo.getCourseId());
                 postParams.put("orderPrice", orderPay);
                 postParams.put("payPrice", trueMoey);
-                postParams.put("payCount", account.getTag().toString());
                 postParams.put("payCount", account.getTag().toString());
                 postParams.put("remark", address.getText().toString());
                 if(queryClassInfo == null || TextUtils.isEmpty(queryClassInfo.getAddressId())){
@@ -412,4 +410,13 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == Activity.RESULT_OK){
+            AddressInfos.AddressInfo addressInfo = (AddressInfos.AddressInfo) data.getSerializableExtra(URLConstants.CHOOSE);
+            queryClassInfo = queryClassInfo == null? new QueryClassInfo():queryClassInfo;
+            queryClassInfo.setAddressId(addressInfo.getAddressId());
+            address.setText(addressInfo.getAreaAddress()+addressInfo.getDetailAddress());
+        }
+    }
 }
