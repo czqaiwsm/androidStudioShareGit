@@ -56,6 +56,7 @@
     <dimen name="dialog_padding_right">14.0dip</dimen>
     <dimen name="dialog_title">22dp</dimen>
     <dimen name="dialog_content">18dp</dimen>
+    <dimen name="dialog_content_size">15sp</dimen>
     <dimen name="no_data_txt">14sp</dimen>
 
     <!--teacher-->

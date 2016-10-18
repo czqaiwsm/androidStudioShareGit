@@ -24,6 +24,7 @@ public class UserInfo implements Serializable {
     private String xcode;//
     private String hcode;//地市
     private String hname;//地市
+    private Boolean payFlag ;//是否設置密碼
 
     public String getId() {
         return id;
@@ -151,5 +152,13 @@ public class UserInfo implements Serializable {
 
     public void setHname(String hname) {
         this.hname = hname;
+    }
+
+    public Boolean getPayFlag() {
+        return payFlag;
+    }
+
+    public void setPayFlag(Boolean payFlag) {
+        this.payFlag = payFlag;
     }
 }

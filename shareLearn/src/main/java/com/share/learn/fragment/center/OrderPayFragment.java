@@ -17,6 +17,7 @@ import com.share.learn.R;
 import com.share.learn.activity.center.OrderDetailActivity;
 import com.share.learn.activity.teacher.ChatMsgActivity;
 import com.share.learn.activity.teacher.EvaluateActivity;
+import com.share.learn.activity.teacher.SmallOrderActivity;
 import com.share.learn.adapter.OrderPayAdpter;
 import com.share.learn.bean.*;
 import com.share.learn.fragment.BaseFragment;
@@ -308,9 +309,15 @@ public class OrderPayFragment extends BaseFragment implements RequsetListener,Cu
     @Override
     public void onClick(final View v) {
         Intent intent = null;
-         orderInfo= list.get((Integer)v.getTag());
         switch (v.getId()){
+            case R.id.leftest_tv:
+                intent = new Intent(mActivity, SmallOrderActivity.class);
+                intent.putExtra("orderId",v.getTag().toString());
+                startActivity(intent);
+                break;
             case R.id.left_tv:
+                orderInfo= list.get((Integer)v.getTag());
+
                 if(flag == 1){//待支付(取消订单)
 //                    intent = new Intent(mActivity, ChatMsgActivity.class);
 //                    UserInfo userInfo = BaseApplication.getUserInfo();
@@ -339,6 +346,7 @@ public class OrderPayFragment extends BaseFragment implements RequsetListener,Cu
                 }
                 break;
             case R.id.right_tv:
+                orderInfo= list.get((Integer)v.getTag());
                 if(flag == 1){//待支付(立即支付)
                     PayInfo payInfo = new PayInfo(orderInfo.getOrderCode(),orderInfo.getPayPrice(),orderInfo.getCourseName(),orderInfo.getTeacherName());
                     payPopupwidow.payPopShow(customListView,payInfo);

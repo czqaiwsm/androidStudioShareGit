@@ -15,6 +15,7 @@ import com.share.learn.activity.center.ServiceProtocolActivity;
 import com.share.learn.activity.center.WidthDrawActivity;
 import com.share.learn.bean.UserInfo;
 import com.share.learn.fragment.BaseFragment;
+import com.share.learn.utils.AlertDialogUtils;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.URLConstants;
 
@@ -47,6 +48,7 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
 
 
     private int withDrawType = 1;//1-支付宝，2-微信，3-银行卡
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,29 +75,44 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
 
     }
 
-    private void initView(){
+    private void initView() {
         alipayLL.setOnClickListener(this);
         wxPaylipayLL.setOnClickListener(this);
         bankLL.setOnClickListener(this);
         rechargeQuery.setOnClickListener(this);
         withDrawType = getType();
+
+        if(!BaseApplication.getUserInfo().getPayFlag()){
+            AlertDialogUtils.displayMyAlertChoice(mActivity, "提示", "您还没设置支付密码,请去设置!", new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO: 16/10/19
+                }
+            }, new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.finish();
+                }
+            });
+        }
+
     }
 
-    private int getType(){
-        if(alipayBox.isChecked()){
+    private int getType() {
+        if (alipayBox.isChecked()) {
             return 1;
         }
-        if(wxPayBox.isChecked()){
+        if (wxPayBox.isChecked()) {
             return 2;
         }
-        if(bankBox.isChecked()){
+        if (bankBox.isChecked()) {
             return 3;
         }
 
         return 0;
     }
 
-    private void checkChange(CheckBox checkBox){
+    private void checkChange(CheckBox checkBox) {
         alipayBox.setChecked(false);
         wxPayBox.setChecked(false);
         bankBox.setChecked(false);
@@ -119,21 +136,21 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
                 break;
             case R.id.recharge_query://下一步
                 Intent intent = null;
-                if(bankBox.isChecked()){
+                if (bankBox.isChecked()) {
                     UserInfo userInfo = BaseApplication.getUserInfo();
                     BaseApplication application = BaseApplication.getInstance();
-                    String userId = userInfo != null?userInfo.getId():"";
+                    String userId = userInfo != null ? userInfo.getId() : "";
                     intent = new Intent(mActivity, ServiceProtocolActivity.class);
-                    intent.putExtra("title","提现到银行卡");
-                    intent.putExtra("url",URLConstants.BANK_WITHDRAW+"?userId="+userId+"&appVersion="+application.appVersion+"&clientType=3&accessToken="+BaseApplication.getMt_token()+"&deviceId="+BaseApplication.diviceId);
+                    intent.putExtra("title", "提现到银行卡");
+                    intent.putExtra("url", URLConstants.BANK_WITHDRAW + "?userId=" + userId + "&appVersion=" + application.appVersion + "&clientType=3&accessToken=" + BaseApplication.getMt_token() + "&deviceId=" + BaseApplication.diviceId);
                     mActivity.startActivity(intent);
-                }else {
+                } else {
                     intent = new Intent(mActivity, WidthDrawActivity.class);
-                    intent.putExtra("drawType",withDrawType);
+                    intent.putExtra("drawType", withDrawType);
 //                intent.putExtra("balance",balance);
 //                intent.putExtra("releaName",releaName);
 //                intent.putExtra("account",account  );
-                   startActivityForResult(intent,00);
+                    startActivityForResult(intent, 00);
                 }
                 getActivity().finish();
                 break;
