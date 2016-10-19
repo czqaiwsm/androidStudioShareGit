@@ -59,7 +59,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="35dp"
-                    android:background="@drawable/alipy"/>
+                    android:background="@drawable/address_edit"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="35dp"
-                    android:background="@drawable/alipy"/>
+                    android:background="@drawable/address_delete"/>
 
                 <TextView
                     android:layout_width="wrap_content"
