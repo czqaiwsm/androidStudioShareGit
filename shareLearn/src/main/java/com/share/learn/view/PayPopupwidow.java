@@ -1,19 +1,38 @@
 package com.share.learn.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import com.alipay.sdk.pay.demo.PayCallBack;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.google.gson.reflect.TypeToken;
 import com.share.learn.R;
+import com.share.learn.activity.teacher.SetPayPasswordActivity;
 import com.share.learn.bean.PageInfo;
 import com.share.learn.bean.PayInfo;
+import com.share.learn.help.RequestHelp;
+import com.share.learn.parse.BaseParse;
+import com.share.learn.utils.AlertDialogUtils;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.PayUtil;
+import com.share.learn.utils.SmartToast;
+import com.share.learn.utils.URLConstants;
+import com.share.learn.utils.WaitLayer;
+import com.volley.req.net.HttpURL;
+import com.volley.req.net.RequestManager;
+import com.volley.req.net.RequestParam;
+import com.volley.req.parser.JsonParserBase;
+import com.volley.req.parser.ParserUtil;
+
+import java.util.Map;
 
 /**
  * @desc 请用一句话描述此文件
@@ -28,7 +47,9 @@ public class PayPopupwidow implements View.OnClickListener{
     private View view;
     private PayInfo payInfo;
     private View.OnClickListener onClickListener;
-    private PayCallBack payCallBack ;
+    private PayCallBack payCallBack;
+    private String pass = "";
+
 
     public PayPopupwidow(Activity activit, View.OnClickListener onClickListener,PayCallBack payCallBack){
         this.payCallBack = payCallBack;
@@ -109,7 +130,25 @@ public class PayPopupwidow implements View.OnClickListener{
                 PayUtil.alipay(activity,payInfo,payCallBack);
                 break;
             case R.id.wallet://余额支付
-                PayUtil.walletPay(activity,payInfo,payCallBack);
+                if(!BaseApplication.getUserInfo().getPayFlag()){
+                    AlertDialogUtils.displayMyAlertChoice(activity, "提示", "您还没设置支付密码,请去设置!", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(activity, SetPayPasswordActivity.class);
+                            activity.startActivity(intent);
+                        }
+                    }, null);
+                }else {
+                    AlertDialogUtils.displayEditAlert(activity, "支付密码", "", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(!TextUtils.isEmpty((pass = view.getTag().toString())) ){
+                                validPayPassword(activity,pass);
+                            }
+                        }
+                    }, null);
+                }
+
                 break;
             case R.id.wxPay://微信支付
                 PayUtil.wxPay(payInfo,payCallBack);
@@ -128,7 +167,44 @@ public class PayPopupwidow implements View.OnClickListener{
         }
 
     }
+    public  void validPayPassword(Activity mActivity, String pass){
+        final WaitLayer waitLayer = new WaitLayer(mActivity, WaitLayer.DialogType.MODALESS);
+        waitLayer.show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                waitLayer.dismiss();
+            }
+        },20000);
+        HttpURL url = new HttpURL();
+        url.setmBaseUrl(URLConstants.BASE_URL);
+        RequestParam param = new RequestParam();
+        Map postParams = RequestHelp.getBaseParaMap("ValidPayPassword");
+        postParams.put("payPassword", pass);
+        param.setmParserClassName(new BaseParse());
+        param.setmPostarams(postParams);
+        param.setmHttpURL(url);
+        param.setPostRequestMethod();
+        RequestManager.getRequestData(mActivity, new Response.Listener<Object>() {
+            @Override
+            public void onResponse(Object o) {
+                waitLayer.dismiss();
+                JsonParserBase base = (JsonParserBase) o;
+                if(base.getRespCode().equalsIgnoreCase(URLConstants.SUCCESS_CODE)){
+                    PayUtil.walletPay(activity,payInfo,payCallBack);
+                }else {
+                    SmartToast.showText(base.getRespDesc());
 
+                }
+
+            }
+        },new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                waitLayer.dismiss();
+            }
+        }, param);
+    }
 
     public void setUnVisibleWallet(){
         view.findViewById(R.id.wallet).setVisibility(View.GONE);

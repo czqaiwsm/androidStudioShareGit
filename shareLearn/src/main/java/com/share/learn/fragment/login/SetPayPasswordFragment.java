@@ -4,41 +4,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.share.learn.R;
-import com.share.learn.activity.login.LoginActivity;
+import com.share.learn.activity.teacher.InputPayPasswordActivity;
 import com.share.learn.bean.VerifyCode;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
-import com.share.learn.parse.BaseParse;
 import com.share.learn.parse.VerifyCodeParse;
 import com.share.learn.utils.BaseApplication;
-import com.share.learn.utils.PhoneUitl;
-import com.share.learn.utils.SmartToast;
-import com.share.learn.utils.URLConstants;
-import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
 import com.volley.req.parser.JsonParserBase;
 
-import java.util.Map;
-
 public class SetPayPasswordFragment extends BaseFragment implements OnClickListener,RequsetListener {
 
-	private EditText forget_phone;
+	private TextView phoneNumTv;
 	private EditText forget_inputCode;
-	private EditText forget_pass;
 	private TextView forget_getCode;
 	private TextView forget_next;
 	private boolean isgetCode = true;
@@ -84,19 +74,21 @@ public class SetPayPasswordFragment extends BaseFragment implements OnClickListe
 	}
 
 	private void initTitleView() {
-		setTitleText(R.string.pcenter_forget_pass);
+		setTitleText(R.string.set_pay_pass);
 		setLeftHeadIcon(0);
 	}
 
 	private void initView(View view) {
-		forget_phone = (EditText) view.findViewById(R.id.forget_username);
+		phoneNumTv = (TextView) view.findViewById(R.id.phoneNumTv);
 		forget_inputCode = (EditText) view.findViewById(R.id.forget_passCode);
-		forget_pass = (EditText) view.findViewById(R.id.forget_pass);
 		forget_getCode = (TextView) view.findViewById(R.id.forget_getCode);
 		forget_next = (TextView) view.findViewById(R.id.forget_next);
 
 		forget_next.setOnClickListener(this);
 		forget_getCode.setOnClickListener(this);
+
+		phone = BaseApplication.getInstance().getUserInfo().getMobile();
+		phoneNumTv.setText(phone.substring(0,2)+"****"+phone.substring(phone.length()-4,phone.length()));
 	}
 
 
@@ -117,41 +109,24 @@ public class SetPayPasswordFragment extends BaseFragment implements OnClickListe
 	}
 
 	private void onJudge() {
-		if (TextUtils.isEmpty(forget_phone.getText().toString()+forget_inputCode.getText().toString()+forget_pass.getText().toString())) {
-			SmartToast.showText(BaseApplication.getInstance(), R.string.input_error);
-			return;
-		}
-		if (!forget_phone.getText().toString().equalsIgnoreCase(phone)) {
-			toasetUtil.showInfo("手机号不一致,请重新获取验证码!");
-			return;
-		}
 		if(verifyCode == null || !verifyCode.getSmsCode().equalsIgnoreCase(forget_inputCode.getText().toString())){
 			toasetUtil.showInfo("请输入正确的验证码!");
 			return;
 		}
-		requetType = 2;
-		requestTask();
+		Intent intent = new Intent(mActivity, InputPayPasswordActivity.class);
+		startActivity(intent);
+		mActivity.finish();
 	}
 
 	private void getCode() {
-		if (forget_phone.length() == 0) {
-			SmartToast.makeText(mActivity, R.string.input_error, Toast.LENGTH_SHORT).show();
-		} else {
-			if (!PhoneUitl.isPhone(forget_phone.getText().toString())) {
-				toasetUtil.showInfo(R.string.phone_error);
-				forget_phone.setText("");
-			} else {
 				forget_getCode.setEnabled(false);
 				MSG_TOTAL_TIME = 60;
 				Message message = new Message();
 				message.what = MSG_UPDATE_TIME;
 				timeHandler.sendMessage(message);
-				phone = forget_phone.getText().toString();
 				requetType = 1;
 				requestData(0);// ----------发送请求
 				forget_getCode.requestFocus();
-			}
-		}
 	}
 
 	// 验证码倒计时
@@ -159,12 +134,15 @@ public class SetPayPasswordFragment extends BaseFragment implements OnClickListe
 
 		@Override
 		public void handleMessage(Message msg) {
+			if(isDetached()) {
+				removeCallbacksAndMessages(null);
+				return;
+			}
 			switch (msg.what) {
 			case MSG_UPDATE_TIME:
 				MSG_TOTAL_TIME--;
 				if (MSG_TOTAL_TIME > 0) {
 					forget_getCode.setText(String.format(getResources().getString(R.string.has_minuter,MSG_TOTAL_TIME+"")));
-
 					forget_getCode.setText(MSG_TOTAL_TIME + " 秒");
 					Message message = obtainMessage();
 					message.what = MSG_UPDATE_TIME;
@@ -190,30 +168,10 @@ public class SetPayPasswordFragment extends BaseFragment implements OnClickListe
 		RequestParam param = null;
 		switch (requetType){
 			case 1:
-				param = RequestHelp.getVcodePara("VCode",forget_phone.getText().toString(),2);
-//				param.setmParserClassName(VerifyCodeParse.class.getName());
+				param = RequestHelp.getVcodePara("VCode",phone,6);
 				param.setmParserClassName(new  VerifyCodeParse());
 				break;
-			case 2://注册
-				HttpURL url = new HttpURL();
-				url.setmBaseUrl(URLConstants.BASE_URL);
-
-				Map postParams = RequestHelp.getBaseParaMap("UserFindPwd") ;
-
-				postParams.put("loginName", phone);
-				postParams.put("vcode",forget_inputCode.getText().toString());
-				postParams.put("sendId",verifyCode.getSendId());
-				postParams.put("password",forget_pass.getText().toString());
-//				postParams.put("vcode","123456");
-//				postParams.put("sendId",verifyCode.getSendId());
-//				postParams.put("sendId","111111");
-				param = new RequestParam();
-//				param.setmParserClassName(BaseParse.class.getName());
-				param.setmParserClassName(new BaseParse());
-				param.setmPostarams(postParams);
-				param.setmHttpURL(url);
-				param.setPostRequestMethod();
-				break;
+			
 		}
 		RequestManager.getRequestData(getActivity(), createReqSuccessListener(), createMyReqErrorListener(), param);
 	}
@@ -225,19 +183,11 @@ public class SetPayPasswordFragment extends BaseFragment implements OnClickListe
 		switch (requetType){
 			case 1:
 				MSG_TOTAL_TIME = -1;
-				phone = forget_phone.getText().toString();
 				JsonParserBase<VerifyCode> jsonParserBase1 = (JsonParserBase<VerifyCode>)obj;
 				verifyCode = jsonParserBase1.getData();
 //				forget_inputCode.setText(verifyCode !=null?verifyCode.getSmsCode():"");
 				toasetUtil.showInfo("信息已发送!");
 //				AlertDialogUtils.displayMyAlertChoice(mActivity,"验证码",verifyCode.getSmsCode()+"",null,null);
-				break;
-			case 2:
-//				toClassActivity(ForgetPasswordFragment.this, LoginActivity.class.getName());
-				Intent intent = new Intent(mActivity,LoginActivity.class);
-				startActivity(intent);
-				SmartToast.showText(mActivity,"修改成功");
-				mActivity.finish();
 				break;
 		}
 

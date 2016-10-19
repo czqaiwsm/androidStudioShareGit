@@ -10,9 +10,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.*;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import com.share.learn.R;
 
@@ -175,6 +178,66 @@ public class AlertDialogUtils {
         dialogWindow.setWindowAnimations(R.style.dialogWindowAnim);
         return builder;
     }
+
+
+
+    /**
+     * 供用户选择，然后触发事件的提示框
+     *
+     * @param context
+     * @param title           标题
+     * @param message         提示文本
+     * @param positionOnclick 确定按钮事件
+     * @param negativeOnclick 取消按钮事件
+     * @return
+     */
+    public static Dialog displayEditAlert(Context context, String title, String message, final View.OnClickListener positionOnclick,
+                                              final View.OnClickListener negativeOnclick) {
+
+        final Dialog builder = new Dialog(context, R.style.MyDialog);
+        builder.setCancelable(true);
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_style_et, null);
+        builder.setContentView(view);
+        TextView mTitle = (TextView) view.findViewById(R.id.dialog_title_et);
+        final EditText mContent = (EditText) view.findViewById(R.id.dialog_content_et);
+        Button mConfirm = (Button) view.findViewById(R.id.dialog_confirm_et);
+        Button mCancel = (Button) view.findViewById(R.id.dialog_cancel_et);
+        mTitle.setText(title);
+        mContent.setText(message);
+        mConfirm.setOnClickListener( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+
+                builder.dismiss();
+                v.setTag(mContent.getText().toString());
+                if(positionOnclick != null){
+                    positionOnclick.onClick(v);
+                }
+            }
+        });
+        mCancel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                builder.dismiss();
+                if(negativeOnclick != null){
+                    negativeOnclick.onClick(v);
+                }
+            }
+        });
+        Window dialogWindow = builder.getWindow();
+        WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+        dialogWindow.setGravity(Gravity.CENTER_VERTICAL);
+        lp.width =URLConstants.SCREENW / 5 * 4;
+        dialogWindow.setAttributes(lp);
+        dialogWindow.setWindowAnimations(R.style.dialogWindowAnim);
+        builder.show();
+        return builder;
+    }
+
 
     /**
      *

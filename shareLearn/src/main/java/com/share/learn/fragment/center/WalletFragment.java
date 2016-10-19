@@ -17,8 +17,11 @@ import com.share.learn.R;
 import com.share.learn.activity.center.DetailActivity;
 import com.share.learn.activity.center.RechargeActivity;
 import com.share.learn.activity.center.WithdrawTypeActivity;
+import com.share.learn.activity.teacher.InputPayPasswordActivity;
+import com.share.learn.activity.teacher.SetPayPasswordActivity;
 import com.share.learn.bean.BalanceInfo;
 import com.share.learn.fragment.BaseFragment;
+import com.share.learn.fragment.login.InputPayPasswordFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseInfoParse;
@@ -44,6 +47,7 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
     private RelativeLayout balance_layout;//余额
     private RelativeLayout recharge_layout;//充值
     private RelativeLayout withDraw_layout;//提现
+    private RelativeLayout setPayRl;//设置支付密码
 
     private TextView account_balance;
 //    private TextView name;
@@ -101,6 +105,7 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
         balance_layout = (RelativeLayout) v.findViewById(R.id.balance_layout);
         recharge_layout = (RelativeLayout) v.findViewById(R.id.recharge_layout);
         withDraw_layout = (RelativeLayout) v.findViewById(R.id.withDraw_layout);
+        setPayRl = (RelativeLayout) v.findViewById(R.id.setPayRl);
         account_balance = (TextView)v.findViewById(R.id.account_balance);
 //        name = (TextView)v.findViewById(R.id.nick_name);
 //        jonior = (TextView)v.findViewById(R.id.account_joniorname);
@@ -112,6 +117,7 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
         balance_layout.setOnClickListener(this);
         recharge_layout.setOnClickListener(this);
         withDraw_layout.setOnClickListener(this);
+        setPayRl.setOnClickListener(this);
 
     }
 
@@ -129,23 +135,14 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
             break;
             case R.id.withDraw_layout:// 提现
             intent = new Intent(mActivity, WithdrawTypeActivity.class);
-                startActivityForResult(intent,withDraw);
-
-//            intent = new Intent(mActivity, WidthDrawActivity.class);
-//                intent.putExtra("balance",balance);
-//                intent.putExtra("releaName",releaName);
-//                intent.putExtra("account",account  );
-//                startActivityForResult(intent,withDraw);
+            startActivityForResult(intent,withDraw);
             break;
+            case R.id.setPayRl:// 充值
+                intent = new Intent(mActivity, SetPayPasswordActivity.class);
+                startActivity(intent);
+                break;
         }
 
-    }
-
-    /**
-     * 重新登录
-     */
-    private void reLogin() {
-//        startActivityForResult(new Intent(getActivity(), LoginActivity.class), Constant.RELOGIN);
     }
 
     /**

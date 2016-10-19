@@ -24,6 +24,7 @@ import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.TeacherDetailParse;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.ImageLoaderUtil;
+import com.share.learn.utils.SmartToast;
 import com.share.learn.utils.URLConstants;
 import com.share.learn.view.CustomListView;
 import com.volley.req.net.HttpURL;
@@ -110,10 +111,9 @@ public class SmallOrderFragment extends BaseFragment implements View.OnClickList
             case 2:
                 postParams = RequestHelp.getBaseParaMap("FinishCourse");
                 postParams.put("orderId",orderId);
-                postParams.put("peroidId",peroidId);
+                postParams.put("periodId",peroidId);
                 param.setmParserClassName(this);
                 break;
-
         }
 //        param.setmParserClassName(TeacherDetailParse.class.getName());
         param.setmPostarams(postParams);
@@ -135,6 +135,7 @@ public class SmallOrderFragment extends BaseFragment implements View.OnClickList
                     if(peroidId.equals(smallOrder.getPeriodId()) && orderId.equals(smallOrder.getOrderId())){
                         smallOrder.setStatus("2");
                         adapter.notifyDataSetChanged();
+                        SmartToast.showText("订单已完成!");
                         break;
                     }
                 }
@@ -152,7 +153,7 @@ public class SmallOrderFragment extends BaseFragment implements View.OnClickList
                 String str = v.getTag().toString();
                 orderId = str.split(";")[0];
                 peroidId = str.split(";")[1];
-                requestData(2);
+                requestTask(2);
                 break;
         }
     }

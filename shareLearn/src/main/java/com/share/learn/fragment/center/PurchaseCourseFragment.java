@@ -25,6 +25,7 @@ import com.share.learn.activity.center.DetailActivity;
 import com.share.learn.activity.center.RechargeActivity;
 import com.share.learn.activity.login.LoginActivity;
 import com.share.learn.activity.teacher.ChooseAddressActivity;
+import com.share.learn.activity.teacher.SetPayPasswordActivity;
 import com.share.learn.bean.AddressInfos;
 import com.share.learn.bean.CourseInfo;
 import com.share.learn.bean.News;
@@ -34,6 +35,7 @@ import com.share.learn.bean.QueryClassInfo;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
+import com.share.learn.parse.BaseParse;
 import com.share.learn.parse.HomePageBannerParse;
 import com.share.learn.parse.PayCourseInfoParse;
 import com.share.learn.parse.QueryClassParse;
@@ -86,6 +88,7 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
     private PayRequestUtils payRequestUtils = null;
 
     private CoursePopupWindow coursePopupWindow ;
+    private String pass = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -196,7 +199,6 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         return cheapMone;
     }
 
-    private Intent intent ;
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
@@ -219,16 +221,33 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
                 payType = 1;
                 requestTask(1);
                 break;
-            case R.id.wxPay://余额支付
+            case R.id.wxPay://微信支付
                 payType = 2;
                 requestTask(1);
                 break;
             case R.id.wallet://余额支付
-                payType = 8;
-                requestTask(1);
+                payRequestUtils.dismissPup();
+                if(!BaseApplication.getUserInfo().getPayFlag()){
+                    AlertDialogUtils.displayMyAlertChoice(mActivity, "提示", "您还没设置支付密码,请去设置!", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(mActivity, SetPayPasswordActivity.class);
+                            startActivity(intent);
+                        }
+                    }, null);
+                    return;
+                }
+
+                AlertDialogUtils.displayEditAlert(mActivity, "支付密码", "", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(!TextUtils.isEmpty((pass = view.getTag().toString())) ){
+                            requestTask(3);
+                        }
+                    }
+                }, null);
                 break;
             case R.id.addressRl://地址管理
-                //todo 跳转到地址选择界面
                 Intent intent = new Intent(mActivity,ChooseAddressActivity.class);
                 intent.putExtra("joniorId",queryClassInfo == null?"":queryClassInfo.getAddressId());
                 startActivityForResult(intent,100);
@@ -273,6 +292,11 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
                 postParams = RequestHelp.getBaseParaMap("QueryClassInfo");
                 param.setmParserClassName(new QueryClassParse());
                 break;
+            case 3:
+                postParams = RequestHelp.getBaseParaMap("ValidPayPassword");
+                postParams.put("payPassword", pass);
+                param.setmParserClassName(new BaseParse());
+                break;
         }
         param.setmPostarams(postParams);
         param.setmHttpURL(url);
@@ -300,10 +324,14 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
             case 2:
                 queryClassInfo =((JsonParserBase<QueryClassInfo>)obj).getData();
                 if(queryClassInfo != null){
-                    if(TextUtils.isEmpty(queryClassInfo.getAddress())){
+                    if(!TextUtils.isEmpty(queryClassInfo.getAddress())){
                         address.setText(queryClassInfo.getAddress());
                     }
                 }
+                break;
+            case 3:
+                payType = 8;
+                requestTask(1);
                 break;
         }
     }
