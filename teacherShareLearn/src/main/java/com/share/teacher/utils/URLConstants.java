@@ -39,10 +39,8 @@ public class URLConstants {
 //    支付包、微信：http//www.ienjoystudy.cn:8080
 //    wap:http://www.ienjoystudy.cn:8080
 
-//    public static final String BASE_URL = "http://120.25.171.4/learn-interface/interface/api.action";//基础URL
-//    public static final String BASE_URL = "http://www.leishangnet.com/learn-teach/teach/api.action";//基础 teacher URL
-    public static final String BASE_DOMAIN = "http://www.leishangnet.com";
-//    public static final String BASE_DOMAIN_WAP = "http://www.ienjoystudy.cn";
+//    public static final String BASE_DOMAIN = "http://www.leishangnet.com";
+    public static final String BASE_DOMAIN = "http://www.ienjoystudy.cn:8080";
 
     public static final String BASE_URL = BASE_DOMAIN+"/learn-teach/teach/api.action";//基础 teacher URL
 

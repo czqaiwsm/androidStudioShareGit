@@ -19,6 +19,7 @@ import com.share.teacher.activity.center.RechargeActivity;
 import com.share.teacher.activity.center.ServiceProtocolActivity;
 import com.share.teacher.activity.center.WidthDrawActivity;
 import com.share.teacher.activity.center.WithdrawTypeActivity;
+import com.share.teacher.activity.teacher.SetPayPasswordActivity;
 import com.share.teacher.bean.BalanceInfo;
 import com.share.teacher.bean.UserInfo;
 import com.share.teacher.fragment.BaseFragment;
@@ -52,6 +53,7 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
     private RelativeLayout recharge_layout;//充值
     private RelativeLayout withDraw_layout;//提现
     private RelativeLayout withDrawDetail_layout;//收入明细
+    private RelativeLayout setPayRl;//设置支付密码
 
 
     private TextView account_balance;
@@ -105,11 +107,14 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
         recharge_layout = (RelativeLayout) v.findViewById(R.id.recharge_layout);
         withDraw_layout = (RelativeLayout) v.findViewById(R.id.withDraw_layout);
         withDrawDetail_layout = (RelativeLayout) v.findViewById(R.id.withDrawDetail_layout);
+        setPayRl = (RelativeLayout) v.findViewById(R.id.setPayRl);
+
         account_balance = (TextView)v.findViewById(R.id.account_balance);
         balance_layout.setOnClickListener(this);
         recharge_layout.setOnClickListener(this);
         withDraw_layout.setOnClickListener(this);
         withDrawDetail_layout.setOnClickListener(this);
+        setPayRl.setOnClickListener(this);
         recharge_layout.setVisibility(View.GONE);
 
     }
@@ -138,6 +143,10 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
                 intent.putExtra("title","收入明细");
                 intent.putExtra("url",URLConstants.WITHDRAW_DETAIL+"?userId="+userId+"&appVersion="+application.appVersion+"&clientType=3&accessToken="+BaseApplication.getMt_token()+"&deviceId="+BaseApplication.diviceId);
                 mActivity.startActivity(intent);
+                break;
+            case R.id.setPayRl:// 设置支付密码
+                intent = new Intent(mActivity, SetPayPasswordActivity.class);
+                startActivity(intent);
                 break;
         }
 

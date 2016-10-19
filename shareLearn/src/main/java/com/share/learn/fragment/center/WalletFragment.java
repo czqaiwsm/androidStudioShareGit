@@ -137,7 +137,7 @@ public class WalletFragment extends BaseFragment implements OnClickListener,Requ
             intent = new Intent(mActivity, WithdrawTypeActivity.class);
             startActivityForResult(intent,withDraw);
             break;
-            case R.id.setPayRl:// 充值
+            case R.id.setPayRl:// 设置支付密码
                 intent = new Intent(mActivity, SetPayPasswordActivity.class);
                 startActivity(intent);
                 break;
