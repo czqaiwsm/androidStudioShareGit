@@ -173,7 +173,6 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
             case R.id.recharge_query://下一步
                 Intent intent = null;
                 if (bankBox.isChecked()) {
-<<<<<<< HEAD
                     UserInfo userInfo = BaseApplication.getUserInfo();
                     BaseApplication application = BaseApplication.getInstance();
                     String userId = userInfo != null ? userInfo.getId() : "";
@@ -182,37 +181,7 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
                     intent.putExtra("url", URLConstants.BANK_WITHDRAW + "?userId=" + userId + "&appVersion=" + application.appVersion + "&clientType=3&accessToken=" + BaseApplication.getMt_token() + "&deviceId=" + BaseApplication.diviceId);
                     mActivity.startActivity(intent);
                     getActivity().finish();
-=======
 
-                    if(!BaseApplication.getUserInfo().getPayFlag()){
-                        AlertDialogUtils.displayMyAlertChoice(mActivity, "提示", "您还没设置支付密码,请去设置!", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                // TODO: 16/10/19
-                                Intent intent = new Intent(mActivity, SetPayPasswordActivity.class);
-                                startActivity(intent);
-                                mActivity.finish();
-                            }
-                        }, new OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                mActivity.finish();
-                            }
-                        });
-                        return;
-                    }
-
-                    AlertDialogUtils.displayEditAlert(mActivity, "支付密码", "", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if(!TextUtils.isEmpty((pass = view.getTag().toString())) ){
-                                requestTask(3);
-                            }
-                        }
-                    }, null);
-
-
->>>>>>> 333ae8737186e66fd61e0793447a89f861e26aec
                 } else {
 
                     if(!BaseApplication.getUserInfo().getPayFlag()){
