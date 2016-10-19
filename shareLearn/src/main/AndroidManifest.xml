@@ -149,6 +149,8 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.teacher.ManageAddressActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".activity.teacher.SmallOrderActivity"
+                  android:screenOrientation="portrait"/>
 
 
 

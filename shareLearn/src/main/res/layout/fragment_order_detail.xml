@@ -22,6 +22,7 @@
 
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/name_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,6 +58,7 @@
                     android:layout_marginLeft="@dimen/app_text_size_min"
                     android:background="@color/bg_main" />
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/sex_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -314,6 +316,8 @@
                             android:layout_weight="1"
 
             >
+
+
                 <TextView android:id="@+id/contact"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
@@ -324,6 +328,18 @@
                           android:textColor="@color/color_small_gray"
                           android:layout_marginTop="@dimen/_10dp"
                           android:background="@drawable/feed_back_select"
+                />
+                <TextView android:id="@+id/orderDetailTv"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="订单详情"
+                          android:textSize="18sp"
+                          android:layout_marginLeft="40dp"
+                          android:padding="3dp"
+                          android:textColor="@color/color_small_gray"
+                          android:layout_marginTop="@dimen/_10dp"
+                          android:background="@drawable/feed_back_select"
+                          android:layout_centerHorizontal="true"
                 />
                 <TextView android:id="@+id/buy"
                           android:layout_width="wrap_content"

@@ -89,6 +89,7 @@ public class OrderPayAdpter extends BaseAdapter {
 
             holder.left_tv.setOnClickListener(listener);
             holder.right_tv.setOnClickListener(listener);
+            holder.leftest_tv.setOnClickListener(listener);
 
             holder.left_tv.setTag(position);
             holder.right_tv.setTag(position);
@@ -106,8 +107,11 @@ public class OrderPayAdpter extends BaseAdapter {
                     statuStr = "已支付";
                     holder.right_tv.setVisibility(View.VISIBLE);
                     holder.left_tv.setVisibility(View.VISIBLE);
+                    holder.leftest_tv.setVisibility(View.VISIBLE);
+                    holder.leftest_tv.setTag(message.getOrderId());
                     holder.right_tv.setText(mContext.getResources().getString(R.string.feed_money));
                     holder.left_tv.setText("完成订单");
+                    holder.leftest_tv.setText("订单明细");
                     holder.right_tv.setClickable(true);
 
                     //0-正常 1-退款中 2-退款完成
@@ -159,6 +163,8 @@ public class OrderPayAdpter extends BaseAdapter {
         TextView timeDetail;
         @Bind(R.id.left_tv)
         TextView left_tv;
+        @Bind(R.id.leftest_tv)
+        TextView leftest_tv;
         @Bind(R.id.right_tv)
         TextView right_tv;
 

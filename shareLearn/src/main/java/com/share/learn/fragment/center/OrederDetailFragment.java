@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.share.learn.R;
 import com.share.learn.activity.teacher.ChatMsgActivity;
 import com.share.learn.activity.teacher.EvaluateActivity;
+import com.share.learn.activity.teacher.SmallOrderActivity;
 import com.share.learn.bean.*;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
@@ -81,20 +82,21 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
     TextView contact;
     @Bind(R.id.buy)
     TextView buy;
+    @Bind(R.id.orderDetailTv)
+    TextView orderDetailTv;
     @Bind(R.id.scrollview)
     ScrollView scrollview;
     @Bind(R.id.container)
     LinearLayout container;
 
 
-//    private String orderId = "";
-//    private String orderStatus = "";
-//    private String refundSatus = "";
     private OrderDetailInfo orderDetailInfo ;
 
     private OrderInfo orderInfo = null;
     private int flag = 0 ;//1 待支付\2 已支付\ 3 已取消\ 4 已完成
     private PayPopupwidow payPopupwidow;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -122,6 +124,7 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
         setLoadingDilog(WaitLayer.DialogType.NOT_NOMAL);
         initTitleView();
         payPopupwidow = new PayPopupwidow(mActivity,null,this);
+        orderDetailTv.setOnClickListener(this);
         setStatue();
         requestTask(0);
     }
@@ -263,6 +266,11 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
                     intent.putExtra("bundle",bundle);
                     startActivityForResult(intent,200);
                 }
+                break;
+            case R.id.orderDetailTv:
+                intent = new Intent(mActivity, SmallOrderActivity.class);
+                intent.putExtra("orderId", orderInfo.getOrderId());
+                startActivity(intent);
                 break;
 
         }

@@ -14,7 +14,7 @@
             android:gravity="center"
             android:padding="10dip"
             android:textColor="@color/TextColorBlack"
-            android:textSize="@dimen/dialog_title"/>
+            android:textSize="16sp"/>
 
     <TextView
             android:id="@+id/dialog_content"
@@ -24,7 +24,7 @@
             android:gravity="left|top"
             android:padding="10dip"
             android:textColor="@color/TextColorBlack"
-            android:textSize="@dimen/dialog_content"/>
+            android:textSize="@dimen/dialog_content_size"/>
 
     <ImageView
             android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/dialog_left_button_click"
                 android:text="@string/confirm"
-                android:textSize="@dimen/app_text_size_first"
+                android:textSize="@dimen/dialog_content_size"
                 android:textColor="@color/login_focus"/>
 
         <ImageView
@@ -63,7 +63,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/dialog_right_button_click"
                 android:text="@string/giveup"
-                android:textSize="@dimen/app_text_size_first"
+                android:textSize="@dimen/dialog_content_size"
                 android:textColor="@color/login_focus"/>
     </LinearLayout>
 
