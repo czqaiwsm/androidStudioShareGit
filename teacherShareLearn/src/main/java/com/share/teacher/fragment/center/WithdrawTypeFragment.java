@@ -131,6 +131,7 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
                 Intent intent = null;
                 if (bankBox.isChecked()) {
 
+<<<<<<< HEAD
                     UserInfo userInfo = BaseApplication.getUserInfo();
                     BaseApplication application = BaseApplication.getInstance();
                     String userId = userInfo != null ? userInfo.getId() : "";
@@ -145,6 +146,8 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
 
                 } else {
 
+=======
+>>>>>>> 333ae8737186e66fd61e0793447a89f861e26aec
                     if(!BaseApplication.getUserInfo().getPayFlag()){
                         AlertDialogUtils.displayMyAlertChoice(mActivity, "提示", "您还没设置支付密码,请去设置!", new View.OnClickListener() {
                             @Override
@@ -152,6 +155,7 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
                                 // TODO: 16/10/19
                                 Intent intent = new Intent(mActivity, SetPayPasswordActivity.class);
                                 startActivity(intent);
+<<<<<<< HEAD
                             }
                         }, null);
                         return;
@@ -168,6 +172,35 @@ public class WithdrawTypeFragment extends BaseFragment implements OnClickListene
 
                     intent = new Intent(mActivity, WidthDrawActivity.class);
                     intent.putExtra("drawType", withDrawType);
+=======
+                                mActivity.finish();
+                            }
+                        }, new OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mActivity.finish();
+                            }
+                        });
+                        return;
+                    }
+
+                    AlertDialogUtils.displayEditAlert(mActivity, "支付密码", "", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(!TextUtils.isEmpty((pass = view.getTag().toString())) ){
+                                requestTask(3);
+                            }
+                        }
+                    }, null);
+
+
+                } else {
+                    intent = new Intent(mActivity, WidthDrawActivity.class);
+                    intent.putExtra("drawType", withDrawType);
+//                intent.putExtra("balance",balance);
+//                intent.putExtra("releaName",releaName);
+//                intent.putExtra("account",account  );
+>>>>>>> 333ae8737186e66fd61e0793447a89f861e26aec
                     startActivityForResult(intent, 00);
                     getActivity().finish();
                 }
