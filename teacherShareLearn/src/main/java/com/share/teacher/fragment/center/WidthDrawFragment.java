@@ -48,6 +48,8 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
     EditText alipayAccount;
     @Bind(R.id.alipayName)
     EditText alipayName;
+    @Bind(R.id.passEt)
+    EditText passEt;
     @Bind(R.id.recharge_query)
     TextView rechargeQuery;
 
@@ -147,6 +149,9 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
 //                    toasetUtil.showInfo("请输入提现金额!");
                     SmartToast.showText("请输入提现金额!");
                 }else
+                if (TextUtils.isEmpty(passEt.getText().toString())) {
+                    SmartToast.showText("请输入支付密码!");
+                }else
                 if (TextUtils.isEmpty(register_passCode.getText().toString()) || verifyCode==null) {
 //                    toasetUtil.showInfo("获取验证码!");
                     SmartToast.showText("获取验证码!");
@@ -192,6 +197,7 @@ public class WidthDrawFragment extends BaseFragment implements OnClickListener, 
                 postParams.put("realName", alipayName.getText().toString());
                 postParams.put("account", alipayAccount.getText().toString());
                 postParams.put("price", drawMoney.getText().toString());
+                postParams.put("payPassword", passEt.getText().toString());
                 postParams.put("accountType",drawType);
                 param.setmParserClassName(new BaseParse());
                 param.setmPostarams(postParams);

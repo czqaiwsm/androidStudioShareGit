@@ -148,6 +148,10 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.center.WithdrawTypeActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".activity.teacher.SetPayPasswordActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.teacher.InputPayPasswordActivity"
+                  android:screenOrientation="portrait"/>
 
 
 

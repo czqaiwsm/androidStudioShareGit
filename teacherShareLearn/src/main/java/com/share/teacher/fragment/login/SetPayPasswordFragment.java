@@ -1,4 +1,4 @@
-package com.share.learn.fragment.login;
+package com.share.teacher.fragment.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +13,14 @@ import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.share.learn.R;
-import com.share.learn.activity.teacher.InputPayPasswordActivity;
-import com.share.learn.bean.VerifyCode;
-import com.share.learn.fragment.BaseFragment;
-import com.share.learn.help.RequestHelp;
-import com.share.learn.help.RequsetListener;
-import com.share.learn.parse.VerifyCodeParse;
-import com.share.learn.utils.BaseApplication;
+import com.share.teacher.R;
+import com.share.teacher.activity.teacher.InputPayPasswordActivity;
+import com.share.teacher.bean.VerifyCode;
+import com.share.teacher.fragment.BaseFragment;
+import com.share.teacher.help.RequestHelp;
+import com.share.teacher.help.RequsetListener;
+import com.share.teacher.parse.VerifyCodeParse;
+import com.share.teacher.utils.BaseApplication;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
 import com.volley.req.parser.JsonParserBase;
@@ -169,7 +169,7 @@ public class SetPayPasswordFragment extends BaseFragment implements OnClickListe
 		switch (requetType){
 			case 1:
 				param = RequestHelp.getVcodePara("VCode",phone,6);
-				param.setmParserClassName(new  VerifyCodeParse());
+				param.setmParserClassName(new VerifyCodeParse());
 				break;
 			
 		}
