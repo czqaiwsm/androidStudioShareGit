@@ -86,6 +86,22 @@
                 android:singleLine="true"
                 android:inputType="number"
                  />
+            <EditText
+                android:id="@+id/passEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingLeft="4dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/color_small_gray"
+                android:textSize="@dimen/app_text_size_first"
+                android:background="@drawable/recharge_shape"
+                android:maxLines="1"
+                android:hint="请输入支付密码"
+                android:singleLine="true"
+                android:inputType="number"
+                 />
         </LinearLayout>
 
     <LinearLayout
