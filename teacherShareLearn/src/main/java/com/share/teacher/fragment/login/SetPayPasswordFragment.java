@@ -88,7 +88,7 @@ public class SetPayPasswordFragment extends BaseFragment implements OnClickListe
 		forget_getCode.setOnClickListener(this);
 
 		phone = BaseApplication.getInstance().getUserInfo().getMobile();
-		phoneNumTv.setText(phone.substring(0,2)+"****"+phone.substring(phone.length()-4,phone.length()));
+		phoneNumTv.setText(phone.substring(0,3)+"****"+phone.substring(phone.length()-4,phone.length()));
 	}
 
 
