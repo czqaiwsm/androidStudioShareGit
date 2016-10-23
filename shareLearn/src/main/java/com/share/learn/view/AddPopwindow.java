@@ -218,6 +218,9 @@ public class AddPopwindow implements View.OnClickListener, OnWheelChangedListene
         }
         mViewDistrict.setViewAdapter(new ArrayWheelAdapter<String>(this.activity, areas));
         mViewDistrict.setCurrentItem(0);
+
+        mCurrentDistrictName = mDistrictDatasMap.get(mCurrentCityName)[0];
+        mCurrentZipCode = mZipcodeDatasMap.get(mCurrentDistrictName);
     }
 
     /**

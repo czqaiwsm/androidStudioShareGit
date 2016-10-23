@@ -18,7 +18,7 @@ public class UserInfo implements Serializable {
     private String introduction	;//简介
     private String gender	    ;//性别
     private String city	    ;//城市
-    private Boolean payFlag ;//是否設置密碼
+    private String payFlag = "0";//是否設置密碼
 
 
     public String getNickName() {
@@ -94,10 +94,14 @@ public class UserInfo implements Serializable {
     }
 
     public Boolean getPayFlag() {
-        return payFlag;
+        return "1".equals(this.payFlag);
     }
 
     public void setPayFlag(Boolean payFlag) {
-        this.payFlag = payFlag;
+        if(true){
+            this.payFlag = "1";
+        }else {
+            this.payFlag = "0";
+        }
     }
 }

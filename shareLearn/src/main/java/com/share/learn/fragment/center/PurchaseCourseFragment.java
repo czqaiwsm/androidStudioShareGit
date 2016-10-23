@@ -99,6 +99,9 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
             if(bundle != null ){
                 courseInfo = (CourseInfo) bundle.getSerializable("course");
             }
+
+//            address
+            queryClassInfo = (QueryClassInfo) intent.getSerializableExtra("address");
         }
     }
 
@@ -116,7 +119,7 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         iniData();
         setLoadingDilog(WaitLayer.DialogType.MODALESS);
         payRequestUtils = new PayRequestUtils(this,courseInfo,null,this);
-        requestTask(2);
+//        requestTask(2);
     }
 
     private void initTitleView() {
@@ -142,6 +145,8 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         login_pay.setOnClickListener(this);
         buy_layout.setOnClickListener(this);
         addressRl.setOnClickListener(this);
+
+        address.setText(queryClassInfo.getAddress());
     }
 
     private void setTxtPaint(TextView tv){
@@ -163,7 +168,7 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         couseName.setText(courseInfo.getCourseName());
         price.setText(String.format(getResources().getString(R.string.price,courseInfo.getPrice())));
 
-        address.setText(BaseApplication.getInstance().location[0]);
+//        address.setText(BaseApplication.getInstance().location[0]);
 
 //        favourable.setText( String.format(getResources().getString(R.string.balance_has,getDiscontPrice((Integer)account.getTag()))));
         favourable.setText( String.format(getResources().getString(R.string.balance_has,priceMoney*((Integer)account.getTag()))));

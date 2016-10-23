@@ -84,6 +84,12 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
     TextView buy;
     @Bind(R.id.orderDetailTv)
     TextView orderDetailTv;
+    @Bind(R.id.teacherNametv)
+    TextView teacherNametv;
+    @Bind(R.id.courseNaemTv)
+    TextView courseNaemTv;
+    @Bind(R.id.timeTv)
+    TextView timeTv;
     @Bind(R.id.scrollview)
     ScrollView scrollview;
     @Bind(R.id.container)
@@ -150,12 +156,12 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
                 postParams = RequestHelp.getBaseParaMap("OrderDetail");
                 postParams.put("orderId",orderInfo.getOrderId());
                 param.setmParserClassName(new OrderDetailBeanParse());
-
                 break;
             case 2://取消订单
                 postParams = RequestHelp.getBaseParaMap("CancelOrder");
                 postParams.put("orderId",orderInfo.getOrderId());
                 param.setmParserClassName(new BaseParse());
+                break;
             case 3://确认订单
                 postParams = RequestHelp.getBaseParaMap("ConfirmOrder");
                 postParams.put("orderId",orderInfo.getOrderId());
@@ -194,6 +200,9 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
                         accountDuration.setText((orderDetailInfo.getPayCount()*2)+"");
                         address.setText(orderDetailInfo.getRemark());
                         grade.setText(orderDetailInfo.getGradeName());
+                        teacherNametv.setText(orderDetailInfo.getTeacherName());
+                        courseNaemTv.setText(orderDetailInfo.getCourseName());
+                        timeTv.setText(orderDetailInfo.getPayCount()+"次");
                         contact.setOnClickListener(this);
                         buy.setOnClickListener(this);
                         setStatue();

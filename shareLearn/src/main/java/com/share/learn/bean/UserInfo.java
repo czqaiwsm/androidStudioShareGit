@@ -24,7 +24,7 @@ public class UserInfo implements Serializable {
     private String xcode;//
     private String hcode;//地市
     private String hname;//地市
-    private Boolean payFlag ;//是否設置密碼
+    private String payFlag = "0";//是否設置密碼
 
     public String getId() {
         return id;
@@ -155,10 +155,14 @@ public class UserInfo implements Serializable {
     }
 
     public Boolean getPayFlag() {
-        return payFlag;
+        return "1".equals(this.payFlag);
     }
 
     public void setPayFlag(Boolean payFlag) {
-        this.payFlag = payFlag;
+        if(true){
+            this.payFlag = "1";
+        }else {
+            this.payFlag = "0";
+        }
     }
 }

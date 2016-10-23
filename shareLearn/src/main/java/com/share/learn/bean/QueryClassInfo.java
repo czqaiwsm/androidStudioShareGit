@@ -2,11 +2,13 @@ package com.share.learn.bean;
 
 import android.widget.TextView;
 
+import java.io.Serializable;
+
 /**
  * Created by czq on 16/10/15.
  * 购买课程地址信息
  */
-public class QueryClassInfo {
+public class QueryClassInfo implements Serializable {
 
     private String address;
     private String studentName;

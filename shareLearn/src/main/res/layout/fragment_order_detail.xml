@@ -1,43 +1,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical" >
+              android:id="@+id/container"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
 
-    <include layout="@layout/fragment_header" />
+    <include layout="@layout/fragment_header"/>
 
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_bg_home"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
         <LinearLayout
 
-                android:layout_width="match_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
 
             <RelativeLayout
-                android:visibility="gone"
                 android:id="@+id/name_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/item_click"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:layout_marginTop="20dp"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min"
+                android:visibility="gone">
+
                 <TextView
                     android:id="@+id/nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/teach_font_size" />
+                    android:textSize="@dimen/teach_font_size"/>
+
                 <TextView
                     android:id="@+id/courseName"
                     android:layout_width="wrap_content"
@@ -48,31 +50,34 @@
                     android:gravity="center_vertical|right"
                     android:singleLine="true"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/teach_font_size" />
+                    android:textSize="@dimen/teach_font_size"/>
 
             </RelativeLayout>
+
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginRight="@dimen/app_text_size_min"
-                    android:layout_marginLeft="@dimen/app_text_size_min"
-                    android:background="@color/bg_main" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
+
             <RelativeLayout
-                android:visibility="gone"
                 android:id="@+id/sex_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/item_click"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min"
+                android:visibility="gone">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="总课时"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/teach_font_size" />
+                    android:textSize="@dimen/teach_font_size"/>
 
                 <TextView
                     android:id="@+id/account_duration"
@@ -89,11 +94,12 @@
             </RelativeLayout>
 
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginRight="@dimen/app_text_size_min"
-                    android:layout_marginLeft="@dimen/app_text_size_min"
-                    android:background="@color/bg_main" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
+
             <RelativeLayout
                 android:id="@+id/address_layout"
                 android:layout_width="match_parent"
@@ -101,17 +107,19 @@
                 android:background="@drawable/item_click"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min"
+                android:visibility="gone">
+
                 <TextView
                     android:id="@+id/left_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
-                    android:text="地址    "
+                    android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/address"
+                    android:text="地址    "
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/teach_font_size" />
+                    android:textSize="@dimen/teach_font_size"/>
 
                 <TextView
                     android:id="@+id/address"
@@ -119,21 +127,105 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:maxWidth="260dp"
                     android:drawablePadding="@dimen/app_text_size_min"
                     android:gravity="center_vertical"
-                    android:textColor="@color/color_small_gray"
                     android:lineSpacingExtra="2dp"
+                    android:maxWidth="260dp"
+                    android:textColor="@color/color_small_gray"
                     android:textSize="@dimen/teach_font_size"
                     />
             </RelativeLayout>
 
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginRight="@dimen/app_text_size_min"
-                    android:layout_marginLeft="@dimen/app_text_size_min"
-                    android:background="@color/bg_main" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
+
+
+            <RelativeLayout
+                android:id="@+id/teacherNameLl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/app_text_size_min">
+
+                <TextView
+                    android:id="@+id/teacherName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/teacherNametv"
+                    android:text="任课老师"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"/>
+
+                <TextView
+                    android:id="@+id/teacherNametv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/app_text_size_min"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="2dp"
+                    android:maxWidth="260dp"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/app_text_size_min">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/courseNaemTv"
+                    android:text="课程名称"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"/>
+
+                <TextView
+                    android:id="@+id/courseNaemTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/app_text_size_min"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="2dp"
+                    android:maxWidth="260dp"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
+
             <RelativeLayout
                 android:id="@+id/grade_layout"
                 android:layout_width="match_parent"
@@ -141,14 +233,15 @@
                 android:background="@drawable/item_click"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="年级"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/teach_font_size" />
+                    android:textSize="@dimen/teach_font_size"/>
 
                 <TextView
                     android:id="@+id/grade"
@@ -165,11 +258,48 @@
             </RelativeLayout>
 
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginRight="@dimen/app_text_size_min"
-                    android:layout_marginLeft="@dimen/app_text_size_min"
-                    android:background="@color/bg_main" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/app_text_size_min">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="上课次数"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"/>
+
+                <TextView
+                    android:id="@+id/timeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/app_text_size_min"
+                    android:gravity="center_vertical|right"
+                    android:singleLine="true"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
+
             <RelativeLayout
                 android:id="@+id/jonior_layout"
                 android:layout_width="match_parent"
@@ -177,15 +307,17 @@
                 android:background="@drawable/item_click"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
-                        android:id="@+id/time"
+                    android:id="@+id/time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="购买时间"
+                    android:text="支付时间"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/teach_font_size" />
+                    android:textSize="@dimen/teach_font_size"/>
+
                 <TextView
                     android:id="@+id/date_time"
                     android:layout_width="wrap_content"
@@ -199,28 +331,32 @@
                     android:textSize="@dimen/teach_font_size"
                     />
             </RelativeLayout>
+
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginRight="@dimen/app_text_size_min"
-                    android:layout_marginLeft="@dimen/app_text_size_min"
-                    android:background="@color/bg_main" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
+
             <RelativeLayout
-                    android:layout_marginTop="20dp"
                 android:id="@+id/city_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/item_click"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="订单金额"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/teach_font_size" />
+                    android:textSize="@dimen/teach_font_size"/>
+
                 <TextView
                     android:id="@+id/orderPrice"
                     android:layout_width="wrap_content"
@@ -234,125 +370,139 @@
                     android:textSize="@dimen/teach_font_size"
                     />
             </RelativeLayout>
+
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginRight="@dimen/app_text_size_min"
-                    android:layout_marginLeft="@dimen/app_text_size_min"
-                    android:background="@color/bg_main" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
 
             <RelativeLayout
-                    android:layout_width="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/app_text_size_min">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/item_click"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:padding="@dimen/app_text_size_min" >
+                    android:layout_centerVertical="true"
+                    android:text="优惠金额"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"/>
+
                 <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="优惠金额"
-                        android:textColor="@color/color_small_gray"
-                        android:textSize="@dimen/teach_font_size" />
-                <TextView
-                        android:id="@+id/discount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:drawablePadding="@dimen/app_text_size_min"
-                        android:gravity="center_vertical|right"
-                        android:singleLine="true"
-                        android:textColor="@color/color_small_gray"
-                        android:textSize="@dimen/teach_font_size"
-                        />
+                    android:id="@+id/discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/app_text_size_min"
+                    android:gravity="center_vertical|right"
+                    android:singleLine="true"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"
+                    />
             </RelativeLayout>
+
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginRight="@dimen/app_text_size_min"
-                    android:layout_marginLeft="@dimen/app_text_size_min"
-                    android:background="@color/bg_main" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
+
             <RelativeLayout
-                    android:layout_width="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/app_text_size_min">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/item_click"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:padding="@dimen/app_text_size_min" >
+                    android:layout_centerVertical="true"
+                    android:text="实付金额"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"/>
+
                 <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="实付金额"
-                        android:textColor="@color/color_small_gray"
-                        android:textSize="@dimen/teach_font_size" />
-                <TextView
-                        android:id="@+id/payPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:drawablePadding="@dimen/app_text_size_min"
-                        android:gravity="center_vertical|right"
-                        android:singleLine="true"
-                        android:textColor="@color/color_small_gray"
-                        android:textSize="@dimen/teach_font_size"
-                        />
+                    android:id="@+id/payPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/app_text_size_min"
+                    android:gravity="center_vertical|right"
+                    android:singleLine="true"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/teach_font_size"
+                    />
             </RelativeLayout>
+
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginRight="@dimen/app_text_size_min"
-                    android:layout_marginLeft="@dimen/app_text_size_min"
-                    android:background="@color/bg_main" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:background="@color/bg_main"/>
 
-            <RelativeLayout android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:background="@color/white"
-                          android:paddingTop="90dp"
-                            android:paddingBottom="30dp"
-                            android:layout_weight="1"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:paddingBottom="30dp"
+                android:paddingTop="90dp"
 
-            >
+                >
 
 
-                <TextView android:id="@+id/contact"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="联系老师"
-                          android:textSize="18sp"
-                          android:layout_marginLeft="40dp"
-                          android:padding="3dp"
-                          android:textColor="@color/color_small_gray"
-                          android:layout_marginTop="@dimen/_10dp"
-                          android:background="@drawable/feed_back_select"
-                />
-                <TextView android:id="@+id/orderDetailTv"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="订单详情"
-                          android:textSize="18sp"
-                          android:layout_marginLeft="40dp"
-                          android:padding="3dp"
-                          android:textColor="@color/color_small_gray"
-                          android:layout_marginTop="@dimen/_10dp"
-                          android:background="@drawable/feed_back_select"
-                          android:layout_centerHorizontal="true"
-                />
-                <TextView android:id="@+id/buy"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="再次购买"
-                          android:textSize="18sp"
-                          android:layout_marginRight="40dp"
-                          android:padding="3dp"
-                          android:layout_alignParentRight="true"
-                          android:textColor="@color/color_small_gray"
-                          android:layout_marginTop="@dimen/_10dp"
-                          android:background="@drawable/feed_back_select"
-                />
+                <TextView
+                    android:id="@+id/contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:background="@drawable/feed_back_select"
+                    android:padding="3dp"
+                    android:text="联系老师"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/orderDetailTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:background="@drawable/feed_back_select"
+                    android:padding="3dp"
+                    android:text="订单详情"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/buy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:background="@drawable/feed_back_select"
+                    android:padding="3dp"
+                    android:text="再次购买"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="18sp"
+                    />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
