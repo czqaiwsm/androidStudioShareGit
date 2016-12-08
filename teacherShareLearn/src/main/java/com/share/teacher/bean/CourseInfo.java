@@ -19,6 +19,8 @@ public class CourseInfo implements Serializable {
     private String teacherName ;
     private String schooltime ;
     private String studentName ;
+    private String type ;//1.普通 2.寒假
+
 
 
 
@@ -100,5 +102,13 @@ public class CourseInfo implements Serializable {
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

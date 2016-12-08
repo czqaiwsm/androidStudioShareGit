@@ -18,6 +18,9 @@ public class CourseInfo implements Serializable {
     private String courseName;
     private String teacherName ;
     private String schooltime ;
+    private String type ;//1.普通 2.寒假
+
+
 
     public String getId() {
         return id;
@@ -89,5 +92,13 @@ public class CourseInfo implements Serializable {
 
     public void setSchooltime(String schooltime) {
         this.schooltime = schooltime;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

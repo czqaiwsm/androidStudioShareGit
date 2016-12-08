@@ -163,14 +163,15 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
         orderPay = trueMoey = priceMoney = Integer.valueOf(courseInfo.getPrice());
         account.setTag(1);
         account.setText("1"+"次");
+        if("2".equals(courseInfo.getType())){//2 暑假
+            account.setTag(10);
+            account.setText("10"+"次");
+        }
         orderPay = priceMoney *(Integer)account.getTag() ;
 
         couseName.setText(courseInfo.getCourseName());
         price.setText(String.format(getResources().getString(R.string.price,courseInfo.getPrice())));
 
-//        address.setText(BaseApplication.getInstance().location[0]);
-
-//        favourable.setText( String.format(getResources().getString(R.string.balance_has,getDiscontPrice((Integer)account.getTag()))));
         favourable.setText( String.format(getResources().getString(R.string.balance_has,priceMoney*((Integer)account.getTag()))));
         setTxtPaint(favourable);
         trueMoey = priceMoney*((Integer)account.getTag()) - getDiscontPrice((Integer)account.getTag());
@@ -379,13 +380,18 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
 //                datas.add((i));
 //            }
 //            1次、5次、10次、20次以及50次
-
+            
             datas.add(1);
             datas.add(5);
             datas.add(10);
             datas.add(20);
             datas.add(50);
 
+            if(courseInfo != null && "2".equals(courseInfo.getType())){  //1.普通 2.寒假
+                datas.clear();
+                datas.add(10);
+                datas.add(20);
+            }
             customListView.setAdapter(new BaseAdapter() {
                 @Override
                 public int getCount() {
