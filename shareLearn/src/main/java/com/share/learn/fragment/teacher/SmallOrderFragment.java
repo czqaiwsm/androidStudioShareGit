@@ -1,5 +1,6 @@
 package com.share.learn.fragment.teacher;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -52,6 +53,7 @@ public class SmallOrderFragment extends BaseFragment implements View.OnClickList
     private SmallOrderAdapter adapter;
     private String orderId = "";
     private String peroidId = "";
+    private boolean isFinish = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,7 +81,13 @@ public class SmallOrderFragment extends BaseFragment implements View.OnClickList
     private void initTitleView() {
         setLeftHeadIcon(0);
         setTitleText("订单明细");
-        setLeftHeadIcon(0);
+        setLeftHeadIcon(0, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isFinish) mActivity.setResult(Activity.RESULT_OK);
+                mActivity.finish();
+            }
+        });
     }
 
     private void initView(View view){
@@ -136,6 +144,7 @@ public class SmallOrderFragment extends BaseFragment implements View.OnClickList
                         smallOrder.setStatus("2");
                         adapter.notifyDataSetChanged();
                         SmartToast.showText("订单已完成!");
+                        isFinish = true;
                         break;
                     }
                 }

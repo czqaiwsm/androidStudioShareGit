@@ -313,7 +313,7 @@ public class OrderPayFragment extends BaseFragment implements RequsetListener,Cu
             case R.id.leftest_tv:
                 intent = new Intent(mActivity, SmallOrderActivity.class);
                 intent.putExtra("orderId",v.getTag().toString());
-                startActivity(intent);
+                this.startActivityForResult(intent,1208);
                 break;
             case R.id.left_tv:
                 orderInfo= list.get((Integer)v.getTag());
@@ -397,6 +397,9 @@ public class OrderPayFragment extends BaseFragment implements RequsetListener,Cu
                     handler.sendEmptyMessage(OrderFragment.CONFIRM_ORDER);
                     break;
                 case 4://立即评价
+                    requestTask(1);
+                    break;
+                case 1208://小订单完成
                     requestTask(1);
                     break;
 

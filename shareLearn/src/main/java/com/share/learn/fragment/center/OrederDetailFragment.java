@@ -279,7 +279,8 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
             case R.id.orderDetailTv:
                 intent = new Intent(mActivity, SmallOrderActivity.class);
                 intent.putExtra("orderId", orderInfo.getOrderId());
-                startActivity(intent);
+//                startActivity(intent);
+                this.startActivityForResult(intent,1208);
                 break;
 
         }
@@ -350,8 +351,12 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode==Activity.RESULT_OK && requestCode==200){
-           buy.setVisibility(View.GONE);
+        if(resultCode==Activity.RESULT_OK ){
+            if(requestCode==200){
+                buy.setVisibility(View.GONE);
+            }else if(requestCode == 1208){
+                requestTask(0);
+            }
         }
     }
 }
