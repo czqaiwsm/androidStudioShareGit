@@ -316,7 +316,7 @@ public class OrederDetailFragment extends BaseFragment implements RequsetListene
                 break;
             case 2:
                buy.setVisibility(View.VISIBLE);
-                contact.setVisibility(View.VISIBLE);
+                contact.setVisibility(View.GONE);
                 buy.setText(mActivity.getResources().getString(R.string.feed_money));
                 contact.setText("完成订单");
 

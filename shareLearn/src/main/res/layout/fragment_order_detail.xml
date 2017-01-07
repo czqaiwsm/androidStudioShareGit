@@ -471,7 +471,7 @@
                     android:layout_marginTop="@dimen/_10dp"
                     android:background="@drawable/feed_back_select"
                     android:padding="3dp"
-                    android:text="联系老师"
+                    android:text=""
                     android:textColor="@color/color_small_gray"
                     android:textSize="18sp"
                     />

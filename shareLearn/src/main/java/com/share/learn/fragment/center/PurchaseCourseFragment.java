@@ -182,25 +182,30 @@ public class PurchaseCourseFragment extends BaseFragment implements OnClickListe
 
     private int getDiscontPrice(int buyCount){
         int  cheapMone = 0;
-        if (5<=buyCount && buyCount<10) {
-            cheapMone = 20;
+
+        if(buyCount>=10){
+            cheapMone = 10;
         }
-        else if (10<=buyCount &&buyCount<30)
-        {
-            cheapMone = 50;
-        }
-        else if (30<=buyCount &&buyCount<50)
-        {
-            cheapMone = 150;
-        }
-        else if (50<=buyCount &&buyCount<100)
-        {
-            cheapMone = 300;
-        }
-        else if(buyCount >= 100)
-        {
-            cheapMone = 800;
-        }
+
+//        if (5<=buyCount && buyCount<10) {
+//            cheapMone = 20;
+//        }
+//        else if (10<=buyCount &&buyCount<30)
+//        {
+//            cheapMone = 50;
+//        }
+//        else if (30<=buyCount &&buyCount<50)
+//        {
+//            cheapMone = 150;
+//        }
+//        else if (50<=buyCount &&buyCount<100)
+//        {
+//            cheapMone = 300;
+//        }
+//        else if(buyCount >= 100)
+//        {
+//            ccc = 800;
+//        }
 
         return cheapMone;
     }

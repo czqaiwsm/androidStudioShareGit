@@ -106,11 +106,11 @@ public class OrderPayAdpter extends BaseAdapter {
                 case 2:
                     statuStr = "已支付";
                     holder.right_tv.setVisibility(View.VISIBLE);
-                    holder.left_tv.setVisibility(View.VISIBLE);
+//                    holder.left_tv.setVisibility(View.VISIBLE);
                     holder.leftest_tv.setVisibility(View.VISIBLE);
                     holder.leftest_tv.setTag(message.getOrderId());
                     holder.right_tv.setText(mContext.getResources().getString(R.string.feed_money));
-                    holder.left_tv.setText("完成订单");
+//                    holder.left_tv.setText("完成订单");
                     holder.leftest_tv.setText("订单明细");
                     holder.right_tv.setClickable(true);
 

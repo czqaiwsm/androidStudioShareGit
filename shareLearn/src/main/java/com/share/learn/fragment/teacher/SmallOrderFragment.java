@@ -23,6 +23,7 @@ import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.TeacherDetailParse;
+import com.share.learn.utils.AlertDialogUtils;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.ImageLoaderUtil;
 import com.share.learn.utils.SmartToast;
@@ -162,7 +163,13 @@ public class SmallOrderFragment extends BaseFragment implements View.OnClickList
                 String str = v.getTag().toString();
                 orderId = str.split(";")[0];
                 peroidId = str.split(";")[1];
-                requestTask(2);
+
+                AlertDialogUtils.displayMyAlertChoice(mActivity, "提示", "确定完成此课时?", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        requestTask(2);
+                    }
+                },null);
                 break;
         }
     }
