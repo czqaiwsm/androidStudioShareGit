@@ -2,6 +2,7 @@ package com.download.update;
 
 import android.os.Handler;
 import android.text.TextUtils;
+
 import com.download.base.utils.UrlEncode;
 
 import java.io.IOException;

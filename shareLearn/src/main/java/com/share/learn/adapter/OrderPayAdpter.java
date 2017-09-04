@@ -1,31 +1,21 @@
 package com.share.learn.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.share.learn.R;
-import com.share.learn.activity.teacher.ChatMsgActivity;
-import com.share.learn.activity.teacher.EvaluateActivity;
-import com.share.learn.bean.ChatMsgEntity;
-import com.share.learn.bean.MsgDetail;
 import com.share.learn.bean.OrderInfo;
-import com.share.learn.bean.UserInfo;
-import com.share.learn.bean.msg.Message;
-import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.SmartToast;
-import com.share.learn.view.CustomListView;
-import com.share.learn.view.RoundImageView;
 
 import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class OrderPayAdpter extends BaseAdapter {
     private List<OrderInfo> mItemList;

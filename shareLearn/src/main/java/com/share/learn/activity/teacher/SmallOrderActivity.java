@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.share.learn.activity.BaseActivity;
-import com.share.learn.fragment.teacher.ChooseTeacherFragment;
 import com.share.learn.fragment.teacher.SmallOrderFragment;
 
 public class SmallOrderActivity extends BaseActivity {

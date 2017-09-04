@@ -1,18 +1,13 @@
 package com.share.learn.fragment.msg;
 
-import android.app.Activity;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+
 import com.share.learn.R;
 import com.share.learn.fragment.BaseFragment;
-import com.share.learn.fragment.msg.ContactFragment;
-import com.share.learn.fragment.msg.MsgFragment;
-import com.share.learn.fragment.schedule.WeeksFragment;
 import com.share.learn.view.tab.ScrollingTabContainerView;
 import com.share.learn.view.tab.TabsActionBar;
 import com.share.learn.view.tab.TabsAdapter;

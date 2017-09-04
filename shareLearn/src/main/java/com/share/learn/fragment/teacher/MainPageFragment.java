@@ -1,33 +1,36 @@
 package com.share.learn.fragment.teacher;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.share.learn.R;
 import com.share.learn.activity.login.LoginActivity;
 import com.share.learn.activity.teacher.ChatMsgActivity;
 import com.share.learn.bean.ChatMsgEntity;
-import com.share.learn.bean.TeacherDetailBean;
 import com.share.learn.bean.TeacherDetailInfo;
 import com.share.learn.bean.UserInfo;
 import com.share.learn.fragment.BaseFragment;
+import com.share.learn.fragment.HomePageFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.TeacherDetailParse;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.URLConstants;
 import com.share.learn.utils.WaitLayer;
+import com.ta.utdid2.android.utils.StringUtils;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
-import com.volley.req.parser.JsonParserBase;
-import org.json.JSONException;
 
 import java.util.Map;
 
@@ -112,10 +115,10 @@ public class MainPageFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void attention(boolean isAtten){
-        seek_txt.setText("关注");
-        if(isAtten){
-            seek_txt.setText("已关注");
-        }
+//        seek_txt.setText("关注");
+//        if(isAtten){
+//            seek_txt.setText("已关注");
+//        }
     }
 
     @Override
@@ -144,8 +147,23 @@ public class MainPageFragment extends BaseFragment implements View.OnClickListen
                 startActivity(intent);
                 break;
             case R.id.seek_rl:
-                cliclAble(false);
-                requestTask();
+//                cliclAble(false);
+//                requestTask();
+                if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE)
+                        != PackageManager.PERMISSION_GRANTED){
+                    String phoneNum = teacherDetailInfo.getManagerMobile();
+                    if(StringUtils.isEmpty(phoneNum)){
+                        phoneNum = HomePageFragment.homeInfo.getManagerMobile();
+                    }
+
+                    Intent phIntent = new Intent(Intent.ACTION_CALL);
+                    Uri data = Uri.parse("tel:" +phoneNum);
+                    phIntent.setData(data);
+                    startActivity(phIntent);
+                }else {
+                    toasetUtil.showInfo("请前往设置界面授权！");
+                }
+
                 break;
         }
     }

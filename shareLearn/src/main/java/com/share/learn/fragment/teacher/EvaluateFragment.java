@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
 import com.share.learn.R;
 import com.share.learn.bean.OrderInfo;
 import com.share.learn.fragment.BaseFragment;

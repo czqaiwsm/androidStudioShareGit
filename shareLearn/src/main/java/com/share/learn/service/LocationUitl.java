@@ -1,11 +1,7 @@
 package com.share.learn.service;
 
-import android.support.v4.app.ActivityCompat;
-
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
-import com.baidu.location.Poi;
-import com.share.learn.utils.AppLog;
 import com.share.learn.utils.BaseApplication;
 
 import java.util.ArrayList;

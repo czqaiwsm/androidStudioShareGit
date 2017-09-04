@@ -1,29 +1,25 @@
 package com.share.learn.adapter;
 
 import android.content.Context;
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
-import android.os.Environment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.share.learn.R;
 import com.share.learn.bean.ChatMsgEntity;
-import com.share.learn.bean.PageInfo;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.ImageLoaderUtil;
 import com.share.learn.view.RoundImageView;
 
 import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
 public class ChatMsgViewAdapter extends BaseAdapter {

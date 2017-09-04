@@ -8,13 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.share.learn.R;
-import com.share.learn.fragment.HomePageFragment;
 import com.share.learn.fragment.TeacherHomePageFragment;
 import com.share.learn.fragment.center.PCenterInfoFragment;
 import com.share.learn.fragment.msg.MsgInfosFragment;
 import com.share.learn.fragment.schedule.ScheduleFragment;
-import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.SmartToast;
 
 /**

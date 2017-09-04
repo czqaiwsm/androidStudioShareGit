@@ -11,9 +11,9 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.share.learn.R;
 import com.share.learn.activity.MainActivity;
-import com.share.learn.activity.login.LoginActivity;
 import com.share.learn.adapter.GuideViewPagerAdapter;
 
 

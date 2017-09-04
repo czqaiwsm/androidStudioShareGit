@@ -10,13 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
+
 import com.alipay.sdk.pay.demo.PayCallBack;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.google.gson.reflect.TypeToken;
 import com.share.learn.R;
 import com.share.learn.activity.teacher.SetPayPasswordActivity;
-import com.share.learn.bean.PageInfo;
 import com.share.learn.bean.PayInfo;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.parse.BaseParse;
@@ -30,7 +29,6 @@ import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
 import com.volley.req.parser.JsonParserBase;
-import com.volley.req.parser.ParserUtil;
 
 import java.util.Map;
 

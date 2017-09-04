@@ -3,7 +3,6 @@ package com.volley.req.net;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;

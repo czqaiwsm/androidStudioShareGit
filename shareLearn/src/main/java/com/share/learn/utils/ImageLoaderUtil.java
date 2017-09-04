@@ -1,6 +1,7 @@
 package com.share.learn.utils;
 
 import android.graphics.Bitmap.Config;
+
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import com.share.learn.R;

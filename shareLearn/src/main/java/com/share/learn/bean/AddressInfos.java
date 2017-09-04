@@ -1,7 +1,5 @@
 package com.share.learn.bean;
 
-import com.volley.req.parser.JsonParserBase;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 

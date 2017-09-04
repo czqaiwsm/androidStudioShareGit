@@ -2,45 +2,43 @@ package com.share.learn.fragment.teacher;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.share.learn.R;
-import com.share.learn.activity.MainActivity;
-import com.share.learn.activity.teacher.ChatMsgActivity;
 import com.share.learn.adapter.ChatMsgViewAdapter;
-import com.share.learn.adapter.TeacherAssetAdapter;
 import com.share.learn.bean.ChatMsgEntity;
-import com.share.learn.bean.LoginInfo;
 import com.share.learn.bean.UserInfo;
-import com.share.learn.bean.msg.Message;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseParse;
 import com.share.learn.parse.ChatMsgParse;
-import com.share.learn.parse.LoginInfoParse;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.SoundMeter;
 import com.share.learn.utils.URLConstants;
 import com.share.learn.utils.WaitLayer;
-import com.share.learn.view.CustomListView;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
 import com.volley.req.parser.JsonParserBase;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @desc 老师信息-->老师评价

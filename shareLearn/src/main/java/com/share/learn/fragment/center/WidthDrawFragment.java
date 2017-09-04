@@ -14,8 +14,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.google.gson.internal.LinkedTreeMap;
 import com.share.learn.R;
 import com.share.learn.bean.BalanceInfo;
@@ -27,7 +26,12 @@ import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseParse;
 import com.share.learn.parse.VerifyCodeParse;
-import com.share.learn.utils.*;
+import com.share.learn.utils.BaseApplication;
+import com.share.learn.utils.PhoneUitl;
+import com.share.learn.utils.SPUtils;
+import com.share.learn.utils.SmartToast;
+import com.share.learn.utils.URLConstants;
+import com.share.learn.utils.WaitLayer;
 import com.share.learn.view.Bec_nurse_Window;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
@@ -35,6 +39,9 @@ import com.volley.req.net.RequestParam;
 import com.volley.req.parser.JsonParserBase;
 
 import java.util.Map;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * 钱包

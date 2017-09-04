@@ -3,18 +3,16 @@ package com.share.learn.adapter;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.share.learn.R;
 import com.share.learn.bean.CourseInfo;
 
 import java.util.List;
-import java.util.Map;
 
 public class TeacherCourseAdapter extends BaseAdapter {
     private List<CourseInfo> mItemList;

@@ -2,7 +2,6 @@ package com.share.learn.fragment.center;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,31 +9,22 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.share.learn.R;
 import com.share.learn.activity.center.ServiceProtocolActivity;
 import com.share.learn.activity.center.WidthDrawActivity;
 import com.share.learn.activity.teacher.SetPayPasswordActivity;
-import com.share.learn.bean.PayCourseInfo;
-import com.share.learn.bean.PayInfo;
-import com.share.learn.bean.QueryClassInfo;
 import com.share.learn.bean.UserInfo;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseParse;
-import com.share.learn.parse.PayCourseInfoParse;
-import com.share.learn.parse.QueryClassParse;
 import com.share.learn.utils.AlertDialogUtils;
 import com.share.learn.utils.BaseApplication;
-import com.share.learn.utils.PayUtil;
-import com.share.learn.utils.SmartToast;
 import com.share.learn.utils.URLConstants;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
-import com.volley.req.parser.JsonParserBase;
 
 import java.util.Map;
 

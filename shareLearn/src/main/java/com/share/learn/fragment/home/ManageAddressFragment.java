@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.google.gson.reflect.TypeToken;
 import com.share.learn.R;
 import com.share.learn.activity.teacher.AddAddressActivity;
-import com.share.learn.adapter.ChooseAddressAdapter;
 import com.share.learn.adapter.ManageAddressAdapter;
 import com.share.learn.bean.AddressInfos;
 import com.share.learn.fragment.BaseFragment;

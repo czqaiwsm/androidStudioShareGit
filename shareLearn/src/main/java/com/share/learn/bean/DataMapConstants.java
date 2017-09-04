@@ -1,7 +1,7 @@
 package com.share.learn.bean;
 
 import android.content.Context;
-import android.text.TextUtils;
+
 import com.share.learn.R;
 import com.share.learn.utils.BaseApplication;
 

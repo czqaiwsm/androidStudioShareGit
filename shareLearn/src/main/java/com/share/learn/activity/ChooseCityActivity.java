@@ -3,6 +3,7 @@ package com.share.learn.activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+
 import com.share.learn.fragment.ChooseCitytFragment;
 
 public class ChooseCityActivity extends BaseActivity {

@@ -1,7 +1,5 @@
 package com.share.learn.bean;
 
-import javax.net.ssl.SSLProtocolException;
-
 /**
  * @author czq
  * @desc 请用一句话描述它

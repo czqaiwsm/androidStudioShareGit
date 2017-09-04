@@ -24,6 +24,7 @@
     <dimen name="msg_margin">10dp</dimen>
     <dimen name="schedule_margin">15dp</dimen>
     <dimen name="msg_name">18sp</dimen>
+    <dimen name="feed_back_size">16sp</dimen>
     <dimen name="msg_time">13sp</dimen>
     <dimen name="teache_curose">16sp</dimen>
     <dimen name="page_bt">18dp</dimen>

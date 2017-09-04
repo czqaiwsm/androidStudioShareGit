@@ -7,17 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+
 import com.share.learn.R;
 import com.share.learn.adapter.ChooseJoinorAdapter;
-import com.share.learn.adapter.TeacherCourseAdapter;
-import com.share.learn.bean.CourseInfo;
 import com.share.learn.bean.DataMapConstants;
 import com.share.learn.bean.IdInfo;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.utils.URLConstants;
 import com.share.learn.view.CustomListView;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @desc 筛选界面

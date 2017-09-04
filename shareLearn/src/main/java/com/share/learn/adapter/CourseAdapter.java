@@ -9,10 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+
 import com.share.learn.R;
-import com.share.learn.utils.ScreenUtils;
 
 import java.util.List;
 import java.util.Map;

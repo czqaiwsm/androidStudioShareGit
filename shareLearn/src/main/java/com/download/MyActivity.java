@@ -2,6 +2,7 @@ package com.download;
 
 import android.app.Activity;
 import android.os.Bundle;
+
 import com.download.base.utils.ScreenUtils;
 import com.download.update.UpdateMgr;
 

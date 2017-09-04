@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.share.learn.R;
 import com.share.learn.adapter.ContactAdpter;
 import com.share.learn.bean.Contactor;
-import com.share.learn.bean.msg.Message;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.view.CustomListView;
 

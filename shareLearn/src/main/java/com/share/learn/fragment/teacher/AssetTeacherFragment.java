@@ -1,16 +1,15 @@
 package com.share.learn.fragment.teacher;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
+
 import com.share.learn.R;
-import com.share.learn.activity.teacher.ChatMsgActivity;
 import com.share.learn.adapter.TeacherAssetAdapter;
-import com.share.learn.bean.*;
+import com.share.learn.bean.CommentBean;
+import com.share.learn.bean.CommentInfo;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.PullRefreshStatus;
 import com.share.learn.help.RequestHelp;

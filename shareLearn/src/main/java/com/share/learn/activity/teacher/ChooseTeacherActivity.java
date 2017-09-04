@@ -3,9 +3,8 @@ package com.share.learn.activity.teacher;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+
 import com.share.learn.activity.BaseActivity;
-import com.share.learn.adapter.ChooseTeacherAdpter;
-import com.share.learn.fragment.home.ChooseJoinorFragment;
 import com.share.learn.fragment.teacher.ChooseTeacherFragment;
 
 public class ChooseTeacherActivity extends BaseActivity {

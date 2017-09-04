@@ -3,9 +3,9 @@ package com.share.learn.activity.login;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+
 import com.share.learn.activity.BaseActivity;
 import com.share.learn.fragment.HomePageFragment;
-import com.share.learn.fragment.login.LoginFramgent;
 
 public class HomePageActivity extends BaseActivity {
 	private HomePageFragment mFragment;

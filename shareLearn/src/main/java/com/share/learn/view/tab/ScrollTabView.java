@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.share.learn.R;
 
 public class ScrollTabView extends HorizontalScrollView implements ViewPager.OnPageChangeListener {

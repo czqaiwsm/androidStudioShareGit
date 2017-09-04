@@ -1,6 +1,7 @@
 package com.share.learn.service;
 
 import android.content.Context;
+
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;

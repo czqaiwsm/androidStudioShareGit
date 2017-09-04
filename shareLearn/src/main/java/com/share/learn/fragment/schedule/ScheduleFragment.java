@@ -6,16 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.baidu.location.BDLocation;
 import com.share.learn.R;
-import com.share.learn.bean.BannerImgInfo;
 import com.share.learn.bean.CourseInfo;
-import com.share.learn.bean.HomeInfo;
-import com.share.learn.bean.HomePagerBanner;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
-import com.share.learn.parse.HomePageBannerParse;
 import com.share.learn.parse.ScheduleParse;
 import com.share.learn.service.LocationUitl;
 import com.share.learn.utils.BaseApplication;
@@ -30,7 +27,6 @@ import com.volley.req.net.RequestParam;
 import com.volley.req.parser.JsonParserBase;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**

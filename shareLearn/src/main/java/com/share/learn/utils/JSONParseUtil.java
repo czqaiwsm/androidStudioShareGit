@@ -1,10 +1,11 @@
 package com.share.learn.utils;
 
 import android.text.TextUtils;
-import com.google.gson.JsonElement;
+
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

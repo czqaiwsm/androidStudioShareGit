@@ -8,26 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.share.learn.R;
-import com.share.learn.bean.VerifyCode;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseParse;
-import com.share.learn.parse.LoginInfoParse;
-import com.share.learn.parse.VerifyCodeParse;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.SmartToast;
 import com.share.learn.utils.URLConstants;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
-import com.volley.req.parser.JsonParserBase;
 
 import java.util.ArrayList;
 import java.util.Map;

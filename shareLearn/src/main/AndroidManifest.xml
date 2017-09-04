@@ -90,6 +90,8 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.ChooseCityActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".activity.FeedBackDetailActivity"
+                  android:screenOrientation="portrait"/>
         <activity android:name=".activity.home.SearchActivity"
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.teacher.TeacherDetailActivity"

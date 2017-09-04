@@ -1,16 +1,13 @@
 package com.share.learn.parse;
 
 import com.google.gson.reflect.TypeToken;
-import com.share.learn.bean.SystemMsg;
 import com.share.learn.bean.SystemMsgListBean;
-import com.share.learn.bean.TeacherInfo;
 import com.share.learn.utils.URLConstants;
 import com.volley.req.net.inferface.IParser;
 import com.volley.req.parser.JsonParserBase;
 import com.volley.req.parser.ParserUtil;
-import org.json.JSONObject;
 
-import java.util.List;
+import org.json.JSONObject;
 
 /**
  * @desc 验证码

@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.share.learn.activity.BaseActivity;
-import com.share.learn.fragment.center.WidthDrawFragment;
 import com.share.learn.fragment.center.WithdrawTypeFragment;
 
 public class WithdrawTypeActivity extends BaseActivity {

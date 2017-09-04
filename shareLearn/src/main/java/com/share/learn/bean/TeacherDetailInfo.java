@@ -28,6 +28,7 @@ public class TeacherDetailInfo extends TeacherInfo {
     private String hname;// 城市,
     private String aname;// 地区
     private String isCheck;//1-取消，2-关注
+    private String managerMobile;//课程顾问手机号
 
     public String getMobile() {
         return mobile;
@@ -195,5 +196,13 @@ public class TeacherDetailInfo extends TeacherInfo {
 
     public void setIsCheck(String isCheck) {
         this.isCheck = isCheck;
+    }
+
+    public String getManagerMobile() {
+        return managerMobile;
+    }
+
+    public void setManagerMobile(String managerMobile) {
+        this.managerMobile = managerMobile;
     }
 }

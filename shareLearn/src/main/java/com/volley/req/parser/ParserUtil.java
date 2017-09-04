@@ -1,6 +1,8 @@
 package com.volley.req.parser;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.share.learn.bean.Version;
 
 import java.lang.reflect.Type;
 
@@ -81,6 +83,11 @@ public class ParserUtil {
         }.getType());
         System.out.println(jsonParserBase1.getMessage());
         System.out.println(jsonParserBase1.getCode());*/
+
+         String objStr = "{\"respCode\":200,\"respDesc\":\"无最新版本\",\"respScore\":0,\"respCoin\":0,\"serviceTime\":\"2017-09-02 15:10:29\",\"data\":\"\"}";
+
+        JsonParserBase  result =  ParserUtil.fromJsonBase(objStr, new TypeToken<JsonParserBase<Version>>() {
+        }.getType());
     }
 
 }

@@ -2,15 +2,12 @@ package com.share.learn.parse;
 
 import com.google.gson.reflect.TypeToken;
 import com.share.learn.bean.HomeInfo;
-import com.share.learn.bean.HomePagerBanner;
-import com.share.learn.bean.LoginInfo;
 import com.share.learn.utils.URLConstants;
 import com.volley.req.net.inferface.IParser;
 import com.volley.req.parser.JsonParserBase;
 import com.volley.req.parser.ParserUtil;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
+import org.json.JSONObject;
 
 /**
  * @desc 登录

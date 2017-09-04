@@ -1,45 +1,38 @@
 package com.share.learn.fragment.login;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
-import com.android.volley.Response;
+
 import com.share.learn.R;
-import com.share.learn.activity.MainActivity;
-import com.share.learn.activity.TeacherMainActivity;
 import com.share.learn.activity.login.ForgetPassActivity;
-import com.share.learn.activity.login.HomePageActivity;
 import com.share.learn.activity.login.RegisterActivity;
 import com.share.learn.bean.LoginInfo;
-import com.share.learn.bean.VerifyCode;
 import com.share.learn.fragment.BaseFragment;
-import com.share.learn.fragment.teacher.MainPageFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
-import com.share.learn.parse.BaseParse;
 import com.share.learn.parse.LoginInfoParse;
-import com.share.learn.utils.*;
-import com.toast.ToasetUtil;
-import com.volley.req.UserInfo;
+import com.share.learn.utils.AppLog;
+import com.share.learn.utils.BaseApplication;
+import com.share.learn.utils.PhoneUitl;
+import com.share.learn.utils.URLConstants;
+import com.share.learn.utils.WaitLayer;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
 import com.volley.req.parser.JsonParserBase;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 /**
  * @desc 请用一句话描述此文件

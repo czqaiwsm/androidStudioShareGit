@@ -5,28 +5,30 @@ package com.share.learn.fragment.home;
  * 搜索商品
  */
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.*;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.share.learn.R;
 import com.share.learn.activity.teacher.TeacherDetailActivity;
 import com.share.learn.adapter.ChooseTeacherAdpter;
-import com.share.learn.adapter.SearchAdpter;
-import com.share.learn.bean.ChooseTeachBean;
 import com.share.learn.bean.TeacherInfo;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
-import com.share.learn.parse.ChooseTeaBeanParse;
 import com.share.learn.parse.SearchParse;
-import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.URLConstants;
-import com.share.learn.view.CustomListView;
 import com.share.learn.view.XListView;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;

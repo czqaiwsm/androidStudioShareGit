@@ -1,6 +1,5 @@
 package com.share.learn.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -9,13 +8,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.share.learn.R;
 import com.share.learn.activity.center.WalletActivity;
 import com.share.learn.activity.home.SearchActivity;
 import com.share.learn.activity.home.TeacherCertifyActivity;
-import com.share.learn.activity.teacher.ChooseTeacherActivity;
 import com.share.learn.adapter.GuideViewPagerAdapter;
 import com.share.learn.bean.BannerImgInfo;
 import com.share.learn.bean.HomeInfo;
@@ -33,6 +30,9 @@ import com.volley.req.parser.JsonParserBase;
 
 import java.util.ArrayList;
 import java.util.Map;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * @desc 首页

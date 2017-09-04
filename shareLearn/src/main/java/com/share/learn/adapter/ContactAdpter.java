@@ -6,8 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.share.learn.R;
 import com.share.learn.bean.Contactor;
@@ -15,6 +14,9 @@ import com.share.learn.utils.ImageLoaderUtil;
 import com.share.learn.view.RoundImageView;
 
 import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class ContactAdpter extends BaseAdapter {
     private List<Contactor> mItemList;

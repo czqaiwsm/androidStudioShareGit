@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.share.learn.activity.MainActivity;
 import com.share.learn.activity.SplashActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

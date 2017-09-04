@@ -11,35 +11,33 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.alipay.sdk.pay.demo.PayCallBack;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
 import com.share.learn.R;
-import com.share.learn.activity.teacher.ChatMsgActivity;
 import com.share.learn.activity.teacher.EvaluateActivity;
 import com.share.learn.activity.teacher.SmallOrderActivity;
-import com.share.learn.bean.*;
+import com.share.learn.bean.OrderDetailInfo;
+import com.share.learn.bean.OrderInfo;
+import com.share.learn.bean.PayInfo;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseParse;
 import com.share.learn.parse.OrderDetailBeanParse;
 import com.share.learn.parse.OrderListBeanParse;
-import com.share.learn.utils.*;
-import com.share.learn.view.FlowScrollView;
+import com.share.learn.utils.AlertDialogUtils;
+import com.share.learn.utils.URLConstants;
+import com.share.learn.utils.WaitLayer;
 import com.share.learn.view.PayPopupwidow;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
-import com.volley.req.net.RequestParamSub;
 import com.volley.req.parser.JsonParserBase;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Map;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * 订单详情

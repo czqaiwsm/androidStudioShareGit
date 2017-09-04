@@ -2,29 +2,23 @@ package com.share.learn.fragment.center;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
+
 import com.share.learn.R;
-import com.share.learn.activity.login.LoginActivity;
-import com.share.learn.bean.LoginInfo;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseParse;
-import com.share.learn.parse.LoginInfoParse;
-import com.share.learn.utils.*;
+import com.share.learn.utils.SmartToast;
+import com.share.learn.utils.URLConstants;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
-import com.volley.req.net.RequestParamSub;
 import com.volley.req.parser.JsonParserBase;
 
 import java.util.Map;

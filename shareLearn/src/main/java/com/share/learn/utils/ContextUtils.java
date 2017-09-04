@@ -3,8 +3,13 @@ package com.share.learn.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
+import android.util.Log;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * @author cao_zhi_qing
@@ -91,7 +96,7 @@ public class ContextUtils {
                 try {
                     ois.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Log.e("Error:",e.getMessage());
                 }
             }
         }

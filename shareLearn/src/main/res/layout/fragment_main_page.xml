@@ -1,12 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:background="@color/color_small_gray"
+        android:layout_above="@+id/bottom"
+        />
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white_bg_home"
+        >
+
+        <RelativeLayout android:id="@+id/ask_rl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1">
+            <Button style="@style/mainpage_bt_style"
+                android:layout_centerVertical="true"
+                android:background="@drawable/tab_contact_list_bg"
+                android:id="@+id/ask_btn"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/ask_txt"
+                android:layout_toRightOf="@+id/ask_btn"
+                android:textColor="@color/teacher_detail_txt_slt"
+                android:textSize="16sp"
+                android:text="@string/ask"/>
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/seek_rl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1">
+            <Button style="@style/mainpage_bt_style"
+                android:layout_centerVertical="true"
+                android:background="@drawable/cursion_list_bg"
+                android:id="@+id/seek_btn"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/seek_txt"
+                android:layout_toRightOf="@+id/seek_btn"
+                android:textSize="16sp"
+                android:textColor="@color/teacher_detail_txt_slt"
+                android:text="@string/seek"/>
+        </RelativeLayout>
+    </LinearLayout>
     <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_line"
+        >
         <LinearLayout 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -141,7 +196,7 @@
                 <TextView android:layout_width="@dimen/teach_txt_size"
                           android:layout_height="match_parent"
                           android:textSize="@dimen/teach_font_size"
-                          android:layout_gravity="center"
+                          android:layout_gravity="center_vertical"
                           android:gravity="center_vertical"
                           android:textColor="@color/teach_txt_color"
                           android:text="荣誉经历"/>
@@ -161,53 +216,52 @@
                     android:background="@color/color_small_gray"
             />
             
-            <LinearLayout android:layout_width="match_parent"
-                            android:layout_height="90dp"
-                         >
+            <!--<LinearLayout android:layout_width="match_parent"-->
+                            <!--android:layout_height="90dp"-->
+                         <!--&gt;-->
 
-                <RelativeLayout android:id="@+id/ask_rl"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:layout_weight="1">
-                    <Button style="@style/mainpage_bt_style"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/tab_contact_list_bg"
-                            android:id="@+id/ask_btn"/>
-                    <TextView android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:layout_centerVertical="true"
-                              android:id="@+id/ask_txt"
-                              android:layout_toRightOf="@+id/ask_btn"
-                              android:textColor="@color/teacher_detail_txt_slt"
-                              android:textSize="16sp"
-                              android:text="@string/ask"/>
-                </RelativeLayout>
+                <!--<RelativeLayout android:id="@+id/ask_rl"-->
+                                <!--android:layout_width="0dp"-->
+                                <!--android:layout_height="match_parent"-->
+                                <!--android:gravity="center"-->
+                                <!--android:layout_weight="1">-->
+                    <!--<Button style="@style/mainpage_bt_style"-->
+                            <!--android:layout_centerVertical="true"-->
+                            <!--android:background="@drawable/tab_contact_list_bg"-->
+                            <!--android:id="@+id/ask_btn"/>-->
+                    <!--<TextView android:layout_width="wrap_content"-->
+                              <!--android:layout_height="wrap_content"-->
+                              <!--android:layout_centerVertical="true"-->
+                              <!--android:id="@+id/ask_txt"-->
+                              <!--android:layout_toRightOf="@+id/ask_btn"-->
+                              <!--android:textColor="@color/teacher_detail_txt_slt"-->
+                              <!--android:textSize="16sp"-->
+                              <!--android:text="@string/ask"/>-->
+                <!--</RelativeLayout>-->
 
-                <RelativeLayout android:id="@+id/seek_rl"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:layout_weight="1">
-                    <Button style="@style/mainpage_bt_style"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/cursion_list_bg"
-                            android:id="@+id/seek_btn"/>
-                    <TextView android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:layout_centerVertical="true"
-                              android:id="@+id/seek_txt"
-                              android:layout_toRightOf="@+id/seek_btn"
-                              android:textSize="16sp"
-                              android:textColor="@color/teacher_detail_txt_slt"
-                              android:text="@string/seek"/>
-                </RelativeLayout>
-            </LinearLayout>
-            <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/line"
-                    android:background="@color/color_small_gray"
-                    />
+                <!--<RelativeLayout android:id="@+id/seek_rl"-->
+                                <!--android:layout_width="0dp"-->
+                                <!--android:layout_height="match_parent"-->
+                                <!--android:gravity="center"-->
+                                <!--android:layout_weight="1">-->
+                    <!--<Button style="@style/mainpage_bt_style"-->
+                            <!--android:layout_centerVertical="true"-->
+                            <!--android:background="@drawable/cursion_list_bg"-->
+                            <!--android:id="@+id/seek_btn"/>-->
+                    <!--<TextView android:layout_width="wrap_content"-->
+                              <!--android:layout_height="wrap_content"-->
+                              <!--android:layout_centerVertical="true"-->
+                              <!--android:id="@+id/seek_txt"-->
+                              <!--android:layout_toRightOf="@+id/seek_btn"-->
+                              <!--android:textSize="16sp"-->
+                              <!--android:textColor="@color/teacher_detail_txt_slt"-->
+                              <!--android:text="@string/seek"/>-->
+                <!--</RelativeLayout>-->
+            <!--</LinearLayout>-->
+
         </LinearLayout>
+
     </ScrollView>
-</LinearLayout>
+
+
+</RelativeLayout>

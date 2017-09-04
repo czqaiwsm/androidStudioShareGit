@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputFilter;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,18 +13,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
+
 import com.share.learn.R;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.SmartToast;
-import com.volley.req.net.HttpURL;
-import com.volley.req.net.RequestManager;
-import com.volley.req.net.RequestParam;
-import com.volley.req.net.RequestParamSub;
 
 /**
  * 账户管理-修改手机号

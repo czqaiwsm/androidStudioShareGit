@@ -1,7 +1,6 @@
 package com.share.learn.parse;
 
 import com.google.gson.reflect.TypeToken;
-import com.share.learn.bean.CommentBean;
 import com.share.learn.bean.QueryClassInfo;
 import com.share.learn.utils.URLConstants;
 import com.volley.req.net.inferface.IParser;

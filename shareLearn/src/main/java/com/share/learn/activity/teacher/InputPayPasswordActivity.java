@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.share.learn.activity.BaseActivity;
 import com.share.learn.fragment.login.InputPayPasswordFragment;
-import com.share.learn.fragment.login.SetPayPasswordFragment;
 
 public class InputPayPasswordActivity extends BaseActivity {
 	private Fragment mFragment;

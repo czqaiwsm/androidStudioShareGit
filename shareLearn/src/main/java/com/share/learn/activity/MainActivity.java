@@ -3,11 +3,9 @@ package com.share.learn.activity;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -27,25 +25,20 @@ import com.download.base.utils.ScreenUtils;
 import com.download.update.UpdateMgr;
 import com.google.gson.reflect.TypeToken;
 import com.share.learn.R;
-import com.share.learn.bean.LoginInfo;
 import com.share.learn.bean.VersionBean;
-import com.share.learn.fragment.*;
+import com.share.learn.fragment.HomePageFragment;
 import com.share.learn.fragment.center.PCenterInfoFragment;
-import com.share.learn.fragment.center.PCenterInfoFragmentUser;
 import com.share.learn.fragment.center.UnLoginPCenterFragment;
+import com.share.learn.fragment.feedback.FeedBackFragment;
 import com.share.learn.fragment.msg.MsgInfosFragment;
 import com.share.learn.fragment.schedule.ScheduleFragment;
 import com.share.learn.help.RequestHelp;
-import com.share.learn.help.RequsetListener;
-import com.share.learn.parse.LoginInfoParse;
 import com.share.learn.service.LocationService;
 import com.share.learn.service.LocationUitl;
 import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.SmartToast;
 import com.share.learn.utils.URLConstants;
-import com.share.learn.utils.WaitLayer;
 import com.volley.req.net.HttpURL;
-import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
 import com.volley.req.parser.JsonParserBase;
 import com.volley.req.parser.ParserUtil;
@@ -78,6 +71,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     public LocationUitl locationUitl = new LocationUitl();
 
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +84,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         fragments = new Fragment[VIEW_COUNT];
         fragments[0] = new HomePageFragment();
         fragments[1] = new MsgInfosFragment();
-        fragments[2] = new ScheduleFragment();
+//        fragments[2] = new ScheduleFragment();
+        fragments[2] = new FeedBackFragment();
         fragments[3] = pCenterFragment = new PCenterInfoFragment();
         fragments[4] = new UnLoginPCenterFragment();
         initView();
@@ -102,6 +99,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         transaction.commitAllowingStateLoss();
 //        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION},100);
        reqPerLocation();
+
     }
 
     private void reqPerLocation(){

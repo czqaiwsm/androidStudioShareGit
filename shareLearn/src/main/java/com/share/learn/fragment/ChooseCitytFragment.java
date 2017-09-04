@@ -9,23 +9,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
+
 import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.Poi;
 import com.share.learn.R;
 import com.share.learn.adapter.CityAdpter;
-import com.share.learn.service.LocationService;
 import com.share.learn.service.LocationUitl;
-import com.share.learn.utils.AppLog;
-import com.share.learn.utils.BaseApplication;
-import com.share.learn.utils.URLConstants;
 import com.share.learn.view.CustomListView;
-import com.volley.req.net.HttpURL;
-import com.volley.req.net.RequestManager;
-import com.volley.req.net.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;

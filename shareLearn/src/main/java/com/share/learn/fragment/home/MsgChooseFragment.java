@@ -8,10 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.share.learn.R;
-import com.share.learn.activity.ChooseCityActivity;
 import com.share.learn.activity.center.SystemMsgActivity;
-import com.share.learn.activity.teacher.ChooseJoinorActivity;
 import com.share.learn.bean.DataMapConstants;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.fragment.center.SystemMsgFragment;

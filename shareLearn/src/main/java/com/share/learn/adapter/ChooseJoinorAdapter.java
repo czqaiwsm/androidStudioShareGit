@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
 import com.share.learn.R;
-import com.share.learn.bean.CourseInfo;
 import com.share.learn.bean.IdInfo;
 import com.share.learn.utils.BaseApplication;
 

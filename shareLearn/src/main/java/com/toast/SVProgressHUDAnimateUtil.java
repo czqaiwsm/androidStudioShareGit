@@ -1,6 +1,7 @@
 package com.toast;
 
 import android.view.Gravity;
+
 import com.share.learn.R;
 
 /**

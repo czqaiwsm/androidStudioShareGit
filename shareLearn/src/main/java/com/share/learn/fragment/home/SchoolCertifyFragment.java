@@ -11,17 +11,24 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.*;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
+import android.os.StrictMode;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -29,18 +36,30 @@ import com.share.learn.R;
 import com.share.learn.activity.ChooseCityActivity;
 import com.share.learn.activity.teacher.ChooseJoinorActivity;
 import com.share.learn.activity.teacher.SchoolCertifyActivity;
-import com.share.learn.bean.UploadBean;
 import com.share.learn.fragment.BaseFragment;
-import com.share.learn.utils.*;
-import com.share.learn.view.RoundImageView;
+import com.share.learn.utils.AppLog;
+import com.share.learn.utils.BaseApplication;
+import com.share.learn.utils.ImageLoaderUtil;
+import com.share.learn.utils.NetUtils;
+import com.share.learn.utils.SDCardUtils;
+import com.share.learn.utils.URLConstants;
+import com.share.learn.utils.Utils;
+import com.share.learn.utils.WaitLayer;
 import com.share.learn.view.UpdateAvatarPopupWindow;
 import com.volley.req.parser.JsonParserBase;
 import com.volley.req.parser.ParserUtil;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * @desc 学历认证

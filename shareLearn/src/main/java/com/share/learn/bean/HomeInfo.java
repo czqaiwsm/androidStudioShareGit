@@ -1,7 +1,5 @@
 package com.share.learn.bean;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 /**
@@ -15,6 +13,7 @@ public class HomeInfo {
     private ArrayList<HomePagerBanner> topAdList;
     private String alipay;
     private String realName;
+    private String managerMobile;
     public ArrayList<HomePagerBanner> getTopAdList() {
         return topAdList;
     }
@@ -46,5 +45,13 @@ public class HomeInfo {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public String getManagerMobile() {
+        return managerMobile;
+    }
+
+    public void setManagerMobile(String managerMobile) {
+        this.managerMobile = managerMobile;
     }
 }

@@ -7,13 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.share.learn.R;
 import com.share.learn.bean.AddressInfos;
-import com.share.learn.utils.BaseApplication;
 
 import java.util.List;
 

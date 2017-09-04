@@ -1,7 +1,6 @@
 package com.wxutils;
 
 import android.os.AsyncTask;
-import android.os.Handler;
 import android.util.Log;
 import android.util.Xml;
 

@@ -1,7 +1,5 @@
 package com.share.learn.bean;
 
-import android.widget.TextView;
-
 import java.io.Serializable;
 
 /**

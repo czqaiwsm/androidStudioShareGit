@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.alipay.sdk.pay.demo.PayCallBack;
 import com.google.gson.internal.LinkedTreeMap;
 import com.share.learn.R;
@@ -18,7 +19,6 @@ import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
 import com.share.learn.parse.BaseParse;
-import com.share.learn.parse.LoginInfoParse;
 import com.share.learn.utils.PayUtil;
 import com.share.learn.utils.URLConstants;
 import com.share.learn.utils.WaitLayer;

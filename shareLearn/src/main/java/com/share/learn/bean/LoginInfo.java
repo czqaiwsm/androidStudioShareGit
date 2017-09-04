@@ -1,7 +1,5 @@
 package com.share.learn.bean;
 
-import com.share.learn.bean.UserInfo;
-
 /**
  * @desc 登录信息
  * @creator caozhiqing

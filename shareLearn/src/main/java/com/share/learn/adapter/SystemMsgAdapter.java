@@ -3,13 +3,12 @@ package com.share.learn.adapter;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.TextView;
+
 import com.share.learn.R;
 import com.share.learn.bean.SystemMsg;
 import com.share.learn.fragment.center.SystemMsgFragment;

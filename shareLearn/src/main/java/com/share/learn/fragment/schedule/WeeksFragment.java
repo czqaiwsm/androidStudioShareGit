@@ -1,22 +1,18 @@
 package com.share.learn.fragment.schedule;
 
-import android.app.Application;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.share.learn.R;
-import com.share.learn.adapter.MsgAdpter;
 import com.share.learn.adapter.WeeksAdpter;
 import com.share.learn.bean.CourseInfo;
-import com.share.learn.bean.msg.Message;
 import com.share.learn.fragment.BaseFragment;
-import com.share.learn.utils.AppLog;
 import com.share.learn.view.CustomListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @desc 课程-->每天的课程

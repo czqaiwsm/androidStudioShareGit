@@ -20,10 +20,10 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.share.learn.R;
 import com.share.learn.activity.center.ServiceProtocolActivity;
-import com.share.learn.activity.teacher.TeacherDetailActivity;
 import com.share.learn.bean.BannerImgInfo;
 import com.share.learn.utils.ImageLoaderUtil;
 

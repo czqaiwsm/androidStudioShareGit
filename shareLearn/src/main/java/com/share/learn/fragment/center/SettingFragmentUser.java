@@ -1,59 +1,35 @@
 package com.share.learn.fragment.center;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.ContentUris;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.*;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.Gravity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.share.learn.R;
-import com.share.learn.activity.ChooseCityActivity;
-import com.share.learn.activity.center.PCenterModifyInfoActivity;
 import com.share.learn.activity.center.ResetPassActivity;
 import com.share.learn.activity.center.ServiceProtocolActivity;
-import com.share.learn.activity.center.SettingActivity;
-import com.share.learn.activity.home.MsgChooseActivity;
 import com.share.learn.activity.login.LoginActivity;
-import com.share.learn.activity.teacher.ChooseJoinorActivity;
 import com.share.learn.fragment.BaseFragment;
-import com.share.learn.utils.*;
-import com.share.learn.view.RoundImageView;
-import com.share.learn.view.UpdateAvatarPopupWindow;
-import com.volley.req.UserInfo;
+import com.share.learn.utils.AppLog;
+import com.share.learn.utils.BaseApplication;
+import com.share.learn.utils.DataCleanManager;
+import com.share.learn.utils.SmartToast;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
 import com.volley.req.net.RequestParamSub;
-import org.json.JSONObject;
 
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * 设置界面

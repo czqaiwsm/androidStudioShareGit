@@ -49,13 +49,13 @@ public abstract class BaseFragment extends Fragment{
     protected final int SHOW_ERROR = 3;
 
 
-    protected Handler handler = new Handler(){
+    protected Handler handler = new Handler() {
 
 
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case CANCEL:
                     dismissLoadingDilog();
                     break;
@@ -63,23 +63,23 @@ public abstract class BaseFragment extends Fragment{
                     showLoadingDilog("");
                     break;
                 case SHOW_SUCCESS:
-                    if(msg != null && msg.obj !=null){
+                    if (msg != null && msg.obj != null) {
                         toasetUtil.showSuccess(msg.toString());
-                    }else {
+                    } else {
                         toasetUtil.showSuccess("");
                     }
                     break;
                 case SHOW_INFO:
-                    if(msg != null && msg.obj !=null){
+                    if (msg != null && msg.obj != null) {
                         toasetUtil.showInfo(msg.toString());
-                    }else {
+                    } else {
                         toasetUtil.showInfo("");
                     }
                     break;
                 case SHOW_ERROR:
-                    if(msg != null && msg.obj !=null){
+                    if (msg != null && msg.obj != null) {
                         toasetUtil.showErro(msg.toString());
-                    }else {
+                    } else {
                         toasetUtil.showErro("");
                     }
                     break;
@@ -333,22 +333,24 @@ public abstract class BaseFragment extends Fragment{
             @Override
             public void onResponse(Object object) {
                 dismissLoadingDilog();
-                if (object != null){
+                if (object != null) {
                     JsonParserBase jsonParserBase = (JsonParserBase) object;
-                    if(jsonParserBase != null && URLConstants.SUCCESS_CODE.equals(jsonParserBase.getRespCode())){
+                    if (jsonParserBase != null && URLConstants.SUCCESS_CODE.equals(jsonParserBase
+                            .getRespCode())) {
 
-                        if(requsetListener != null){
+                        if (requsetListener != null) {
                             try {
-                                requsetListener.handleRspSuccess(requestType,jsonParserBase);
+                                requsetListener.handleRspSuccess(requestType, jsonParserBase);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
 
-                    }else{
+                    } else {
                         failRespone();
-                        if(!isDetached() && toasetUtil != null){
-                            toasetUtil.showInfo(jsonParserBase!=null?jsonParserBase.getRespDesc():"无有效数据!");
+                        if (!isDetached() && toasetUtil != null) {
+                            toasetUtil.showInfo(jsonParserBase != null ? jsonParserBase
+                                    .getRespDesc() : "无有效数据!");
                         }
                     }
 

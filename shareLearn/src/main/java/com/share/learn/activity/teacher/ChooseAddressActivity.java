@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.share.learn.activity.BaseActivity;
 import com.share.learn.fragment.home.ChooseAddressFragment;
-import com.share.learn.fragment.home.ChooseJoinorFragment;
 
 public class ChooseAddressActivity extends BaseActivity {
 	private Fragment mFragment;

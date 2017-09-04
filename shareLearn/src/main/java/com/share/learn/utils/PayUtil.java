@@ -2,19 +2,14 @@ package com.share.learn.utils;
 
 import android.app.Activity;
 import android.os.Handler;
+
 import com.alipay.sdk.pay.demo.AlipayUtil;
 import com.alipay.sdk.pay.demo.PayCallBack;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.google.gson.reflect.TypeToken;
-import com.share.learn.bean.News;
 import com.share.learn.bean.PayInfo;
-import com.share.learn.bean.TeacherDetailBean;
-import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.RequestHelp;
-import com.share.learn.parse.OrderDetailBeanParse;
-import com.share.learn.parse.OrderListBeanParse;
-import com.toast.ToasetUtil;
 import com.volley.req.net.HttpURL;
 import com.volley.req.net.RequestManager;
 import com.volley.req.net.RequestParam;
@@ -22,7 +17,6 @@ import com.volley.req.parser.JsonParserBase;
 import com.volley.req.parser.ParserUtil;
 import com.wxutils.WxPayTask;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
 /**

@@ -1,24 +1,11 @@
 package com.share.learn.utils;
 
-import android.app.Activity;
 import android.view.View;
-import com.alipay.sdk.pay.demo.AlipayUtil;
-import com.alipay.sdk.pay.demo.PayCallBack;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.share.learn.R;
-import com.share.learn.bean.CourseInfo;
-import com.share.learn.bean.PayCourseInfo;
-import com.share.learn.fragment.BaseFragment;
-import com.share.learn.help.RequestHelp;
-import com.share.learn.parse.PayCourseInfoParse;
-import com.share.learn.view.PayPopupwidow;
-import com.volley.req.net.HttpURL;
-import com.volley.req.net.RequestManager;
-import com.volley.req.net.RequestParam;
-import com.volley.req.parser.JsonParserBase;
 
-import java.util.Map;
+import com.alipay.sdk.pay.demo.PayCallBack;
+import com.share.learn.bean.CourseInfo;
+import com.share.learn.fragment.BaseFragment;
+import com.share.learn.view.PayPopupwidow;
 
 /**
  * @author czq

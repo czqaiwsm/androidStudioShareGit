@@ -3,10 +3,15 @@ package com.download.dialog;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.*;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.download.base.utils.ApkDownloadConfig;
 import com.share.learn.R;
 

@@ -6,12 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.nostra13.universalimageloader.core.ImageLoader;
+
 import com.share.learn.R;
 import com.share.learn.bean.CourseInfo;
-import com.share.learn.bean.msg.Message;
-import com.share.learn.utils.ImageLoaderUtil;
-import com.share.learn.view.RoundImageView;
 
 import java.util.List;
 

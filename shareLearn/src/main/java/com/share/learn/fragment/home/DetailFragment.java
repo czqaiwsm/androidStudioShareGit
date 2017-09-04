@@ -1,25 +1,19 @@
 package com.share.learn.fragment.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
+
 import com.share.learn.R;
-import com.share.learn.activity.center.OrderDetailActivity;
-import com.share.learn.adapter.ChooseJoinorAdapter;
-import com.share.learn.adapter.ContactAdpter;
 import com.share.learn.adapter.DetailAdapter;
-import com.share.learn.bean.Contactor;
-import com.share.learn.bean.ContactorBean;
 import com.share.learn.bean.PayDetail;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.help.PullRefreshStatus;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
-import com.share.learn.parse.ContactorBeanParse;
 import com.share.learn.parse.PayDetailParse;
 import com.share.learn.utils.URLConstants;
 import com.share.learn.utils.WaitLayer;

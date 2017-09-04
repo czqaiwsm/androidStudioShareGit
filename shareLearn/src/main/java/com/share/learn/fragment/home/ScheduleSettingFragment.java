@@ -7,13 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.share.learn.R;
 import com.share.learn.activity.ChooseCityActivity;
 import com.share.learn.activity.teacher.ChooseJoinorActivity;
 import com.share.learn.fragment.BaseFragment;
 import com.share.learn.utils.URLConstants;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * @desc 课程设置

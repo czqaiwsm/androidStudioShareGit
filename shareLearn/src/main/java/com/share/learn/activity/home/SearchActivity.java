@@ -3,6 +3,7 @@ package com.share.learn.activity.home;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+
 import com.share.learn.activity.BaseActivity;
 import com.share.learn.fragment.home.SearchFragment;
 
