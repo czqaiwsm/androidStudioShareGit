@@ -7,7 +7,7 @@
     <include
         layout="@layout/include_pickerview_topbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/pickerview_topbar_height"/>
+        android:layout_height="@dimen/pickerview_topbar_height" />
 
     <LinearLayout
         android:id="@+id/timepicker"
@@ -23,8 +23,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            android:layout_weight="5"
-             />
+            android:layout_weight="5" />
+
         <com.pickerview.lib.WheelView
             android:id="@+id/month"
             android:layout_width="fill_parent"
@@ -51,7 +51,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
+
         <com.pickerview.lib.WheelView
             android:id="@+id/sege"
             android:layout_width="0dp"

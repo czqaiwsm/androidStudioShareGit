@@ -8,6 +8,7 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
     <style name="loading_dialog_dim" parent="loading_dialog">
 
         <item name="android:backgroundDimEnabled">false</item>
@@ -34,17 +35,18 @@
     <style name="customTabWidget" parent="@android:style/Widget.Holo.TabWidget">
         <item name="android:divider">@null</item>
     </style>
+
     <style name="actionBarTabTextStyle" parent="android:attr/actionBarTabTextStyle">
         <item name="android:textSize">33sp</item>
     </style>
 
-    <style name="mainpage_bt_style" >
+    <style name="mainpage_bt_style">
         <item name="android:layout_width">32dp</item>
         <item name="android:layout_height">30dp</item>
         <item name="android:layout_marginRight">8dp</item>
     </style>
 
-    <style name="choose_teach_txt" >
+    <style name="choose_teach_txt">
         <item name="android:textSize">13sp</item>
         <item name="android:paddingTop">2dp</item>
         <item name="android:paddingBottom">2dp</item>
@@ -92,6 +94,7 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
     <style name="dialogWindowAnim" parent="android:Animation" mce_bogus="1">
         <item name="android:windowEnterAnimation">@anim/dialog_in_center</item>
         <item name="android:windowExitAnimation">@anim/dialog_out_center</item>
@@ -112,6 +115,7 @@
         <item name="android:thumb">@null</item>
         <item name="android:isIndicator">false</item>
     </style>
+
     <style name="CustomRatingBarSmall" parent="@android:style/Widget.RatingBar">
         <item name="android:indeterminateOnly">false</item>
         <item name="android:progressDrawable">@drawable/custom_ratingbar_small</item>

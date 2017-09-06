@@ -5,8 +5,7 @@
     android:gravity="center"
     android:orientation="horizontal"
     android:padding="15dp"
-              android:background="@null"
-    >
+    android:background="@null">
 
     <ProgressBar
         android:id="@+id/pull_to_refresh_progress"
@@ -14,8 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        android:visibility="gone" >
-    </ProgressBar>
+        android:visibility="gone"></ProgressBar>
 
     <TextView
         android:id="@+id/load_more"
@@ -24,7 +22,6 @@
         android:layout_marginLeft="10.0dp"
         android:gravity="center"
         android:text="@string/p2refresh_head_load_more"
-        android:textColor="@android:color/black" >
-    </TextView>
+        android:textColor="@android:color/black"></TextView>
 
 </LinearLayout>

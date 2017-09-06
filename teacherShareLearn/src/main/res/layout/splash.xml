@@ -6,13 +6,13 @@
     android:background="@android:color/white"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.hylsmart.template.MainActivity" >
+    tools:context="com.hylsmart.template.MainActivity">
 
     <ImageView
         android:id="@+id/id_splash_iv1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/logo_bg"/>
+        android:src="@drawable/logo_bg" />
 
 </LinearLayout>

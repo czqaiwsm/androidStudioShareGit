@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_marginLeft="5dp"
@@ -103,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/feed_back_btn"
-                android:text="课程反馈"
+                android:text="顾问反馈"
                 android:textColor="@color/white_bg_home"
                 android:textSize="16sp" />
 

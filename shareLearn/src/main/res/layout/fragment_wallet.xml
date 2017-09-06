@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <include layout="@layout/fragment_header" />
 
@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_bg_home"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/photo_avatar_layout"
@@ -27,19 +27,19 @@
                 android:background="@drawable/item_click"
                 android:paddingLeft="@dimen/app_text_size_min"
                 android:paddingRight="@dimen/app_text_size_min"
-                android:visibility="gone"
-            >
-
-                <TextView android:id="@+id/photo"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:textColor="@color/color_small_gray"
-                          android:textSize="@dimen/pc_txt_size"
-                          android:layout_centerVertical="true"
-                          android:text="头像"/>
+                android:visibility="gone">
 
                 <TextView
-                        android:id="@+id/img"
+                    android:id="@+id/photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pc_txt_size"
+                    android:layout_centerVertical="true"
+                    android:text="头像" />
+
+                <TextView
+                    android:id="@+id/img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -49,26 +49,28 @@
                     android:textColor="@color/color_small_gray"
                     android:textSize="@dimen/pc_txt_size" />
 
-                <FrameLayout  android:layout_width="50dp"
-                              android:layout_height="50dp"
-                              android:layout_centerVertical="true"
-                              android:layout_marginTop="@dimen/_10dp"
-                              android:layout_marginBottom="@dimen/_10dp"
-                              android:layout_toLeftOf="@+id/img"
-                               android:id="@+id/img_frame">
+                <FrameLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    android:layout_toLeftOf="@+id/img"
+                    android:id="@+id/img_frame">
+
                     <com.share.learn.view.RoundImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/account_head_img"
-                            android:src="@drawable/aot"
-                            android:adjustViewBounds="true"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/account_head_img"
+                        android:src="@drawable/aot"
+                        android:adjustViewBounds="true" />
                 </FrameLayout>
 
-                <View android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:background="@drawable/dap_line"
-                      android:layout_alignParentBottom="true"
-                      />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dap_line"
+                    android:layout_alignParentBottom="true" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -78,6 +80,7 @@
                 android:background="@drawable/item_click"
                 android:padding="@dimen/app_text_size_min"
                 android:visibility="gone">
+
                 <TextView
                     android:id="@+id/nickname"
                     android:layout_width="wrap_content"
@@ -103,6 +106,7 @@
 
             </RelativeLayout>
             />
+
             <RelativeLayout
                 android:id="@+id/balance_layout"
                 android:layout_width="match_parent"
@@ -110,7 +114,8 @@
                 android:background="@drawable/item_click"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -118,6 +123,7 @@
                     android:text="@string/balance"
                     android:textColor="@color/color_small_gray"
                     android:textSize="@dimen/pc_txt_size" />
+
                 <TextView
                     android:id="@+id/account_balance"
                     android:layout_width="wrap_content"
@@ -128,17 +134,16 @@
                     android:gravity="center_vertical|right"
                     android:singleLine="true"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/pc_txt_size"
-                    />
+                    android:textSize="@dimen/pc_txt_size" />
             </RelativeLayout>
 
-            <View android:layout_width="match_parent"
-                  android:layout_height="0.5dp"
-                  android:background="@color/color_small_gray"
-                  android:layout_marginRight="@dimen/app_text_size_min"
-                  android:layout_marginLeft="@dimen/app_text_size_min"
-                  android:visibility="gone"
-            />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_small_gray"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:layout_marginLeft="@dimen/app_text_size_min"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:visibility="gone"
@@ -146,7 +151,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/item_click"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -166,21 +172,23 @@
                     android:gravity="center_vertical|right"
                     android:singleLine="true"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/pc_txt_size"
-                    />
+                    android:textSize="@dimen/pc_txt_size" />
             </RelativeLayout>
-            <View android:layout_width="match_parent"
-                  android:layout_height="0.5dp"
-                  android:background="@color/color_small_gray"
-                  android:layout_marginRight="@dimen/app_text_size_min"
-                  android:layout_marginLeft="@dimen/app_text_size_min"
-            />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_small_gray"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:layout_marginLeft="@dimen/app_text_size_min" />
+
             <RelativeLayout
                 android:id="@+id/withDraw_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/item_click"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -200,21 +208,23 @@
                     android:gravity="center_vertical|right"
                     android:singleLine="true"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/pc_txt_size"
-                    />
+                    android:textSize="@dimen/pc_txt_size" />
             </RelativeLayout>
-            <View android:layout_width="match_parent"
-                  android:layout_height="0.5dp"
-                  android:background="@color/color_small_gray"
-                  android:layout_marginRight="@dimen/app_text_size_min"
-                  android:layout_marginLeft="@dimen/app_text_size_min"
-            />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_small_gray"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:layout_marginLeft="@dimen/app_text_size_min" />
+
             <RelativeLayout
                 android:id="@+id/setPayRl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/item_click"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -234,15 +244,15 @@
                     android:gravity="center_vertical|right"
                     android:singleLine="true"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/pc_txt_size"
-                    />
+                    android:textSize="@dimen/pc_txt_size" />
             </RelativeLayout>
-            <View android:layout_width="match_parent"
-                  android:layout_height="0.5dp"
-                  android:background="@color/color_small_gray"
-                  android:layout_marginRight="@dimen/app_text_size_min"
-                  android:layout_marginLeft="@dimen/app_text_size_min"
-            />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_small_gray"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:layout_marginLeft="@dimen/app_text_size_min" />
         </LinearLayout>
     </com.share.learn.view.FlowScrollView>
 

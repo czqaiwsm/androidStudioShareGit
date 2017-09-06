@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <include layout="@layout/fragment_header" />
 
@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_bg_home"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/photo_avatar_layout"
@@ -26,19 +26,19 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/item_click"
                 android:paddingLeft="@dimen/app_text_size_min"
-                android:paddingRight="@dimen/app_text_size_min"
-            >
-
-                <TextView android:id="@+id/photo"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:textColor="@color/color_small_gray"
-                          android:textSize="@dimen/pop_select_size"
-                          android:layout_centerVertical="true"
-                          android:text="头像"/>
+                android:paddingRight="@dimen/app_text_size_min">
 
                 <TextView
-                        android:id="@+id/img"
+                    android:id="@+id/photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_small_gray"
+                    android:textSize="@dimen/pop_select_size"
+                    android:layout_centerVertical="true"
+                    android:text="头像" />
+
+                <TextView
+                    android:id="@+id/img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -48,26 +48,28 @@
                     android:textColor="@color/color_small_gray"
                     android:textSize="@dimen/pop_select_size" />
 
-                <FrameLayout   android:layout_width="50dp"
-                               android:layout_height="50dp"
-                               android:layout_centerVertical="true"
-                               android:layout_marginTop="@dimen/_10dp"
-                               android:layout_marginBottom="@dimen/_10dp"
-                               android:layout_toLeftOf="@+id/img"
-                               android:id="@+id/img_frame">
+                <FrameLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    android:layout_toLeftOf="@+id/img"
+                    android:id="@+id/img_frame">
+
                     <com.share.learn.view.RoundImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/account_head_img"
-                            android:src="@drawable/aot"
-                            android:adjustViewBounds="true"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/account_head_img"
+                        android:src="@drawable/aot"
+                        android:adjustViewBounds="true" />
                 </FrameLayout>
 
-                <View android:layout_width="match_parent"
-                      android:layout_height="@dimen/line"
-                      android:background="@color/color_small_gray"
-                      android:layout_alignParentBottom="true"
-                />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line"
+                    android:background="@color/color_small_gray"
+                    android:layout_alignParentBottom="true" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -75,7 +77,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/item_click"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
                     android:id="@+id/nickname"
                     android:layout_width="wrap_content"
@@ -100,18 +103,21 @@
                     android:textSize="@dimen/pop_select_size" />
 
             </RelativeLayout>
-            <View android:layout_width="match_parent"
-                  android:layout_height="@dimen/line"
-                  android:background="@color/color_small_gray"
-                  android:layout_marginRight="@dimen/app_text_size_min"
-                  android:layout_marginLeft="@dimen/app_text_size_min"
-            />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line"
+                android:background="@color/color_small_gray"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:layout_marginLeft="@dimen/app_text_size_min" />
+
             <RelativeLayout
                 android:id="@+id/sex_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/item_click"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -132,23 +138,25 @@
                     android:singleLine="true"
                     android:textColor="@color/color_small_gray"
                     android:textSize="@dimen/pop_select_size"
-                    android:text="男"/>
+                    android:text="男" />
             </RelativeLayout>
 
-            <View android:layout_width="match_parent"
-                  android:layout_height="@dimen/line"
-                  android:background="@color/color_small_gray"
-                  android:layout_marginRight="@dimen/app_text_size_min"
-                  android:layout_marginLeft="@dimen/app_text_size_min"
-            />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line"
+                android:background="@color/color_small_gray"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:layout_marginLeft="@dimen/app_text_size_min" />
+
             <RelativeLayout
                 android:id="@+id/jonior_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/item_click"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
-                        android:id="@+id/joniorTV"
+                    android:id="@+id/joniorTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -168,20 +176,23 @@
                     android:singleLine="true"
                     android:textColor="@color/color_small_gray"
                     android:textSize="@dimen/pop_select_size"
-                    android:text="二年级"/>
+                    android:text="二年级" />
             </RelativeLayout>
-            <View android:layout_width="match_parent"
-                  android:layout_height="@dimen/line"
-                  android:background="@color/color_small_gray"
-                  android:layout_marginRight="@dimen/app_text_size_min"
-                  android:layout_marginLeft="@dimen/app_text_size_min"
-            />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line"
+                android:background="@color/color_small_gray"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:layout_marginLeft="@dimen/app_text_size_min" />
+
             <RelativeLayout
                 android:id="@+id/addressRl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/item_click"
-                android:padding="@dimen/app_text_size_min" >
+                android:padding="@dimen/app_text_size_min">
+
                 <TextView
                     android:id="@+id/addressTv"
                     android:layout_width="wrap_content"
@@ -202,15 +213,16 @@
                     android:gravity="center_vertical|right"
                     android:singleLine="true"
                     android:textColor="@color/color_small_gray"
-                    android:textSize="@dimen/pop_select_size"
-                    />
+                    android:textSize="@dimen/pop_select_size" />
             </RelativeLayout>
-            <View android:layout_width="match_parent"
-                  android:layout_height="@dimen/line"
-                  android:background="@color/color_small_gray"
-                  android:layout_marginRight="@dimen/app_text_size_min"
-                  android:layout_marginLeft="@dimen/app_text_size_min"
-                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line"
+                android:background="@color/color_small_gray"
+                android:layout_marginRight="@dimen/app_text_size_min"
+                android:layout_marginLeft="@dimen/app_text_size_min" />
+
             <RelativeLayout
                 android:id="@+id/advice_layout"
                 android:layout_width="match_parent"
@@ -220,8 +232,8 @@
                 android:paddingRight="@dimen/app_text_size_min"
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp"
-                android:layout_marginTop="@dimen/_10dp"
-                >
+                android:layout_marginTop="@dimen/_10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -229,8 +241,7 @@
                     android:text="温馨提示：请务必填写真实姓名，性别和年级，以便老师能够及时联系到你。"
                     android:textColor="@color/TextColorBlack"
                     android:lineSpacingExtra="2dp"
-                    android:textSize="16sp"
-                    />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -243,7 +254,7 @@
                     android:singleLine="true"
                     android:textColor="@color/color_small_gray"
                     android:textSize="@dimen/pop_select_size"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
             </RelativeLayout>
             <!--<RelativeLayout

@@ -3,7 +3,7 @@
     <string name="app_name">我享学-老师版</string>
     <string name="session">首页</string>
     <string name="address_book">消息</string>
-    <string name="schedule_tab">课表</string>
+    <string name="schedule_tab">反馈</string>
     <string name="me_tab">我</string>
     <string name="exit">再按一次退出程序！</string>
 
@@ -114,8 +114,8 @@
     <string name="sys_msg">系统消息</string>
     <string name="reset_pass">修改密码</string>
     <string name="purchase">购买课程</string>
-   <!-- <string name="confirm">确定</string>
-    <string name="giveup">取消</string>-->
+    <!-- <string name="confirm">确定</string>
+     <string name="giveup">取消</string>-->
     <string name="giveup2">删除</string>
     <string name="upload_fail">图片上传失败</string>
     <string name="upload_success">图片上传成功</string>
@@ -148,8 +148,6 @@
     <string name="down">下载提示</string>
 
 
-
-
     <!--年级star-->
     <string-array name="jonior_id">
         <item>1</item>
@@ -169,15 +167,15 @@
         <item>小学</item>
         <item>初中</item>
         <item>高中</item>
-       <!-- <item>四年级</item>
-        <item>五年级</item>
-        <item>六年级</item>
-        <item>初一</item>
-        <item>初二</item>
-        <item>初三</item>
-        <item>高一</item>
-        <item>高二</item>
-        <item>高三</item>-->
+        <!-- <item>四年级</item>
+         <item>五年级</item>
+         <item>六年级</item>
+         <item>初一</item>
+         <item>初二</item>
+         <item>初三</item>
+         <item>高一</item>
+         <item>高二</item>
+         <item>高三</item>-->
     </string-array>
     <!--年级end-->
 

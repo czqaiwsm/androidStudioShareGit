@@ -6,7 +6,7 @@
     android:clickable="true"
     android:focusable="true"
     android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <ProgressBar
         android:id="@+id/loadingLayoutProgress"

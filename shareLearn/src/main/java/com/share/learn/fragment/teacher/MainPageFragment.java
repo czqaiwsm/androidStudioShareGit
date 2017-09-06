@@ -150,7 +150,7 @@ public class MainPageFragment extends BaseFragment implements View.OnClickListen
 //                cliclAble(false);
 //                requestTask();
                 if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE)
-                        != PackageManager.PERMISSION_GRANTED){
+                        == PackageManager.PERMISSION_GRANTED){
                     String phoneNum = teacherDetailInfo.getManagerMobile();
                     if(StringUtils.isEmpty(phoneNum)){
                         phoneNum = HomePageFragment.homeInfo.getManagerMobile();

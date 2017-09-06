@@ -1,31 +1,20 @@
 package com.share.learn.fragment.feedback;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.share.learn.R;
-import com.share.learn.activity.teacher.ChatMsgActivity;
 import com.share.learn.adapter.FeedBackAdpter;
-import com.share.learn.adapter.MsgAdpter;
-import com.share.learn.bean.ChatMsgEntity;
 import com.share.learn.bean.FeedBackDetail;
 import com.share.learn.bean.FeedList;
-import com.share.learn.bean.UserInfo;
 import com.share.learn.fragment.BaseFragment;
-import com.share.learn.fragment.HomePageFragment;
 import com.share.learn.help.PullRefreshStatus;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.help.RequsetListener;
-import com.share.learn.parse.BaseParse;
 import com.share.learn.parse.FeeBackParse;
-import com.share.learn.utils.AlertDialogUtils;
-import com.share.learn.utils.BaseApplication;
 import com.share.learn.utils.URLConstants;
 import com.share.learn.utils.WaitLayer;
 import com.share.learn.view.CustomListView;
@@ -118,7 +107,7 @@ public class FeedBackFragment extends BaseFragment implements RequsetListener{
         customListView = (CustomListView) view.findViewById(R.id.callListView);
         noData = (TextView) view.findViewById(R.id.noData);
         title = (TextView) view.findViewById(R.id.header_title);
-        title.setText("课程");
+        title.setText("课时反馈");
         customListView.setCanRefresh(true);
         customListView.setCanLoadMore(false);
         adapter = new FeedBackAdpter(mActivity, list);

@@ -1,12 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/container"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#E7E7E8"
-              android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E7E7E8"
+    android:orientation="vertical">
 
-    <include layout="@layout/fragment_header"/>
+    <include layout="@layout/fragment_header" />
 
 
     <TextView
@@ -17,7 +17,7 @@
         android:gravity="center"
         android:text="请选择提现类型"
         android:textColor="@color/color_small_gray"
-        android:textSize="@dimen/app_text_size_first"/>
+        android:textSize="@dimen/app_text_size_first" />
 
     <LinearLayout
         android:id="@+id/alipayLL"
@@ -34,14 +34,14 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/alipay_img"
-            />
+            android:src="@drawable/alipay_img" />
+
         <TextView
             android:layout_width="0.5dp"
             android:layout_height="35dp"
             android:background="#E7E7E8"
             android:layout_marginLeft="@dimen/_10dp"
-            android:layout_marginRight="@dimen/_10dp"/>
+            android:layout_marginRight="@dimen/_10dp" />
 
         <TextView
             android:id="@+id/alipay"
@@ -50,7 +50,7 @@
             android:layout_weight="1"
             android:text="支付宝"
             android:textColor="#1E1E1E"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <CheckBox
             android:id="@+id/alipayBox"
@@ -60,9 +60,9 @@
             android:button="@drawable/agree_pro_check"
             android:checked="true"
             android:textColor="@color/color_gray"
-            android:clickable="false"
-            />
+            android:clickable="false" />
     </LinearLayout>
+
     <LinearLayout
         android:visibility="gone"
         android:id="@+id/wxPaylipayLL"
@@ -79,14 +79,14 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/wxpay_img"
-            />
+            android:src="@drawable/wxpay_img" />
+
         <TextView
             android:layout_width="0.5dp"
             android:layout_height="35dp"
             android:background="#E7E7E8"
             android:layout_marginLeft="@dimen/_10dp"
-            android:layout_marginRight="@dimen/_10dp"/>
+            android:layout_marginRight="@dimen/_10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
             android:layout_weight="1"
             android:text="微信"
             android:textColor="#1E1E1E"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <CheckBox
             android:id="@+id/wxPayBox"
@@ -103,9 +103,9 @@
             android:layout_marginLeft="15dp"
             android:button="@drawable/agree_pro_check"
             android:textColor="@color/color_gray"
-            android:clickable="false"
-            />
+            android:clickable="false" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/bankLL"
         android:layout_width="match_parent"
@@ -121,14 +121,14 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/bank_img"
-            />
+            android:src="@drawable/bank_img" />
+
         <TextView
             android:layout_width="0.5dp"
             android:layout_height="35dp"
             android:background="#E7E7E8"
             android:layout_marginLeft="@dimen/_10dp"
-            android:layout_marginRight="@dimen/_10dp"/>
+            android:layout_marginRight="@dimen/_10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
             android:layout_weight="1"
             android:text="银行卡"
             android:textColor="#1E1E1E"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <CheckBox
             android:id="@+id/bankBox"
@@ -145,8 +145,7 @@
             android:layout_marginLeft="15dp"
             android:button="@drawable/agree_pro_check"
             android:textColor="@color/color_gray"
-            android:clickable="false"
-            />
+            android:clickable="false" />
     </LinearLayout>
 
 
@@ -163,6 +162,6 @@
         android:paddingTop="12dp"
         android:text="下一步"
         android:textColor="@color/white"
-        android:textSize="@dimen/app_text_size_most"/>
+        android:textSize="@dimen/app_text_size_most" />
 
 </LinearLayout>

@@ -31,7 +31,6 @@ import com.share.learn.fragment.center.PCenterInfoFragment;
 import com.share.learn.fragment.center.UnLoginPCenterFragment;
 import com.share.learn.fragment.feedback.FeedBackFragment;
 import com.share.learn.fragment.msg.MsgInfosFragment;
-import com.share.learn.fragment.schedule.ScheduleFragment;
 import com.share.learn.help.RequestHelp;
 import com.share.learn.service.LocationService;
 import com.share.learn.service.LocationUitl;

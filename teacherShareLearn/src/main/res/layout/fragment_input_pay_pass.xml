@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <include layout="@layout/fragment_header" />
 
@@ -17,7 +17,7 @@
         android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/course_txt"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp" />
 
     <LinearLayout
         android:id="@+id/passLl"
@@ -30,30 +30,30 @@
         android:paddingBottom="4dp"
         android:paddingTop="8dp"
         android:background="@drawable/pass_bg">
-     <EditText
-         android:id="@+id/pass1Et"
-         style="@style/pass_txt_style"
-         />
-     <EditText
-         android:id="@+id/pass2Et"
-         style="@style/pass_txt_style"
-         />
-     <EditText
-         android:id="@+id/pass3Et"
-         style="@style/pass_txt_style"
-         />
-     <EditText
-         android:id="@+id/pass4Et"
-         style="@style/pass_txt_style"
-         />
-     <EditText
-         android:id="@+id/pass5Et"
-         style="@style/pass_txt_style"
-         />
-     <EditText
-         android:id="@+id/pass6Et"
-         style="@style/pass_txt_style"
-         />
+
+        <EditText
+            android:id="@+id/pass1Et"
+            style="@style/pass_txt_style" />
+
+        <EditText
+            android:id="@+id/pass2Et"
+            style="@style/pass_txt_style" />
+
+        <EditText
+            android:id="@+id/pass3Et"
+            style="@style/pass_txt_style" />
+
+        <EditText
+            android:id="@+id/pass4Et"
+            style="@style/pass_txt_style" />
+
+        <EditText
+            android:id="@+id/pass5Et"
+            style="@style/pass_txt_style" />
+
+        <EditText
+            android:id="@+id/pass6Et"
+            style="@style/pass_txt_style" />
     </LinearLayout>
 
     <TextView

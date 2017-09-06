@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:padding="10dp"
     android:background="@android:color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -51,7 +51,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_ok"
@@ -61,6 +61,7 @@
             android:layout_marginLeft="2dp"
             android:onClick="onBtnClick"
             android:text="@string/confirm" />
+
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="fill_parent"

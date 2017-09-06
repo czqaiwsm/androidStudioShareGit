@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <include layout="@layout/fragment_header" />
 
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,14 +25,14 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_login_user"
-            android:visibility="gone"/>
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/register_phone"
@@ -65,14 +65,14 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/item_click_select"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_login_password"
-            android:visibility="gone"/>
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/register_passCode"
@@ -123,14 +123,14 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_login_password"
-            android:visibility="gone"/>
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/register_passAgain"
@@ -162,14 +162,14 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_login_password"
-            android:visibility="gone"/>
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/register_passAgain2"
@@ -195,36 +195,42 @@
     </LinearLayout>
 
 
-   <RelativeLayout android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_marginTop="40dp">
-       <CheckBox android:id="@+id/greed"
-                 android:layout_width="wrap_content"
-                 android:layout_height="40dp"
-                 android:button="@drawable/agree_pro_check"
-                 android:textColor="@color/color_gray"
-                 android:layout_marginLeft="15dp"
-                 android:checked="true"
-                />
-       <TextView android:id="@+id/tv1"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:textColor="@color/color_gray"
-                 android:layout_centerVertical="true"
-                 android:layout_toRightOf="@+id/greed"
-                 android:layout_marginLeft="@dimen/_10dp"
-                 android:textSize="14sp"
-                 android:text="我同意"/>
-       <TextView android:id="@+id/protocol"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:textColor="@color/text_protocol_color"
-                 android:layout_centerVertical="true"
-                 android:layout_toRightOf="@+id/tv1"
-                 android:layout_marginLeft="1dp"
-                 android:textSize="14sp"
-                 />
-   </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
+
+        <CheckBox
+            android:id="@+id/greed"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:button="@drawable/agree_pro_check"
+            android:textColor="@color/color_gray"
+            android:layout_marginLeft="15dp"
+            android:checked="true" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_gray"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/greed"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:textSize="14sp"
+            android:text="我同意" />
+
+        <TextView
+            android:id="@+id/protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_protocol_color"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv1"
+            android:layout_marginLeft="1dp"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/register"
         android:layout_width="match_parent"

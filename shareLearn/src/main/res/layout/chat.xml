@@ -2,14 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white" >
-<!-- 标题栏 -->
+    android:background="@color/white">
+    <!-- 标题栏 -->
     <RelativeLayout
         android:id="@+id/rl_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical" >
-        <include layout="@layout/fragment_header"/>
+        android:gravity="center_vertical">
+
+        <include layout="@layout/fragment_header" />
     </RelativeLayout>
 
     <!-- 底部按钮以及 编辑框-->
@@ -18,7 +19,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/white" >
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/ivPopUp"
@@ -28,7 +29,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dip"
             android:src="@drawable/chatting_setmode_msg_btn"
-        android:visibility="gone"/>
+            android:visibility="gone" />
 
         <RelativeLayout
             android:id="@+id/btn_bottom"
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/ivPopUp" >
+            android:layout_toRightOf="@+id/ivPopUp">
 
             <Button
                 android:id="@+id/btn_send"
@@ -93,7 +94,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="center"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <include
             android:layout_width="wrap_content"

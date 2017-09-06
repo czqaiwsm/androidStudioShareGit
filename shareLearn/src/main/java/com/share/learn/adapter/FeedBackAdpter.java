@@ -9,15 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.share.learn.R;
 import com.share.learn.activity.FeedBackDetailActivity;
 import com.share.learn.bean.FeedBackDetail;
-import com.share.learn.bean.FeedBackDetail;
-import com.share.learn.bean.msg.Message;
-import com.share.learn.utils.ImageLoaderUtil;
-import com.share.learn.view.RoundImageView;
-import com.ta.utdid2.android.utils.StringUtils;
 
 import java.util.List;
 

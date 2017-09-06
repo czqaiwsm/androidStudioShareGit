@@ -6,11 +6,11 @@
     android:layout_centerInParent="true"
     android:background="@drawable/round_black_trasparent"
     android:gravity="center"
-              android:padding="15dp"
-    android:orientation="horizontal" >
+    android:padding="15dp"
+    android:orientation="horizontal">
 
     <com.share.learn.utils.ProgressBarCircularIndeterminate
-            android:id="@+id/progressBarCircularIndetermininate"
+        android:id="@+id/progressBarCircularIndetermininate"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_margin="10dp"

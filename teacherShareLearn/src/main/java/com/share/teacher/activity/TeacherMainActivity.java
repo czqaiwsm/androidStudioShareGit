@@ -23,6 +23,7 @@ import com.download.update.UpdateMgr;
 import com.share.teacher.R;
 import com.share.teacher.fragment.TeacherHomePageFragment;
 import com.share.teacher.fragment.center.PCenterInfoFragment;
+import com.share.teacher.fragment.msg.FeedBackListFragment;
 import com.share.teacher.fragment.msg.MsgInfosFragment;
 import com.share.teacher.fragment.schedule.ScheduleFragment;
 import com.share.teacher.service.LocationService;
@@ -48,9 +49,6 @@ public class TeacherMainActivity extends BaseActivity implements View.OnClickLis
     private Button[] mTabs;
     private Fragment[] fragments;
 
-    private TeacherHomePageFragment homePageFragment;
-    private MsgInfosFragment msgInfosFragment;
-    private ScheduleFragment scheduleFragment;
     private PCenterInfoFragment pCenterFragment;
 
     private final int VIEW_COUNT = 4;
@@ -68,9 +66,10 @@ public class TeacherMainActivity extends BaseActivity implements View.OnClickLis
         UpdateMgr.getInstance(this).checkUpdateInfo(null, false);
         setContentView(R.layout.main_activity);
         fragments = new Fragment[VIEW_COUNT];
-        fragments[0] = homePageFragment =new TeacherHomePageFragment();
-        fragments[1] = msgInfosFragment = new MsgInfosFragment();
-        fragments[2] = scheduleFragment = new ScheduleFragment();
+        fragments[0] =new TeacherHomePageFragment();
+        fragments[1] =  new MsgInfosFragment();
+//        fragments[2] = new ScheduleFragment();
+        fragments[2] = new FeedBackListFragment();
         fragments[3] = pCenterFragment = new PCenterInfoFragment();
 
         initView();

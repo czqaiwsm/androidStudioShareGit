@@ -317,15 +317,6 @@ public class OrderPayFragment extends BaseFragment implements RequsetListener,Cu
         }
     }
 
-//    @Override
-//    public void paySucc() {
-//        handler.sendEmptyMessage(OrderFragment.PAY_SUCC);
-//    }
-//
-//    @Override
-//    public void payFail() {
-//      toasetUtil.showInfo("支付失败");
-//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

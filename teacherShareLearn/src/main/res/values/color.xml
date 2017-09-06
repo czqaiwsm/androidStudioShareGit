@@ -60,7 +60,7 @@
     <color name="teach_txt_color2">#474747</color>
 
     <color name="course_txt">#FF646464</color>
-    <color name="course_solid">#FF127AE9 </color>
+    <color name="course_solid">#FF127AE9</color>
     <color name="bg_main">#F0F0F0</color>
 
 
@@ -80,5 +80,5 @@
     <color name="certify_txt">#FF414141</color>
     <color name="certify_txt2">#FF7A7A7A</color>
     <color name="alph_white_0.5">#ae888888</color>
-    
+
 </resources>
