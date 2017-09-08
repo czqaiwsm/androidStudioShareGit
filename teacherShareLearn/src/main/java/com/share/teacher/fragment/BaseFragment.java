@@ -50,7 +50,7 @@ public abstract class BaseFragment extends Fragment{
     protected final int SHOW_ERROR = 3;
 
 
-    protected Handler handler = new Handler(){
+    public Handler handler = new Handler(){
 
 
         @Override

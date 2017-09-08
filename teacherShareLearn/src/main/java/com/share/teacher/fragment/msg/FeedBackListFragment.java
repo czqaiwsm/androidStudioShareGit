@@ -97,7 +97,10 @@ public class FeedBackListFragment extends BaseFragment implements View.OnClickLi
         for (int i = 0; i < viewCount; i++) {
             rLayouts[i].setOnClickListener(this);
 
-            orderPayFragments.add(new FeedBackFragment((i + 1), handler));
+            FeedBackFragment feedBackFragment = new FeedBackFragment();
+            feedBackFragment.type = (i + 1);
+            feedBackFragment.handler = handler;
+            orderPayFragments.add(feedBackFragment);
 
         }
         mViewPager.setAdapter(new OrderPageFragmentAdapter(getChildFragmentManager(),

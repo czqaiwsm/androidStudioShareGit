@@ -42,18 +42,19 @@ public class FeedBackFragment extends BaseFragment implements RequsetListener {
     private TextView noData;
 
     private boolean isPrepare = false;
-    private boolean isVisible = false;
+    public boolean isVisible = false;
 
 
     private PullRefreshStatus status = PullRefreshStatus.NORMAL;
 
     private int flag = 1; //1 list 2删除
-    private int type = 1;//1 未反馈  2已反馈
+    public int type = 1;//1 未反馈  2已反馈
 
-    public FeedBackFragment(int type,Handler handler){
-        this.handler = handler;
-        this.type = type;
-    }
+
+//    public FeedBackFragment(int type,Handler handler){
+//        this.handler = handler;
+//        this.type = type;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
