@@ -28,7 +28,7 @@ import java.util.Locale;
  * 并且不为null，则打开这两个功能了。
  * <p>
  * mIsAutoLoadMore(是否自动加载更多)和
- * 
+ *
  * @date 2013-11-11 下午10:09:26
  * @change congcong
  * @mail fchentianlong@sohu.com
@@ -144,9 +144,9 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 初始化操作
-	 * 
+	 *
 	 * @param pContext
-	 * 
+	 *
 	 */
 	private void init(Context pContext) {
 		setCacheColorHint(pContext.getResources().getColor(R.color.transparent));
@@ -161,7 +161,7 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 添加下拉刷新的HeadView
-	 * 
+	 *
 	 */
 	private void addHeadView() {
 		mHeadView = (LinearLayout) mInflater.inflate(R.layout.refresh_head, null);
@@ -224,9 +224,9 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 实例化下拉刷新的箭头的动画效果
-	 * 
+	 *
 	 * @param pAnimDuration 动画运行时长
-	 * 
+	 *
 	 */
 	private void initPullImageAnimation(final int pAnimDuration) {
 
@@ -253,7 +253,7 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 测量HeadView宽高(注意：此方法仅适用于LinearLayout，请读者自己测试验证。)
-	 * 
+	 *
 	 */
 	private void measureView(View pChild) {
 		ViewGroup.LayoutParams p = pChild.getLayoutParams();
@@ -306,13 +306,13 @@ public class CustomListView extends ListView implements OnScrollListener {
 								changeEndViewByState();
 							}
 						} else {// 没有下拉刷新，我们直接进行加载更多。
-								// FootView显示 : 更 多 ---> 加载中...
+							// FootView显示 : 更 多 ---> 加载中...
 							mEndState = ENDINT_LOADING;
 							onLoadMore();
 							changeEndViewByState();
 						}
 					} else {// 不是自动加载更多，我们让FootView显示 “点击加载”
-							// FootView显示 : 点击加载 ---> 加载中...
+						// FootView显示 : 点击加载 ---> 加载中...
 						mEndState = ENDINT_MANUAL_LOAD_DONE;
 						changeEndViewByState();
 					}
@@ -328,54 +328,54 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 改变加载更多状态
-	 * 
+	 *
 	 * @date 2013-11-11 下午10:05:27
-	 * 
+	 *
 	 */
 	private void changeEndViewByState() {
 		if (mCanLoadMore) {
 			// 允许加载更多
 			switch (mEndState) {
-			case ENDINT_LOADING:// 刷新中
+				case ENDINT_LOADING:// 刷新中
 
-				// 加载中...
-				if (mEndLoadTipsTextView.getText().equals(R.string.p2refresh_doing_end_refresh)) {
+					// 加载中...
+					if (mEndLoadTipsTextView.getText().equals(R.string.p2refresh_doing_end_refresh)) {
+						break;
+					}
+					mEndLoadTipsTextView.setText(R.string.p2refresh_doing_end_refresh);
+					mEndLoadTipsTextView.setVisibility(View.VISIBLE);
+					mEndLoadProgressBar.setVisibility(View.VISIBLE);
 					break;
-				}
-				mEndLoadTipsTextView.setText(R.string.p2refresh_doing_end_refresh);
-				mEndLoadTipsTextView.setVisibility(View.VISIBLE);
-				mEndLoadProgressBar.setVisibility(View.VISIBLE);
-				break;
-			case ENDINT_MANUAL_LOAD_DONE:// 手动刷新完成
+				case ENDINT_MANUAL_LOAD_DONE:// 手动刷新完成
 
-				// 点击加载
-				mEndLoadTipsTextView.setText(R.string.p2refresh_end_click_load_more);
-				mEndLoadTipsTextView.setVisibility(View.VISIBLE);
-				mEndLoadProgressBar.setVisibility(View.GONE);
+					// 点击加载
+					mEndLoadTipsTextView.setText(R.string.p2refresh_end_click_load_more);
+					mEndLoadTipsTextView.setVisibility(View.VISIBLE);
+					mEndLoadProgressBar.setVisibility(View.GONE);
 
-				mEndRootView.setVisibility(View.VISIBLE);
-				break;
-			case ENDINT_AUTO_LOAD_DONE:// 自动刷新完成
+					mEndRootView.setVisibility(View.VISIBLE);
+					break;
+				case ENDINT_AUTO_LOAD_DONE:// 自动刷新完成
 
-				// 更 多
-				mEndLoadTipsTextView.setText(R.string.p2refresh_end_load_more);
-				mEndLoadTipsTextView.setVisibility(View.VISIBLE);
-				mEndLoadProgressBar.setVisibility(View.GONE);
+					// 更 多
+					mEndLoadTipsTextView.setText(R.string.p2refresh_end_load_more);
+					mEndLoadTipsTextView.setVisibility(View.VISIBLE);
+					mEndLoadProgressBar.setVisibility(View.GONE);
 
-				mEndRootView.setVisibility(View.VISIBLE);
-				break;
-			case ENDINT_AUTO_LOAD_NO_DATA:// 自动刷新完成
+					mEndRootView.setVisibility(View.VISIBLE);
+					break;
+				case ENDINT_AUTO_LOAD_NO_DATA:// 自动刷新完成
 
-				// 没有更多数据
-				mEndLoadTipsTextView.setText(R.string.p2refresh_end_load_more);
-				mEndLoadTipsTextView.setVisibility(View.VISIBLE);
-				mEndLoadTipsTextView.setText("没有更多了！！！");
-				mEndLoadProgressBar.setVisibility(View.GONE);
+					// 没有更多数据
+					mEndLoadTipsTextView.setText(R.string.p2refresh_end_load_more);
+					mEndLoadTipsTextView.setVisibility(View.VISIBLE);
+					mEndLoadTipsTextView.setText("没有更多了！！！");
+					mEndLoadProgressBar.setVisibility(View.GONE);
 
-				mEndRootView.setVisibility(View.VISIBLE);
-				break;
-			default:
-				break;
+					mEndRootView.setVisibility(View.VISIBLE);
+					break;
+				default:
+					break;
 			}
 		}
 	}
@@ -393,97 +393,100 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 			switch (event.getAction()) {
 
-			case MotionEvent.ACTION_DOWN:
-				if (mFirstItemIndex == 0 && !mIsRecored) {
-					mIsRecored = true;
-					mStartY = (int) event.getY();
-				}
-				break;
-
-			case MotionEvent.ACTION_UP:
-
-				if (mHeadState != REFRESHING && mHeadState != LOADING) {
-					if (mHeadState == DONE) {
-
+				case MotionEvent.ACTION_DOWN:
+					if (mFirstItemIndex == 0 && !mIsRecored) {
+						mIsRecored = true;
+						mStartY = (int) event.getY();
 					}
-					if (mHeadState == PULL_TO_REFRESH) {
-						mHeadState = DONE;
-						changeHeaderViewByState();
-					}
-					if (mHeadState == RELEASE_TO_REFRESH) {
-						mHeadState = REFRESHING;
-						changeHeaderViewByState();
-						onRefresh();
-					}
-				}
+					break;
 
-				mIsRecored = false;
-				mIsBack = false;
+				case MotionEvent.ACTION_UP:
 
-				break;
+					if (mHeadState != REFRESHING && mHeadState != LOADING) {
+						if (mHeadState == DONE) {
 
-			case MotionEvent.ACTION_MOVE:
-				int tempY = (int) event.getY();
-
-				if (!mIsRecored && mFirstItemIndex == 0) {
-					mIsRecored = true;
-					mStartY = tempY;
-				}
-
-				if (mHeadState != REFRESHING && mIsRecored && mHeadState != LOADING) {
-
-					// 保证在设置padding的过程中，当前的位置一直是在head，
-					// 否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
-					// 可以松手去刷新了
-					if (mHeadState == RELEASE_TO_REFRESH) {
-
-						setSelection(0);
-
-						// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
-						if (((tempY - mStartY) / RATIO < mHeadViewHeight) && (tempY - mStartY) > 0) {
-							mHeadState = PULL_TO_REFRESH;
-							changeHeaderViewByState();
 						}
-						// 一下子推到顶了
-						else if (tempY - mStartY <= 0) {
+						if (mHeadState == PULL_TO_REFRESH) {
 							mHeadState = DONE;
 							changeHeaderViewByState();
 						}
-						// 往下拉了，或者还没有上推到屏幕顶部掩盖head的地步
-					}
-					// 还没有到达显示松开刷新的时候,DONE或者是PULL_To_REFRESH状态
-					if (mHeadState == PULL_TO_REFRESH) {
-
-						setSelection(0);
-
-						// 下拉到可以进入RELEASE_TO_REFRESH的状态
-						if ((tempY - mStartY) / RATIO >= mHeadViewHeight) {
-							mHeadState = RELEASE_TO_REFRESH;
-							mIsBack = true;
+						if (mHeadState == RELEASE_TO_REFRESH) {
+							mHeadState = REFRESHING;
 							changeHeaderViewByState();
-						} else if (tempY - mStartY <= 0) {
-							mHeadState = DONE;
-							changeHeaderViewByState();
+							onRefresh();
 						}
 					}
 
-					if (mHeadState == DONE) {
-						if (tempY - mStartY > 0) {
-							mHeadState = PULL_TO_REFRESH;
-							changeHeaderViewByState();
+					mIsRecored = false;
+					mIsBack = false;
+
+					break;
+
+				case MotionEvent.ACTION_MOVE:
+					int tempY = (int) event.getY();
+
+					if (!mIsRecored && mFirstItemIndex == 0) {
+						mIsRecored = true;
+						mStartY = tempY;
+					}
+
+					if (mHeadState != REFRESHING && mIsRecored && mHeadState != LOADING) {
+
+						// 保证在设置padding的过程中，当前的位置一直是在head，
+						// 否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
+						// 可以松手去刷新了
+						if (mHeadState == RELEASE_TO_REFRESH) {
+
+							setSelection(0);
+
+							// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
+							if (((tempY - mStartY) / RATIO < mHeadViewHeight) && (tempY - mStartY)
+									> 0) {
+								mHeadState = PULL_TO_REFRESH;
+								changeHeaderViewByState();
+							}
+							// 一下子推到顶了
+							else if (tempY - mStartY <= 0) {
+								mHeadState = DONE;
+								changeHeaderViewByState();
+							}
+							// 往下拉了，或者还没有上推到屏幕顶部掩盖head的地步
+						}
+						// 还没有到达显示松开刷新的时候,DONE或者是PULL_To_REFRESH状态
+						if (mHeadState == PULL_TO_REFRESH) {
+
+							setSelection(0);
+
+							// 下拉到可以进入RELEASE_TO_REFRESH的状态
+							if ((tempY - mStartY) / RATIO >= mHeadViewHeight) {
+								mHeadState = RELEASE_TO_REFRESH;
+								mIsBack = true;
+								changeHeaderViewByState();
+							} else if (tempY - mStartY <= 0) {
+								mHeadState = DONE;
+								changeHeaderViewByState();
+							}
+						}
+
+						if (mHeadState == DONE) {
+							if (tempY - mStartY > 0) {
+								mHeadState = PULL_TO_REFRESH;
+								changeHeaderViewByState();
+							}
+						}
+
+						if (mHeadState == PULL_TO_REFRESH) {
+							mHeadView.setPadding(0, -1 * mHeadViewHeight + (tempY - mStartY) /
+									RATIO, 0, 0);
+
+						}
+
+						if (mHeadState == RELEASE_TO_REFRESH) {
+							mHeadView.setPadding(0, (tempY - mStartY) / RATIO - mHeadViewHeight,
+									0, 0);
 						}
 					}
-
-					if (mHeadState == PULL_TO_REFRESH) {
-						mHeadView.setPadding(0, -1 * mHeadViewHeight + (tempY - mStartY) / RATIO, 0, 0);
-
-					}
-
-					if (mHeadState == RELEASE_TO_REFRESH) {
-						mHeadView.setPadding(0, (tempY - mStartY) / RATIO - mHeadViewHeight, 0, 0);
-					}
-				}
-				break;
+					break;
 			}
 		}
 
@@ -492,75 +495,75 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 当HeadView状态改变时候，调用该方法，以更新界面
-	 * 
+	 *
 	 */
 	private void changeHeaderViewByState() {
 		switch (mHeadState) {
-		case RELEASE_TO_REFRESH:
-			mArrowImageView.setVisibility(View.VISIBLE);
-			mProgressBar.setVisibility(View.GONE);
-			mTipsTextView.setVisibility(View.VISIBLE);
-			mLastUpdatedTextView.setVisibility(View.VISIBLE);
+			case RELEASE_TO_REFRESH:
+				mArrowImageView.setVisibility(View.VISIBLE);
+				mProgressBar.setVisibility(View.GONE);
+				mTipsTextView.setVisibility(View.VISIBLE);
+				mLastUpdatedTextView.setVisibility(View.VISIBLE);
 
-			mArrowImageView.clearAnimation();
-			mArrowImageView.startAnimation(mArrowAnim);
-			// 松开刷新
-			mTipsTextView.setText(R.string.p2refresh_release_refresh);
-
-			break;
-		case PULL_TO_REFRESH:
-			mProgressBar.setVisibility(View.GONE);
-			mTipsTextView.setVisibility(View.VISIBLE);
-			mLastUpdatedTextView.setVisibility(View.VISIBLE);
-			mArrowImageView.clearAnimation();
-			mArrowImageView.setVisibility(View.VISIBLE);
-			// 是由RELEASE_To_REFRESH状态转变来的
-			if (mIsBack) {
-				mIsBack = false;
 				mArrowImageView.clearAnimation();
-				mArrowImageView.startAnimation(mArrowReverseAnim);
+				mArrowImageView.startAnimation(mArrowAnim);
+				// 松开刷新
+				mTipsTextView.setText(R.string.p2refresh_release_refresh);
+
+				break;
+			case PULL_TO_REFRESH:
+				mProgressBar.setVisibility(View.GONE);
+				mTipsTextView.setVisibility(View.VISIBLE);
+				mLastUpdatedTextView.setVisibility(View.VISIBLE);
+				mArrowImageView.clearAnimation();
+				mArrowImageView.setVisibility(View.VISIBLE);
+				// 是由RELEASE_To_REFRESH状态转变来的
+				if (mIsBack) {
+					mIsBack = false;
+					mArrowImageView.clearAnimation();
+					mArrowImageView.startAnimation(mArrowReverseAnim);
+					// 下拉刷新
+					mTipsTextView.setText(R.string.p2refresh_pull_to_refresh);
+				} else {
+					// 下拉刷新
+					mTipsTextView.setText(R.string.p2refresh_pull_to_refresh);
+				}
+				break;
+
+			case REFRESHING:
+				mHeadView.setPadding(0, 0, 0, 0);
+
+				// 华生的建议： 实际上这个的setPadding可以用动画来代替。我没有试，但是我见过。其实有的人也用Scroller可以实现这个效果，
+				// 我没时间研究了，后期再扩展，这个工作交给小伙伴你们啦~ 如果改进了记得发到我邮箱噢~
+				// 本人邮箱： xxzhaofeng5412@gmail.com
+
+				mProgressBar.setVisibility(View.VISIBLE);
+				mArrowImageView.clearAnimation();
+				mArrowImageView.setVisibility(View.GONE);
+				// 正在刷新...
+				mTipsTextView.setText(R.string.p2refresh_doing_head_refresh);
+				mLastUpdatedTextView.setVisibility(View.VISIBLE);
+
+				break;
+			case DONE:
+				mHeadView.setPadding(0, -1 * mHeadViewHeight + (-1), 0, 0);
+
+				// 此处可以改进，同上所述。
+
+				mProgressBar.setVisibility(View.GONE);
+				mArrowImageView.clearAnimation();
+				mArrowImageView.setImageResource(R.drawable.refresh_arrow);
 				// 下拉刷新
 				mTipsTextView.setText(R.string.p2refresh_pull_to_refresh);
-			} else {
-				// 下拉刷新
-				mTipsTextView.setText(R.string.p2refresh_pull_to_refresh);
-			}
-			break;
+				mLastUpdatedTextView.setVisibility(View.VISIBLE);
 
-		case REFRESHING:
-			mHeadView.setPadding(0, 0, 0, 0);
-
-			// 华生的建议： 实际上这个的setPadding可以用动画来代替。我没有试，但是我见过。其实有的人也用Scroller可以实现这个效果，
-			// 我没时间研究了，后期再扩展，这个工作交给小伙伴你们啦~ 如果改进了记得发到我邮箱噢~
-			// 本人邮箱： xxzhaofeng5412@gmail.com
-
-			mProgressBar.setVisibility(View.VISIBLE);
-			mArrowImageView.clearAnimation();
-			mArrowImageView.setVisibility(View.GONE);
-			// 正在刷新...
-			mTipsTextView.setText(R.string.p2refresh_doing_head_refresh);
-			mLastUpdatedTextView.setVisibility(View.VISIBLE);
-
-			break;
-		case DONE:
-			mHeadView.setPadding(0, -1 * mHeadViewHeight + (-1), 0, 0);
-
-			// 此处可以改进，同上所述。
-
-			mProgressBar.setVisibility(View.GONE);
-			mArrowImageView.clearAnimation();
-			mArrowImageView.setImageResource(R.drawable.refresh_arrow);
-			// 下拉刷新
-			mTipsTextView.setText(R.string.p2refresh_pull_to_refresh);
-			mLastUpdatedTextView.setVisibility(View.VISIBLE);
-
-			break;
+				break;
 		}
 	}
 
 	/**
 	 * 下拉刷新监听接口
-	 * 
+	 *
 	 */
 	public interface OnRefreshListener {
 		public void onRefresh();
@@ -568,7 +571,7 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 加载更多监听接口
-	 * 
+	 *
 	 */
 	public interface OnLoadMoreListener {
 		public void onLoadMore();
@@ -593,7 +596,7 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 正在下拉刷新
-	 * 
+	 *
 	 */
 	public void onRefresh() {
 		if (mRefreshListener != null) {
@@ -603,7 +606,7 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 下拉刷新完成
-	 * 
+	 *
 	 */
 	public void onRefreshComplete() {
 		// 下拉刷新后是否显示第一条Item
@@ -618,7 +621,7 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 正在加载更多，FootView显示 ： 加载中...
-	 * 
+	 *
 	 */
 	private void onLoadMore() {
 		if (mLoadMoreListener != null) {
@@ -632,7 +635,7 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 加载更多完成
-	 * 
+	 *
 	 */
 	public void onLoadMoreComplete() {
 		if (mIsAutoLoadMore) {
@@ -645,7 +648,7 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 加载更多完成
-	 * 
+	 *
 	 */
 	public void onLoadMoreComplete(int status) {
 		mEndState = status;
@@ -654,9 +657,9 @@ public class CustomListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 主要更新一下刷新时间啦！
-	 * 
+	 *
 	 * @param adapter
-	 * 
+	 *
 	 */
 	public void setAdapter(BaseAdapter adapter) {
 		// 最近更新: Time
@@ -675,7 +678,7 @@ public class CustomListView extends ListView implements OnScrollListener {
 	public void setCanRefresh(boolean pCanRefresh) {
 		mCanRefresh = pCanRefresh;
 	}
-	
+
 	public void setRefreshBackGround(int color){
 		mHeadView.setBackgroundColor(color);
 	}

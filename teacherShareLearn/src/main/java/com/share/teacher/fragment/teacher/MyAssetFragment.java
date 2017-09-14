@@ -105,7 +105,7 @@ public class MyAssetFragment extends BaseFragment implements RequsetListener,Cus
                 chatMsgEntity.setReceiverId(teacherId);
                 chatMsgEntity.setSenderId(userInfo.getId());
 
-                chatMsgEntity.setTeacherName(teacherName);
+                chatMsgEntity.setStudentName(teacherName);
                 chatMsgEntity.setTeacherImg(teacherImg);
                 intent.putExtra("bundle",chatMsgEntity);
                 startActivity(intent);

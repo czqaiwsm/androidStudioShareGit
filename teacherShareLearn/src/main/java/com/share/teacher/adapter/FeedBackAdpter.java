@@ -58,12 +58,16 @@ public class FeedBackAdpter extends BaseAdapter implements View.OnClickListener{
             holder.cnTv = (TextView) convertView.findViewById(R.id.cnTv);
             holder.titleTv = (TextView) convertView.findViewById(R.id.titleTv);
             holder.finishDataTv = (TextView) convertView.findViewById(R.id.finishDataTv);
+            holder.timeBack = (TextView) convertView.findViewById(R.id.timeBack);
             holder.cnFBBtn = (Button) convertView.findViewById(R.id.cnFBBtn);
             holder.teacherFBBtn = (Button) convertView.findViewById(R.id.teacherFBBtn);
             if(type == 1){
                 holder.teacherFBBtn.setText("点击反馈");
                 holder.backType.setText("未反馈");
+            }else {
+                holder.timeBack.setText("反馈时间");
             }
+
             holder.cnFBBtn.setOnClickListener(this);
             holder.teacherFBBtn.setOnClickListener(this);
 
@@ -76,7 +80,7 @@ public class FeedBackAdpter extends BaseAdapter implements View.OnClickListener{
 
         FeedBackDetail message = mItemList.get(position);
         if (message != null) {
-            holder.tnTv.setText(message.getTeacherName());
+            holder.tnTv.setText(message.getStudentName());
             holder.cnTv.setText(message.getCourseName());
             holder.titleTv.setText(message.getTitle());
             holder.finishDataTv.setText(message.getFinishTime());
@@ -134,6 +138,7 @@ public class FeedBackAdpter extends BaseAdapter implements View.OnClickListener{
         protected TextView backType;
         protected TextView cnTv;
         protected TextView titleTv;
+        protected TextView timeBack;
         protected TextView finishDataTv;
         protected Button cnFBBtn;
         protected Button teacherFBBtn;

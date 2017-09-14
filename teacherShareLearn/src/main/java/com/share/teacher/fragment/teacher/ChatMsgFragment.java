@@ -208,7 +208,7 @@ public class ChatMsgFragment extends BaseFragment implements View.OnClickListene
             postParams.put("content",sendChatMsg.getContent());
 //            postParams.put("studentImg",TextUtils.isEmpty(sendChatMsg.getStudentImg())?"":sendChatMsg.getStudentImg());
 //            postParams.put("teacherImg",TextUtils.isEmpty(sendChatMsg.getTeacherImg())?"":sendChatMsg.getTeacherImg());
-//            postParams.put("teacherName",TextUtils.isEmpty(sendChatMsg.getTeacherName())?"":sendChatMsg.getTeacherName());
+//            postParams.put("teacherName",TextUtils.isEmpty(sendChatMsg.getStudentName())?"":sendChatMsg.getStudentName());
         }
 
         param.setmPostarams(postParams);

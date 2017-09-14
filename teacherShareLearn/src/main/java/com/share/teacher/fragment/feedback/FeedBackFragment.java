@@ -204,10 +204,10 @@ public class FeedBackFragment extends BaseFragment implements RequsetListener {
      */
     private void refresh(ArrayList<FeedBackDetail> teacherInfos) {
         if (teacherInfos == null || teacherInfos.size() == 0) {//显示无数据
-            if (list.size() == 0) {
+//            if (list.size() == 0) {
                 customListView.setVisibility(View.GONE);
                 noData.setVisibility(View.VISIBLE);
-            }
+//            }
         } else {
             noData.setVisibility(View.GONE);
             customListView.setVisibility(View.VISIBLE);

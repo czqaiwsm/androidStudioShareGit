@@ -9,7 +9,7 @@ public class FeedBackDetail {
 
     private String id  ;//小订单id
     private String orderId  ;//订单id
-    private String teacherName	;//老师姓名
+    private String studentName;//老师姓名
     private String title	;//课时标题
     private String courseName	;//课目
     private String finishTime  ;//上课时间
@@ -33,12 +33,12 @@ public class FeedBackDetail {
         this.orderId = orderId;
     }
 
-    public String getTeacherName() {
-        return teacherName;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public String getTitle() {
