@@ -211,7 +211,6 @@ public abstract class BaseFragment extends Fragment{
                 headerLeftIcon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View arg0) {
-                        Log.e(">>>>>>>>>>>>","onCLicek");
                         mActivity.finish();
                     }
                 });

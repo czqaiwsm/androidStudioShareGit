@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import com.share.teacher.R;
 import com.share.teacher.adapter.ChooseJoinorAdapter;
+import com.share.teacher.bean.CourseInfoList;
 import com.share.teacher.bean.DataMapConstants;
+import com.share.teacher.bean.GradeInfo;
 import com.share.teacher.bean.IdInfo;
 import com.share.teacher.fragment.BaseFragment;
 import com.share.teacher.utils.URLConstants;
@@ -25,16 +27,21 @@ import java.util.*;
 public class ChooseJoinorFragment extends BaseFragment {
 
     private CustomListView customListView = null;
+
     private List<IdInfo> list = new ArrayList<IdInfo>();
+
     private ChooseJoinorAdapter adapter;
+
     private JoniorType joniorType =  JoniorType.JONIOR;
+
     private String selectId = "";
 
+    private Intent intent = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = mActivity.getIntent();
+        intent = mActivity.getIntent();
         if(intent != null){
 
             if(intent.hasExtra("joniorId"))
@@ -48,7 +55,7 @@ public class ChooseJoinorFragment extends BaseFragment {
                     joniorType = JoniorType.DEGREE;//学历
                     break;
                 case 14://科目
-                    joniorType = JoniorType.SUBJECT;//学历
+                    joniorType = JoniorType.SUBJECT;
                     break;
             }
         }
@@ -69,6 +76,15 @@ public class ChooseJoinorFragment extends BaseFragment {
 
     private void initTitle(){
         setTitleText(R.string.jonior);
+
+        switch (intent.getFlags()){
+            case 11://年级
+                setTitleText(R.string.jonior);
+                break;
+            case 14://科目
+                setTitleText("科目");
+                break;
+        }
         setLeftHeadIcon(0);
 
 
@@ -85,16 +101,43 @@ public class ChooseJoinorFragment extends BaseFragment {
         String[]  ids = null;
         switch (joniorType){
             case JONIOR:
-                map = DataMapConstants.getJoniorMap();//年级
-                ids = mActivity.getResources().getStringArray(R.array.jonior_id);
+
+                ArrayList<GradeInfo> gradeArr = (ArrayList<GradeInfo>)intent
+                        .getSerializableExtra("list");
+
+                map = new HashMap<>();
+                if(gradeArr != null){
+                    ids = new String[gradeArr.size()];
+                    GradeInfo list = null;
+                    for(int i=0;i<gradeArr.size();i++){
+                        list = gradeArr.get(i);
+                        map.put(list.getGradeId()+"",list.getGradeName());
+                        ids[i] = list.getGradeId()+"";
+                    }
+                }
+//                map = DataMapConstants.getJoniorMap();//年级
+//                ids = mActivity.getResources().getStringArray(R.array.jonior_id);
                 break;
             case DEGREE:
                 map = DataMapConstants.getDegree();//学历
                 ids = mActivity.getResources().getStringArray(R.array.degree_id);
                 break;
             case SUBJECT:
-                map = DataMapConstants.getCourse();//学历
-                ids = mActivity.getResources().getStringArray(R.array.course_id);
+
+                ArrayList<CourseInfoList> courseInfoLists = (ArrayList<CourseInfoList>)intent
+                        .getSerializableExtra("list");
+                map = new HashMap<>();
+                if(courseInfoLists != null){
+                    ids = new String[courseInfoLists.size()];
+                    CourseInfoList list = null;
+                    for(int i=0;i<courseInfoLists.size();i++){
+                        list = courseInfoLists.get(i);
+                        map.put(list.getCourseId()+"",list.getCourseName());
+                        ids[i] = list.getCourseId()+"";
+                    }
+                }
+//                map = DataMapConstants.getCourse();
+//                ids = mActivity.getResources().getStringArray(R.array.course_id);
                 break;
         }
         for(int i=0;i<ids.length;i++){
